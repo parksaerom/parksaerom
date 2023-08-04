@@ -63,9 +63,7 @@ export const MainNav = () => {
                     className='flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
                     href='/'
                   >
-                    <div className='mb-2 mt-4 text-lg font-medium'>
-                      Projects Showcase
-                    </div>
+                    <div className='mb-2 mt-4 text-lg'>Projects Showcase</div>
                     <p className='text-sm leading-tight text-muted-foreground'>
                       제가 참여한 일부 프로젝트들을 간략히 구현하였습니다.
                     </p>

@@ -4,7 +4,7 @@ import {MainHeader} from '@/components/main-header';
 
 /* Instruments */
 import {ThemeProvider} from '@/components/providers';
-import {fontSans} from '@/styles/fonts';
+import {fontGothicA1} from '@/styles/fonts';
 import {cn} from '@/lib/shadcn-ui/utils';
 import styles from '@/styles/layout.module.css';
 import '@/styles/globals.css';
@@ -16,13 +16,8 @@ interface RootLayoutProps {
 export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Providers>
-      <html lang='en'>
-        <body
-          className={cn(
-            'min-h-screen bg-background font-sans antialiased',
-            fontSans.variable,
-          )}
-        >
+      <html lang='en' className={fontGothicA1.className}>
+        <body className={cn('min-h-screen bg-background antialiased')}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             <div className='relative flex min-h-screen flex-col'>
               <MainHeader />
