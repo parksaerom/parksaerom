@@ -1,26 +1,14 @@
-import {
-  Inter as FontSans,
-  Nanum_Gothic,
-  Gowun_Dodum,
-  Gothic_A1,
-} from 'next/font/google';
+import {Inter as FontSans} from 'next/font/google';
+import localFont from 'next/font/local';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 });
 
-export const fontNanumGothic = Nanum_Gothic({
-  weight: '400',
-  subsets: ['latin'],
-});
-
-export const fontGowunDodum = Gowun_Dodum({
-  weight: ['400'],
-  subsets: ['latin'],
-});
-
-export const fontGothicA1 = Gothic_A1({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
+export const fontPretendard = localFont({
+  style: 'normal',
+  display: 'swap',
+  src: '../../public/PretendardVariable.woff2',
+  variable: '--font-pretendard',
 });
