@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {siteConfig} from '@/config/site';
 import {cn} from '@/lib/shadcn-ui/utils';
 import {SiTistory, SiNaver} from 'react-icons/si';
-import {BiHome} from 'react-icons/bi';
+import {BiSolidHome} from 'react-icons/bi';
 import {MainNav} from '@/components/main-nav';
 import {ModeToggle} from '@/components/mode-toggle';
 import {buttonVariants} from '@/components/ui/button';
@@ -22,7 +22,7 @@ export function MainHeader() {
                 'w-12 p-0',
               )}
             >
-              <BiHome className='h-7 w-7' />
+              <BiSolidHome className='h-6 w-6' />
               <span className='sr-only'>Home</span>
             </div>
           </Link>
