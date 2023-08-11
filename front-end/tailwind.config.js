@@ -10,7 +10,7 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   future: {
-    hoverOnlyWhenSupported: true,
+    hoverOnlyWhenSupported: true, //모바일에서 hover 동작하지 않도록
   },
   theme: {
     container: {
