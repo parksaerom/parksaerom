@@ -1,38 +1,70 @@
 import Image from 'next/image';
 import {BiMailSend, BiPhoneCall} from 'react-icons/bi';
+import profile from '@/assets/images/profile.png';
+
+const skillsList: {title: string; content: string}[] = [
+  {
+    title: 'Front-end',
+    content:
+      'JavaScript, TypeScript, HTML/CSS, React, Redux, Next.js, Vue, XAML',
+  },
+  {
+    title: 'Back-end',
+    content: 'Java, C#, Spring, Node.js, express.js',
+  },
+  {
+    title: 'Database',
+    content: 'Oracle, MySQL, Redis, PostgreSQL',
+  },
+  {
+    title: 'Application',
+    content: 'React Native',
+  },
+  {
+    title: 'Server',
+    content: 'nginx, Apache, Tomcat, JEUS',
+  },
+  {
+    title: 'etc',
+    content: 'Git, GitHub Actions, Docker, Jenkins, Swagger',
+  },
+];
 
 export default function SelfIntroductionAndSkillsPage() {
   return (
     <div className='container relative flex h-full w-3/4 flex-col'>
-      <div className='mt-12'>
+      <article className='my-10 leading-7'>
         <Image
-          src='/images/profile.png'
+          src={profile}
           width={150}
           height={150}
           alt='Profile'
-          className='block'
+          className='my-2 block'
         />
-      </div>
-      <div className='my-5 leading-7'>
-        <h1 className='scroll-m-20 text-xl font-bold tracking-tight lg:text-4xl'>
+        <h1 className='my-5 scroll-m-20 text-xl font-bold tracking-tight lg:text-4xl'>
           박새롬
         </h1>
-        <section className='my-5 text-sm font-semibold leading-7 lg:text-base'>
-          <article>
+        <section className='my-5 text-sm leading-7 lg:text-base'>
+          <section>
             <BiMailSend className='mr-2 inline h-5 w-5' />
             <span>saerom216@gmail.com</span>
-          </article>
-          <article>
+          </section>
+          <section>
             <BiPhoneCall className='mr-2 inline h-5 w-5' />
             <span>010-5224-2993</span>
-          </article>
+          </section>
         </section>
-        <section className='text-sm font-semibold lg:text-base'>
+        <section className='my-10 text-sm lg:text-base'>
+          <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-2xl'>
+            소개
+          </h1>
           <p>
             Java 개발자로 시작하여, 웹, 모바일 앱, 윈도우 프로그램 등 다양한
-            애플리케이션을 개발하고 풀스택 개발자를 꿈꾸고 있습니다. 회사에서
-            빠른 습득력을 인정받아 다양한 업무를 진행해왔으며 회사 솔루션 개발
-            기획부터 개발, 배포, 운영까지 모두 담당하였습니다.
+            애플리케이션을 개발하고 풀스택 개발자를 꿈꾸고 있습니다.
+          </p>
+          <p>
+            회사에서 빠른 습득력을 인정받아 다양한 업무를 진행해왔으며 회사
+            솔루션 개발 기획부터 개발, 배포, 운영까지 모두 담당하였습니다.
           </p>
           <p>
             공공사업 제안에 참여하였으며 제안사업 수행 시 기획부터 설계, 개발,
@@ -43,13 +75,10 @@ export default function SelfIntroductionAndSkillsPage() {
           <p className='[&:not(:first-child)]:mt-6'>
             변화가 빠른 IT업계에서 빠른 습득력과 적응력은 분명히 큰 장점이라고
             생각합니다. 그리고 그 능력을 인정받아 웹, 모바일 앱, 윈도우 프로그램
-            등 까지 다양한 업무를 진행해왔습니다.
-          </p>
-          <p>
-            업무가 주어질 때마다 달라지는 개발환경들이 한 분야에서 꾸준히
-            커리어를 쌓아가는 것에 도움이 될 것인가 하는 고민이 들었지만 연장
-            탓하는 장인이 되지 않기 위해 빠르게 습득하고 내 것으로 만들기 위한
-            노력을 아끼지 않았습니다.
+            등 까지 다양한 업무를 진행해왔습니다. 업무가 주어질 때마다 달라지는
+            개발환경들이 한 분야에서 꾸준히 커리어를 쌓아가는 것에 도움이 될
+            것인가 하는 고민이 들었지만 연장 탓하는 장인이 되지 않기 위해 빠르게
+            습득하고 내 것으로 만들기 위한 노력을 아끼지 않았습니다.
           </p>
           <p>
             신입 개발자에게 어떤 것들을 배웠는지 물어보고, 하루가 멀다 하고
@@ -57,11 +86,9 @@ export default function SelfIntroductionAndSkillsPage() {
             주의 깊게 지켜보았습니다. 첫 번째 회사가 주로 공공사업을 참여하던
             회사이었기에 다양한 기술을 사업에 적용하기 쉽지 않았지만 연구 개발
             사업에 평소에 눈여겨보던 React Native를 제안하여 모바일
-            애플리케이션을 React Native로 개발하기도 했습니다.
-          </p>
-          <p>
-            이후 JavaScript 프로젝트에 흥미를 느껴 프리랜서로 React와 Vue
-            Front-end 개발과 함께 Node.js Back-end 개발을 진행하였습니다.
+            애플리케이션을 React Native로 개발하기도 했습니다. 이후 JavaScript
+            프로젝트에 흥미를 느껴 프리랜서로 React와 Vue Front-end 개발과 함께
+            Node.js Back-end 개발을 진행하였습니다.
           </p>
           <p className='[&:not(:first-child)]:mt-6'>
             물론 여러 업무를 해오며 어려움이 없었던 것은 아닙니다.
@@ -83,7 +110,17 @@ export default function SelfIntroductionAndSkillsPage() {
             해주는 촉매가 되었고 지금도 성장을 하기 위해 노력하고 있습니다.
           </p>
         </section>
-      </div>
+        <section className='my-10 text-sm lg:text-base'>
+          <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-2xl'>
+            보유 기술
+          </h1>
+          {skillsList.map((skill) => (
+            <p className='[&:not(:first-child)]:mb-2'>
+              <span className='font-bold'>{skill.title}</span>: {skill.content}
+            </p>
+          ))}
+        </section>
+      </article>
     </div>
   );
 }
