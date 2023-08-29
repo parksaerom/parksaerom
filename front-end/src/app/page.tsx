@@ -2,17 +2,17 @@ import Image from 'next/image';
 
 export default function IndexPage() {
   return (
-    <div className='container relative flex h-full flex-col'>
-      <div className='mx-auto my-12'>
-        <Image
-          src='/images/laptop.jpg'
-          width={500}
-          height={300}
-          alt='Main image'
-          className='block'
-        />
-      </div>
-      <div className='mx-auto text-center leading-7'>
+    <div className='container flex h-[55rem] flex-col place-content-center gap-y-12'>
+      <Image
+        src='/images/laptop.jpg'
+        width={500}
+        height={333}
+        alt='Main image'
+        className='mx-auto block'
+        style={{width: 'auto', height: 'auto'}}
+        priority
+      />
+      <div className='text-center leading-7'>
         <h1 className='scroll-m-20 text-xl font-bold tracking-tight lg:text-3xl'>
           안녕하세요! 개발자 박새롬의 포트폴리오 웹 사이트에 오신 것을
           환영합니다.
