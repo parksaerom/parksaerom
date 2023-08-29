@@ -18,19 +18,6 @@ import {
 } from '@/components/ui/navigation-menu';
 import {siteConfig} from '@/config/site';
 
-const aboutMeSubMenu: {title: string; href: string; description: string}[] = [
-  {
-    title: 'Self-introduction/Skills',
-    href: '/aboutMe/selfIntroduction',
-    description: '제 자신과 보유한 기술들에 대해 소개합니다.',
-  },
-  {
-    title: 'Project Experience',
-    href: '/aboutMe/projectExperience',
-    description: '제가 참여한 주요 프로젝트들을 소개합니다.',
-  },
-];
-
 export const MainNav = () => {
   const pathname = usePathname();
 
@@ -38,20 +25,11 @@ export const MainNav = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] '>
-              {aboutMeSubMenu.map((subMenu) => (
-                <ListItem
-                  key={subMenu.title}
-                  title={subMenu.title}
-                  href={subMenu.href}
-                >
-                  {subMenu.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
+          <Link href='/aboutMe' legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              About Me
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Projects Showcase</NavigationMenuTrigger>
@@ -85,7 +63,12 @@ export const MainNav = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={siteConfig.links.naver} legacyBehavior passHref>
+          <Link
+            href={siteConfig.links.github}
+            target='_blank'
+            rel='noopener noreferrer'
+            legacyBehavior
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               GitHub
             </NavigationMenuLink>

@@ -30,7 +30,7 @@ const skillsList: {title: string; content: string}[] = [
   },
 ];
 
-export default function SelfIntroductionAndSkillsPage() {
+export default function AboutMePage() {
   return (
     <div className='container relative flex h-full w-3/4 flex-col'>
       <article className='my-10 leading-7'>
@@ -45,14 +45,14 @@ export default function SelfIntroductionAndSkillsPage() {
           박새롬
         </h1>
         <section className='my-5 text-sm leading-7 lg:text-base'>
-          <section>
+          <div>
             <BiMailSend className='mr-2 inline h-5 w-5' />
             <span>saerom216@gmail.com</span>
-          </section>
-          <section>
+          </div>
+          <div>
             <BiPhoneCall className='mr-2 inline h-5 w-5' />
             <span>010-5224-2993</span>
-          </section>
+          </div>
         </section>
         <section className='my-10 text-sm lg:text-base'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-2xl'>
@@ -113,6 +113,16 @@ export default function SelfIntroductionAndSkillsPage() {
         <section className='my-10 text-sm lg:text-base'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-2xl'>
             보유 기술
+          </h1>
+          {skillsList.map((skill) => (
+            <p className='[&:not(:first-child)]:mb-2'>
+              <span className='font-bold'>{skill.title}</span>: {skill.content}
+            </p>
+          ))}
+        </section>
+        <section className='my-10 text-sm lg:text-base'>
+          <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-2xl'>
+            프로젝트 경력
           </h1>
           {skillsList.map((skill) => (
             <p className='[&:not(:first-child)]:mb-2'>
