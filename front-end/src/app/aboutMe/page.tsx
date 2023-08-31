@@ -226,7 +226,7 @@ export default function AboutMePage() {
           </h1>
           {projectList.map((project, index) => (
             <div className='mb-10' key={index}>
-              <h2 className='mb-1 text-lg font-bold lg:text-xl'>
+              <h2 className='relative mb-1 inline rounded bg-muted px-[0.3rem] py-[0.2rem] text-lg font-bold lg:text-xl'>
                 {project.name}
               </h2>
               <p className='my-1 font-semibold'>{project.company}</p>
@@ -245,5 +245,5 @@ export default function AboutMePage() {
 }
 
 export const metadata = {
-  title: 'Self-introduction/Skills',
+  title: 'About Me',
 };

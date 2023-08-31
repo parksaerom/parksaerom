@@ -33,7 +33,3 @@ export default function IndexPage() {
     </div>
   );
 }
-
-export const metadata = {
-  title: 'Saerom Park',
-};
