@@ -37,10 +37,7 @@ export const MainNav = () => {
             <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
               <li className='row-span-3'>
                 <NavigationMenuLink asChild>
-                  <a
-                    className='flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
-                    href='/'
-                  >
+                  <a className='flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'>
                     <div className='mb-2 mt-4 text-lg font-medium'>
                       Projects Showcase
                     </div>
@@ -50,8 +47,12 @@ export const MainNav = () => {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href='/docs' title='Introduction'>
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem
+                href='/projectsShowcase/realTimeMonitoring'
+                title='Real-time Monitoring'
+              >
+                실시간 데이터를 다양한 지표와 그래프를 통해 모니터링하고 분석할
+                수 있습니다.
               </ListItem>
               <ListItem href='/docs/installation' title='Installation'>
                 How to install dependencies and structure your app.
