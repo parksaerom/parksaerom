@@ -37,7 +37,7 @@ const projectList: {
   contents: string[];
 }[] = [
   {
-    name: '물류로봇관제 웹 (2022-10 ~ 2023-02)',
+    name: '물류로봇관제 웹 (2022.10 ~ 2023.02)',
     company: '(주)나비프라',
     skills:
       'Vue, JavaScript, TypeScript, Vuex, Pinia, Vuetify, three.js, Node.js, express.js, Redis, PostgreSQL, Docker',
@@ -47,7 +47,7 @@ const projectList: {
     ],
   },
   {
-    name: '현대차 물류로봇관제 웹 (2022-06)',
+    name: '현대차 물류로봇관제 웹 (2022.06)',
     company: '(주)나비프라',
     skills: 'React, JavaScript, Vuetify, three.js, Node.js, express.js, Redis',
     contents: [
@@ -56,7 +56,7 @@ const projectList: {
     ],
   },
   {
-    name: '웹용 품질관리 솔루션 (2022-02 ~ 2022-07)',
+    name: '웹용 품질관리 솔루션 (2022.02 ~ 2022.07)',
     company: '(주)에스이랩',
     skills: 'React, TypeScript, Next.js, Redux, Material UI',
     contents: [
@@ -65,21 +65,21 @@ const projectList: {
     ],
   },
   {
-    name: '윈도우즈용 품질관리 솔루션 (2019.02 ~ 2021.04)',
-    company: '(주)에스이랩',
-    skills: 'C#, XMAL, WPF, HTML/CSS, Docker, Jenkins, swagger',
-    contents: [
-      '제조 공장의 품질 향상을 위한 데이터 분석/가공/시각화 솔루션으로 윈도우즈용 프로그램 기획/운영/개발',
-      'Front-end, Back-end 메인 개발',
-    ],
-  },
-  {
-    name: '기상청 홈페이지 통합 정비 사업 (2021.04 ~ 2021.04)',
+    name: '기상청 홈페이지 통합 정비 사업 (2021.04)',
     company: '(주)에스이랩',
     skills: 'Java, JavaScript, HTML/CSS, Tomcat',
     contents: [
       '기상청 지방청 및 지청 홈페이지 개선',
       'Front-end, Back-end 개발',
+    ],
+  },
+  {
+    name: '윈도우용 품질관리 솔루션 (2019.02 ~ 2021.04)',
+    company: '(주)에스이랩',
+    skills: 'C#, XMAL, WPF, HTML/CSS, Docker, Jenkins, swagger',
+    contents: [
+      '제조 공장의 품질 향상을 위한 데이터 분석/가공/시각화 솔루션으로 윈도우즈용 프로그램 기획/운영/개발',
+      'Front-end, Back-end 메인 개발',
     ],
   },
   {
@@ -111,7 +111,7 @@ const projectList: {
     ],
   },
   {
-    name: '우주전파센터 우주환경 예보 통합모델 개발 (2018-02 ~ 2018-04)',
+    name: '우주전파센터 우주환경 예보 통합모델 개발 (2018.02 ~ 2018.04)',
     company: '(주)에스이랩',
     skills: 'Java, JavaScript, HTML/CSS, Spring, MySQL, Tomcat',
     contents: [
@@ -210,7 +210,7 @@ export default function AboutMePage() {
             해주는 촉매가 되었고 지금도 성장을 하기 위해 노력하고 있습니다.
           </p>
         </section>
-        <section className='my-10 text-sm lg:text-base'>
+        <section className='my-20 text-sm lg:text-base'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             보유 기술
           </h1>
@@ -220,7 +220,7 @@ export default function AboutMePage() {
             </p>
           ))}
         </section>
-        <section className='my-10 text-sm lg:text-base'>
+        <section className='my-20 text-sm lg:text-base'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             프로젝트 경험
           </h1>

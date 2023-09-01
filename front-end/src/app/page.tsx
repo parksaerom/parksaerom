@@ -19,7 +19,7 @@ export default function IndexPage() {
         </h1>
         <p className='text-sm font-semibold lg:text-lg [&:not(:first-child)]:mt-6'>
           저의 포트폴리오 웹 사이트에서는 과거 프로젝트들을 간단히 구현한
-          페이지와, 그리고 개발 관련 블로그 등을 확인하실 수 있습니다.
+          페이지와 개발 관련 블로그 등을 확인하실 수 있습니다.
         </p>
         <p className='text-sm font-semibold lg:text-lg'>
           제가 경험한 다양한 기술과 프로젝트들을 살펴보시고, 저에 대해 더 자세히
