@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function IndexPage() {
   return (
-    <div className='container flex h-[55rem] flex-col place-content-center gap-y-12'>
+    <div className='container flex h-[50rem] flex-col place-content-center gap-y-12'>
       <Image
         src='/images/laptop.jpg'
         width={500}
