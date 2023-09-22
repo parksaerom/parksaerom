@@ -54,8 +54,11 @@ export const MainNav = () => {
                 실시간 데이터를 다양한 지표와 그래프를 통해 모니터링하고 분석할
                 수 있습니다.
               </ListItem>
-              <ListItem href='/docs/installation' title='Installation'>
-                How to install dependencies and structure your app.
+              <ListItem
+                href='/projectsShowcase/gridDataAnalysis'
+                title='Grid Data Analysis'
+              >
+                엑셀 그리드를 사용하여 데이터 입력하고 분석합니다.
               </ListItem>
               <ListItem href='/docs/primitives/typography' title='Typography'>
                 Styles for headings, paragraphs, lists...etc

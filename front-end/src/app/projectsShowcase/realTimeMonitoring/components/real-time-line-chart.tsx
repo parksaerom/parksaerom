@@ -11,7 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 import {Line} from 'react-chartjs-2';
-import {RealTimeLineChartProps} from '@/app/projectsShowcase/realTimeMonitoring/page';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,6 +21,12 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
+
+export interface RealTimeLineChartProps {
+  title: string;
+  chartData1: Array<{x: number; y: number}>;
+  chartData2: Array<{x: number; y: number}>;
+}
 
 export default function RealTimeLineChart({
   title = 'Real-Time Line Chart',

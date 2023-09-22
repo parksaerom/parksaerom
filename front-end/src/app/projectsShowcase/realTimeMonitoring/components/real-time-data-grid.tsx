@@ -1,5 +1,8 @@
 import {Badge} from '@/components/ui/badge';
-import {RealTimeDataGridProps} from '@/app/projectsShowcase/realTimeMonitoring/page';
+
+export interface RealTimeDataGridProps {
+  gridData?: Array<Array<string>>;
+}
 
 export default function RealTimeDataGrid({
   gridData = [

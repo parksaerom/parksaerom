@@ -4,16 +4,7 @@ import {Label} from '@/components/ui/label';
 import RealTimeLineChart from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
 import RealTimeDataGrid from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-data-grid';
 import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
-
-export interface RealTimeLineChartProps {
-  title: string;
-  chartData1: Array<{x: number; y: number}>;
-  chartData2: Array<{x: number; y: number}>;
-}
-
-export interface RealTimeDataGridProps {
-  gridData?: Array<Array<string>>;
-}
+import {RealTimeLineChartProps} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
 
 export default function RealTimeMonitoringPage() {
   const realTimeLineChartList: RealTimeLineChartProps[] = [
