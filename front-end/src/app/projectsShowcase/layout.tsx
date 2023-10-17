@@ -25,8 +25,8 @@ export default function ExamplesLayout({
               ? 'Real-time Monitoring'
               : pathname === '/projectsShowcase/gridDataAnalysis'
               ? 'Grid Data Analysis'
-              : pathname === '/projectsShowcase/robot'
-              ? 'Robot'
+              : pathname === '/projectsShowcase/3dObjectControl'
+              ? '3D Object Control'
               : ''}
           </PageHeaderHeading>
           <PageHeaderDescription>
@@ -34,8 +34,8 @@ export default function ExamplesLayout({
               ? '실시간으로 업데이트되는 데이터를 모니터링하며, 그래프와 데이터 테이블을 통해 데이터의 추이와 패턴을 분석하고 시각화합니다. 다양한 차트 유형을 제공하여 정보를 직관적으로 이해할 수 있습니다.'
               : pathname === '/projectsShowcase/gridDataAnalysis'
               ? '엑셀 그리드를 통해 데이터를 손쉽게 입력하고, 분석한 데이터를 시각적으로 표현하여 품질 개선과 의사결정에 도움을 줍니다.'
-              : pathname === '/projectsShowcase/robot'
-              ? 'Robot'
+              : pathname === '/projectsShowcase/3dObjectControl'
+              ? 'three.js를 활용하여 지도 상에서 3D 객체의 위치를 실시간으로 조절할 수 있습니다.'
               : ''}
           </PageHeaderDescription>
         </PageHeader>

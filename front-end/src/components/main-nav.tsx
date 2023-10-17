@@ -60,8 +60,11 @@ export const MainNav = () => {
               >
                 엑셀 그리드를 사용하여 데이터 입력하고 분석합니다.
               </ListItem>
-              <ListItem href='/docs/primitives/typography' title='Typography'>
-                Styles for headings, paragraphs, lists...etc
+              <ListItem
+                href='/projectsShowcase/3dObjectControl'
+                title='3D Object Control'
+              >
+                three.js를 활용하여 지도 상에서 3D 객체를 제어합니다.
               </ListItem>
             </ul>
           </NavigationMenuContent>
