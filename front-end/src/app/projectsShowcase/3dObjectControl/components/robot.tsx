@@ -4,7 +4,7 @@ import {useGLTF, useAnimations} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import {useFrame} from '@react-three/fiber';
 
-type GLTFResult = GLTF & {
+type RobotGLTFResult = GLTF & {
   nodes: {
     Sphere_0: THREE.SkinnedMesh;
     Sphere_1: THREE.SkinnedMesh;
@@ -35,9 +35,8 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
   const robotRef = useRef<THREE.Group | null>(null);
   const {nodes, materials, animations} = useGLTF(
     '/three/robot.glb',
-  ) as GLTFResult;
+  ) as RobotGLTFResult;
   const {actions} = useAnimations(animations, robotRef);
-  const robotPosition = useRef<[number, number, number]>([0, 0, 0]);
   const [isMoving, setIsMoving] = useState({
     up: false,
     down: false,
@@ -48,31 +47,33 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
   useFrame(() => {
     if (robotRef.current) {
       const speed = 0.01;
-      const newPosition = robotPosition.current;
+      const newPosition = [...robotRef.current.position];
+      const newRotation = [...robotRef.current.rotation];
 
       if (isMoving.up) {
+        newRotation[1] = 0;
         newPosition[2] -= speed;
         robotFadeIn();
       }
       if (isMoving.down) {
+        newRotation[1] = Math.PI;
         newPosition[2] += speed;
         robotFadeIn();
       }
       if (isMoving.left) {
+        newRotation[1] = Math.PI / 2;
         newPosition[0] -= speed;
         robotFadeIn();
       }
       if (isMoving.right) {
+        newRotation[1] = -Math.PI / 2;
         newPosition[0] += speed;
         robotFadeIn();
       }
 
-      robotPosition.current = newPosition;
-      robotRef.current.position.set(
-        newPosition[0],
-        newPosition[1],
-        newPosition[2],
-      );
+      if (typeof newRotation[1] == 'number')
+        robotRef.current.rotation.set(0, newRotation[1], 0);
+      robotRef.current.position.fromArray(newPosition);
     }
   });
 
@@ -104,20 +105,23 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
     switch (event.key) {
       case 'ArrowUp':
         setIsMoving((prev) => ({...prev, up: false}));
+        actions?.shake?.reset().fadeOut(0.5);
         break;
       case 'ArrowDown':
         setIsMoving((prev) => ({...prev, down: false}));
+        actions?.shake?.reset().fadeOut(0.5);
         break;
       case 'ArrowLeft':
         setIsMoving((prev) => ({...prev, left: false}));
+        actions?.shake?.reset().fadeOut(0.5);
         break;
       case 'ArrowRight':
         setIsMoving((prev) => ({...prev, right: false}));
+        actions?.shake?.reset().fadeOut(0.5);
         break;
       default:
         break;
     }
-    actions?.shake?.reset().fadeOut(0.5);
   };
 
   useEffect(() => {
@@ -131,24 +135,30 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
   }, [handleKeyDown, handleKeyUp]);
 
   return (
-    <group ref={robotRef} {...props} dispose={null}>
+    <group ref={robotRef} {...props}>
       <group name='Sketchfab_Scene'>
         <group name='Root' rotation={[-Math.PI / 2, 0, 0]} scale={0.147}>
           <group name='Armature001'>
             <primitive object={nodes.Armature001_rootJoint} />
             <skinnedMesh
+              receiveShadow
+              castShadow
               name='Sphere_0'
               geometry={nodes.Sphere_0.geometry}
               material={materials.plastic}
               skeleton={nodes.Sphere_0.skeleton}
             />
             <skinnedMesh
+              receiveShadow
+              castShadow
               name='Sphere_1'
               geometry={nodes.Sphere_1.geometry}
               material={materials['Material.001']}
               skeleton={nodes.Sphere_1.skeleton}
             />
             <skinnedMesh
+              receiveShadow
+              castShadow
               name='Sphere_2'
               geometry={nodes.Sphere_2.geometry}
               material={materials['Material.002']}
