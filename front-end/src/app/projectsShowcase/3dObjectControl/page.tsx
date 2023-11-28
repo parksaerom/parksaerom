@@ -28,7 +28,7 @@ export default function ThreeObjectControl() {
           style={{background: '#fff3ab', width: '100vw', height: '65vh'}}
         >
           {!inside && <Sky azimuth={1} inclination={0.8} distance={1000} />}
-          <Html fullscreen className='flex items-end'>
+          <Html fullscreen className='flex select-none items-end'>
             {controlOptions.map(({keys, action}) => (
               <span key={action} className='my-2 items-center'>
                 <span className='ml-3 text-sm'>{action}: </span>
