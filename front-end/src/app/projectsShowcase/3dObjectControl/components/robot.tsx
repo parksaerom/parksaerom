@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, {useRef, useState, useEffect, useCallback} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {useGLTF, useAnimations} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import {useFrame} from '@react-three/fiber';
