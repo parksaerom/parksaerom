@@ -2400,11 +2400,6 @@ export default function Room(props: JSX.IntrinsicElements['group']) {
           rotation={[Math.PI, -1.37, Math.PI]}
         />
         <mesh
-          geometry={nodes.Object_564.geometry}
-          material={materials.floor_n_mattress}
-          position={[-0.11, 0.16, -0.11]}
-        />
-        <mesh
           geometry={nodes.Object_569.geometry}
           material={materials.catsu}
           position={[2.04, 0.16, 1.11]}

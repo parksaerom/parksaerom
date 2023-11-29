@@ -131,18 +131,22 @@ export default function Cat({args, ...props}: CylinderProps) {
     switch (event.key) {
       case 'Up':
       case 'ArrowUp':
+      case 'w':
         setIsMoving((prev) => ({...prev, up: true}));
         break;
       case 'Down':
       case 'ArrowDown':
+      case 's':
         setIsMoving((prev) => ({...prev, down: true}));
         break;
       case 'Left':
       case 'ArrowLeft':
+      case 'a':
         setIsMoving((prev) => ({...prev, left: true}));
         break;
       case 'Right':
       case 'ArrowRight':
+      case 'd':
         setIsMoving((prev) => ({...prev, right: true}));
         break;
       case 'b':
@@ -186,19 +190,27 @@ export default function Cat({args, ...props}: CylinderProps) {
 
   const handleKeyUp = (event: KeyboardEvent) => {
     switch (event.key) {
+      case 'Up':
       case 'ArrowUp':
+      case 'w':
         setIsMoving((prev) => ({...prev, up: false}));
         actions?.walk?.reset().fadeOut(0.5);
         break;
+      case 'Down':
       case 'ArrowDown':
+      case 's':
         setIsMoving((prev) => ({...prev, down: false}));
         actions?.walk?.reset().fadeOut(0.5);
         break;
+      case 'Left':
       case 'ArrowLeft':
+      case 'a':
         setIsMoving((prev) => ({...prev, left: false}));
         actions?.walk?.reset().fadeOut(0.5);
         break;
+      case 'Right':
       case 'ArrowRight':
+      case 'd':
         setIsMoving((prev) => ({...prev, right: false}));
         actions?.walk?.reset().fadeOut(0.5);
         break;
@@ -218,12 +230,7 @@ export default function Cat({args, ...props}: CylinderProps) {
   }, [handleKeyDown, handleKeyUp]);
 
   return (
-    <group
-      ref={catRef as React.Ref<THREE.Group>}
-      dispose={null}
-      onPointerDown={() => api.velocity.set(0, 9, 0)}
-      scale={2}
-    >
+    <group ref={catRef as React.Ref<THREE.Group>} dispose={null} scale={2}>
       {showText && (
         <Html>
           <Alert className='left-[-48%] top-10 flex h-8 w-36 items-center justify-center opacity-70'>
