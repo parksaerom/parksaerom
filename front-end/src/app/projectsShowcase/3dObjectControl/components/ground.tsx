@@ -9,7 +9,7 @@ export default function Ground(props: JSX.IntrinsicElements['mesh']) {
   }));
 
   return (
-    <mesh ref={ref} {...props}>
+    <mesh ref={ref as React.MutableRefObject<THREE.Mesh>} {...props}>
       <planeGeometry args={[40, 40]} />
       <shadowMaterial color='#171717' transparent opacity={0.4} />
       <meshStandardMaterial color={inside ? '#fff3ab' : '#E1E6D1'} />

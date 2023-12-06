@@ -34,7 +34,7 @@ export default function ThreeObjectControl() {
                 <span className='ml-3 text-sm'>{action}: </span>
                 {keys.map((key) => (
                   <span
-                    className='items-center justify-center rounded border border-b-[3px] border-gray-400 border-transparent bg-white px-2 py-1 text-xs text-black'
+                    className='items-center justify-center rounded border border-b-[3px] border-gray-500 border-transparent bg-white px-2 py-1 text-xs text-black'
                     key={key}
                   >
                     {key}

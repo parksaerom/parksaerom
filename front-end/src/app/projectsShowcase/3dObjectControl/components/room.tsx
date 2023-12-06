@@ -392,7 +392,7 @@ function RoomObject({args, ...props}: BoxProps) {
     props,
   ]);
   return (
-    <mesh ref={ref} visible={false}>
+    <mesh ref={ref as React.MutableRefObject<THREE.Mesh>} visible={false}>
       <boxGeometry args={args} />
       <meshStandardMaterial />
     </mesh>
