@@ -1,15 +1,16 @@
-import {useState} from 'react';
+'use client';
+
 import {HotTable} from '@handsontable/react';
 import {registerAllModules} from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
 
 registerAllModules();
 
-const data = new Array(23)
-  .fill('')
-  .map(() => new Array(9).fill('').map(() => ''));
-
 export default function ExcelDataGrid() {
+  const data = new Array(23)
+    .fill('')
+    .map(() => new Array(9).fill('').map(() => ''));
+
   return (
     <HotTable
       data={data}

@@ -84,19 +84,6 @@ type HouseGLTFResult = GLTF & {
   };
 };
 
-export function StairPhysicsObject({args, ...props}: BoxProps) {
-  const [ref] = useBox(() => ({type: 'Static', args, ...props}), undefined, [
-    args,
-    props,
-  ]);
-  return (
-    <mesh ref={ref}>
-      <boxGeometry args={args} />
-      <meshStandardMaterial color='indianred' />
-    </mesh>
-  );
-}
-
 function HillPhysicsObject({args, ...props}: CylinderProps) {
   const [ref] = useCylinder(
     () => ({type: 'Static', args, ...props}),
@@ -104,7 +91,7 @@ function HillPhysicsObject({args, ...props}: CylinderProps) {
     [args, props],
   );
   return (
-    <mesh ref={ref} visible={false}>
+    <mesh ref={ref as React.MutableRefObject<THREE.Mesh>} visible={false}>
       <cylinderGeometry args={args} />
       <meshNormalMaterial />
     </mesh>

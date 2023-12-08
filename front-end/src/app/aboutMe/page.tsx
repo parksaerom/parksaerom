@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {BiMailSend, BiPhoneCall} from 'react-icons/bi';
 import profile from '@/assets/images/profile.png';
+import {Metadata} from 'next/types';
 
 export default function AboutMePage() {
   const skillsList: {title: string; content: string}[] = [
@@ -245,6 +246,6 @@ export default function AboutMePage() {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About Me',
 };
