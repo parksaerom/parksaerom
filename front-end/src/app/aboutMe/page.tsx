@@ -39,7 +39,17 @@ export default function AboutMePage() {
     contents: string[];
   }[] = [
     {
-      name: '물류로봇관제 웹 (2022.10 ~ 2023.02)',
+      name: '물류로봇관제 웹 (2023.08 ~ 2023.09 프리랜서 근무)',
+      company: '(주)나비프라',
+      skills:
+        'Vue, JavaScript, Vuex, Vuetify, three.js, Node.js, express.js, Redis, Docker',
+      contents: [
+        '기존 웹 어플리케이션에 로봇의 RiDAR 실시간 데이터 표출 및 로봇 테스트 기능 추가',
+        'Front-end 및 Back-end 메인 개발',
+      ],
+    },
+    {
+      name: '물류로봇관제 웹 (2022.10 ~ 2023.02 프리랜서 근무)',
       company: '(주)나비프라',
       skills:
         'Vue, JavaScript, TypeScript, Vuex, Pinia, Vuetify, three.js, Node.js, express.js, Redis, PostgreSQL, Docker',
@@ -49,7 +59,7 @@ export default function AboutMePage() {
       ],
     },
     {
-      name: '현대차 물류로봇관제 웹 (2022.06)',
+      name: '현대차 물류로봇관제 웹 (2022.06 프리랜서 근무)',
       company: '(주)나비프라',
       skills:
         'React, JavaScript, Vuetify, three.js, Node.js, express.js, Redis',
@@ -59,7 +69,7 @@ export default function AboutMePage() {
       ],
     },
     {
-      name: '웹용 품질관리 솔루션 (2022.02 ~ 2022.07)',
+      name: '웹용 품질관리 솔루션 (2022.02 ~ 2022.07 프리랜서 근무)',
       company: '(주)에스이랩',
       skills: 'React, TypeScript, Next.js, Redux, Material UI',
       contents: [
@@ -156,7 +166,7 @@ export default function AboutMePage() {
             <span>010-5224-2993</span>
           </div>
         </section>
-        <section className='my-10 text-sm lg:text-base'>
+        <section className='my-10 text-base lg:text-lg'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             소개
           </h1>
@@ -177,20 +187,20 @@ export default function AboutMePage() {
           <p className='[&:not(:first-child)]:mt-6'>
             변화가 빠른 IT업계에서 빠른 습득력과 적응력은 분명히 큰 장점이라고
             생각합니다. 그리고 그 능력을 인정받아 웹, 모바일 앱, 윈도우 프로그램
-            등 까지 다양한 업무를 진행해왔습니다. 업무가 주어질 때마다 달라지는
-            개발환경들이 한 분야에서 꾸준히 커리어를 쌓아가는 것에 도움이 될
-            것인가 하는 고민이 들었지만 연장 탓하는 장인이 되지 않기 위해 빠르게
-            습득하고 내 것으로 만들기 위한 노력을 아끼지 않았습니다.
+            등 까지 다양한 업무를 진행해왔습니다.
           </p>
           <p>
-            신입 개발자에게 어떤 것들을 배웠는지 물어보고, 하루가 멀다 하고
-            바뀌는 스타트업 채용공고 속 요구 기술들을 보면서 뒤처지지 않기 위해
-            주의 깊게 지켜보았습니다. 첫 번째 회사가 주로 공공사업을 참여하던
-            회사이었기에 다양한 기술을 사업에 적용하기 쉽지 않았지만 연구 개발
-            사업에 평소에 눈여겨보던 React Native를 제안하여 모바일
-            애플리케이션을 React Native로 개발하기도 했습니다. 이후 JavaScript
-            프로젝트에 흥미를 느껴 프리랜서로 React와 Vue Front-end 개발과 함께
-            Node.js Back-end 개발을 진행하였습니다.
+            업무가 주어질 때마다 달라지는 개발환경들이 한 분야에서 꾸준히
+            커리어를 쌓아가는 것에 도움이 될 것인가 하는 고민이 들었지만 연장
+            탓하는 장인이 되지 않기 위해 빠르게 습득하고 내 것으로 만들기 위한
+            노력을 아끼지 않았습니다. 신입 개발자에게 어떤 것들을 배웠는지
+            물어보고, 하루가 멀다 하고 바뀌는 스타트업 채용공고 속 요구 기술들을
+            보면서 뒤처지지 않기 위해 주의 깊게 지켜보았습니다. 첫 번째 회사가
+            주로 공공사업을 참여하던 회사이었기에 다양한 기술을 사업에 적용하기
+            쉽지 않았지만 연구 개발 사업에 평소에 눈여겨보던 React Native를
+            제안하여 모바일 애플리케이션을 React Native로 개발하기도 했습니다.
+            이후 JavaScript 프로젝트에 흥미를 느껴 프리랜서로 React와 Vue
+            Front-end 개발과 함께 Node.js Back-end 개발을 진행하였습니다.
           </p>
           <p className='[&:not(:first-child)]:mt-6'>
             물론 여러 업무를 해오며 어려움이 없었던 것은 아닙니다.
@@ -199,8 +209,8 @@ export default function AboutMePage() {
             통계를 기반으로 한 품질관리 소프트웨어인 회사의 첫 솔루션에 기획부터
             참여를 하게 되면서 통계학의 익숙하지 않은 용어와 공식들은 큰
             장애물이었습니다. 하지만 제가 만족할 수 있는 솔루션을 개발하기 위해
-            만 2년이 넘는 시간 동안 일주일에 1-2회 진행하는 통계학 교수님의
-            강의를 들으며 부족한 부분을 채워나갔습니다.
+            만 2년이 넘는 시간 동안 일주일에 1-2회 진행하는 서울대학교 통계학과
+            교수님의 강의를 들으며 부족한 부분을 채워나갔습니다.
           </p>
           <p>
             저의 부족한 부분이 채워질 때마다 기능이 늘어가는 소프트웨어를 보며
@@ -212,7 +222,7 @@ export default function AboutMePage() {
             해주는 촉매가 되었고 지금도 성장을 하기 위해 노력하고 있습니다.
           </p>
         </section>
-        <section className='my-20 text-sm lg:text-base'>
+        <section className='my-20 text-base lg:text-lg'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             보유 기술
           </h1>
@@ -222,7 +232,7 @@ export default function AboutMePage() {
             </p>
           ))}
         </section>
-        <section className='my-20 text-sm lg:text-base'>
+        <section className='my-20 text-base lg:text-lg'>
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             프로젝트 경험
           </h1>
