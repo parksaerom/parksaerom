@@ -21,7 +21,10 @@ import {
   useSelector,
 } from '@/lib/redux';
 import {Alert, AlertTitle} from '@/components/ui/alert';
-import {BiSolidKeyboard} from 'react-icons/bi';
+
+interface GLTFAction extends THREE.AnimationClip {
+  name: ActionName;
+}
 
 type CatGLTFResult = GLTF & {
   nodes: {
@@ -50,9 +53,13 @@ type CatGLTFResult = GLTF & {
 };
 
 type ActionName = 'walk';
-interface GLTFAction extends THREE.AnimationClip {
-  name: ActionName;
-}
+
+type CatMoving = {
+  up: boolean;
+  down: boolean;
+  left: boolean;
+  right: boolean;
+};
 
 export default function Cat({args, ...props}: CylinderProps) {
   const {nodes, materials, animations} = useGLTF(
@@ -72,7 +79,7 @@ export default function Cat({args, ...props}: CylinderProps) {
     ...props,
   }));
   const {actions} = useAnimations(animations, catRef);
-  const [isMoving, setIsMoving] = useState({
+  const [isMoving, setIsMoving] = useState<CatMoving>({
     up: false,
     down: false,
     left: false,

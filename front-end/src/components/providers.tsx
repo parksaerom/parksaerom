@@ -7,7 +7,7 @@ import {useEffect, useState} from 'react';
 import {TooltipProvider} from '@/components/ui/tooltip';
 
 export function ThemeProvider({children, ...props}: ThemeProviderProps) {
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
   useEffect(() => {
     setIsClient(true);
   }, []);

@@ -5,7 +5,7 @@ import {Slider} from '@/components/ui/slider';
 import {useState} from 'react';
 
 export default function ConfidenceLevelSlider() {
-  const [confidenceLevel, setConfidenceLevel] = useState([0.95]);
+  const [confidenceLevel, setConfidenceLevel] = useState<number[]>([0.95]);
 
   return (
     <>
