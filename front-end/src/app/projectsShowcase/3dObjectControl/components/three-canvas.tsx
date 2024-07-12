@@ -21,11 +21,12 @@ export default function ThreeCanvas() {
     {keys: ['B'], action: 'Enter/Exit'},
   ];
   return (
-    <Canvas
-      shadows
-      style={{background: '#fff3ab', width: '100vw', height: '65vh'}}
-    >
-      {!inside && <Sky azimuth={1} inclination={0.8} distance={1000} />}
+    <Canvas shadows style={{width: '100vw', height: '65vh'}}>
+      {inside ? (
+        <color attach='background' args={['#fff3ab']} />
+      ) : (
+        <Sky azimuth={1} inclination={0.8} distance={1000} />
+      )}
       <Html fullscreen className='flex select-none items-end'>
         {controlOptions.map(({keys, action}) => (
           <span key={action} className='my-2 items-center'>
