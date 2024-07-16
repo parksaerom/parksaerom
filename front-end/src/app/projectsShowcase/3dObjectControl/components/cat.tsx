@@ -243,7 +243,7 @@ export default function Cat({args, ...props}: CylinderProps) {
           <Alert className='left-[-48%] top-10 flex h-8 w-36 items-center justify-center opacity-70'>
             <AlertTitle className='mb-0 text-sm'>
               Press
-              <span className='mx-1 items-center justify-center rounded border border-b-[3px] border-gray-500 border-transparent bg-white px-1 text-xs text-black'>
+              <span className='mx-1 items-center justify-center rounded border border-b-[3px] border-gray-400 border-transparent bg-white px-1 text-xs text-black'>
                 B
               </span>
               key
