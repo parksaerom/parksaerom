@@ -32,7 +32,7 @@ export const threeObjectControlSlice = createSlice({
 
 export const {setInside, setShowText} = threeObjectControlSlice.actions;
 
-interface ThreeObjectControlState {
+export interface ThreeObjectControlState {
   inside: boolean;
   showText: boolean;
 }

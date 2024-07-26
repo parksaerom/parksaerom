@@ -3,7 +3,6 @@ import {useGLTF} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import GlitterCircle from '@/app/projectsShowcase/3DObjectControl/components/glitter-circle';
 import {useBox, BoxProps, useConvexPolyhedron} from '@react-three/cannon';
-import {getGeometryFromGLTFNodes} from '@/lib/utils';
 
 type GLTFResult = GLTF & {
   nodes: {
