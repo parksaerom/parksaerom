@@ -11,3 +11,6 @@ export const selectColumnData = (column: number) =>
   createSelector(selectGridData, (gridData) =>
     gridData.map((row) => row[column]),
   );
+
+export const selectSelectedConfidenceLevel = (state: ReduxState) =>
+  state.gridDataAnalysis.selectedConfidenceLevel;
