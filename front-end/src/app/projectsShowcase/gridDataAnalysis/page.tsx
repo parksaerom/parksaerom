@@ -10,10 +10,6 @@ import Input from '@/app/projectsShowcase/gridDataAnalysis/components/input';
 import {HotTableProvider} from './components/data-grid-context';
 import {useDispatch, setGridDataType, GridDataType} from '@/lib/redux';
 
-export const metadata: Metadata = {
-  title: 'Grid Data Analysis',
-};
-
 export default function GridDataAnalysisPage() {
   const dispatch = useDispatch();
   function ChangedGridDataType() {

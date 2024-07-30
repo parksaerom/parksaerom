@@ -1,9 +1,19 @@
 import {Label} from '@/components/ui/label';
 import {Slider} from '@/components/ui/slider';
 import {useState} from 'react';
-
+import {
+  selectSelectedConfidenceLevel,
+  updateSelectedConfidenceLevel,
+  useDispatch,
+  useSelector,
+} from '@/lib/redux';
 export default function ConfidenceLevelSlider() {
-  const [confidenceLevel, setConfidenceLevel] = useState<number[]>([0.95]);
+  const dispatch = useDispatch();
+  const confidenceLevel = useSelector(selectSelectedConfidenceLevel);
+
+  function UdateConfidenceLevel(value: number[]) {
+    dispatch(updateSelectedConfidenceLevel(value[0]));
+  }
 
   return (
     <>
@@ -16,9 +26,9 @@ export default function ConfidenceLevelSlider() {
       <Slider
         id='confidence'
         max={1}
-        defaultValue={confidenceLevel}
+        defaultValue={[confidenceLevel]}
         step={0.01}
-        onValueChange={setConfidenceLevel}
+        onValueChange={(value) => UdateConfidenceLevel(value)}
         className='[&_[role=slider]]:h-4 [&_[role=slider]]:w-4'
       />
     </>

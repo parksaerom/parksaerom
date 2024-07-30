@@ -6,6 +6,9 @@ export type GridDataType = 'ROW' | 'COLUMN';
 export interface GridDataAnalysisState {
   gridData: string[][];
   dataType: GridDataType;
+  selectedColumnRowIndex: number | null;
+  selectedConfidenceLevel: number;
+  dataList: number[];
 }
 
 const initialState: GridDataAnalysisState = {
@@ -13,6 +16,9 @@ const initialState: GridDataAnalysisState = {
     .fill('')
     .map(() => new Array(9).fill('').map(() => '')),
   dataType: 'COLUMN',
+  selectedColumnRowIndex: null,
+  selectedConfidenceLevel: 0.95,
+  dataList: [],
 };
 
 export const gridDataAnalysisSlice = createSlice({
@@ -24,6 +30,12 @@ export const gridDataAnalysisSlice = createSlice({
     },
     setGridData: (state, action: PayloadAction<string[][]>) => {
       state.gridData = action.payload;
+    },
+    updateSelectedColumnRowIndex: (state, action: PayloadAction<number>) => {
+      state.selectedColumnRowIndex = action.payload;
+    },
+    updateSelectedConfidenceLevel: (state, action: PayloadAction<number>) => {
+      state.selectedConfidenceLevel = action.payload;
     },
     updateGridData: (state, action: PayloadAction<(CellChange | null)[]>) => {
       const newData = [...state.gridData];
@@ -50,5 +62,11 @@ export const gridDataAnalysisSlice = createSlice({
   },
 });
 
-export const {setGridDataType, setGridData, updateGridData, updateCell} =
-  gridDataAnalysisSlice.actions;
+export const {
+  setGridDataType,
+  setGridData,
+  updateSelectedConfidenceLevel,
+  updateSelectedColumnRowIndex,
+  updateGridData,
+  updateCell,
+} = gridDataAnalysisSlice.actions;

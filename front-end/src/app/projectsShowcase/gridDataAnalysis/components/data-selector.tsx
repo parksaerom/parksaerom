@@ -7,7 +7,11 @@ import {
 } from '@/components/ui/select';
 import {useHotTable} from './data-grid-context';
 import {useEffect, useState} from 'react';
-import {GridDataType} from '@/lib/redux';
+import {
+  GridDataType,
+  updateSelectedColumnRowIndex,
+  useDispatch,
+} from '@/lib/redux';
 interface RowColHeader {
   index: number;
   name: string;
@@ -21,8 +25,9 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
   const [nonEmptyColumnsRows, setNonEmptyColumnsRows] = useState<
     RowColHeader[]
   >([]);
+  const dispatch = useDispatch();
 
-  function updateNonEmptyColumnsRow() {
+  function UpdateNonEmptyColumnsRow() {
     if (hotTableComponent.current) {
       const hotInstance = hotTableComponent.current.hotInstance;
       if (hotInstance) {
@@ -52,19 +57,30 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
     }
   }
 
+  function OnChangeValue(value: string) {
+    dispatch(updateSelectedColumnRowIndex(Number(value)));
+  }
+
   useEffect(() => {
-    updateNonEmptyColumnsRow();
+    UpdateNonEmptyColumnsRow();
   }, [updateTrigger, hotTableComponent.current]);
 
   return (
-    <Select>
+    <Select
+      onValueChange={(value) => {
+        if (value) OnChangeValue(value);
+      }}
+    >
       <SelectTrigger className='w-full'>
         <SelectValue placeholder='데이터를 선택하세요' />
       </SelectTrigger>
       <SelectContent>
         {nonEmptyColumnsRows.length > 0 ? (
           nonEmptyColumnsRows.map((columnRowInfo) => (
-            <SelectItem value={columnRowInfo.name} key={columnRowInfo.index}>
+            <SelectItem
+              value={columnRowInfo.index.toString()}
+              key={columnRowInfo.index}
+            >
               {columnRowInfo.name}
             </SelectItem>
           ))
