@@ -28,11 +28,11 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: '#0272A2',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
+          DEFAULT: '#0272A2',
           foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
@@ -45,7 +45,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          foreground: '#8F8C85',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -55,6 +55,10 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        mainBackground: '#E8E4D8',
+      },
+      backgroundImage: {
+        'main-pattern': "url('@/assets/images/mainbg.jpg')",
       },
       fontFamily: {
         sans: ['var(--font-pretendard)', ...fontFamily.sans],

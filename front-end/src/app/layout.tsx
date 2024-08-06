@@ -10,6 +10,7 @@ import {fontPretendard} from '@/styles/fonts';
 import {cn} from '@/lib/shadcn-ui/utils';
 import '@/styles/globals.css';
 import {siteConfig} from '@/config/site';
+import Main from './main/page';
 
 export const metadata: Metadata = {
   title: {
@@ -68,12 +69,13 @@ export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Providers>
       <html lang='en' className={fontPretendard.className}>
-        <body className={cn('min-h-screen bg-background antialiased')}>
+        <body className={cn('relative z-0  bg-mainBackground')}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            <div className='relative flex min-h-screen flex-col'>
+            <div className='bg-main-pattern bg-cover bg-no-repeat'>
               <MainHeader />
-              <div className='flex-1'>{children}</div>
+              <Main />
             </div>
+            <div className='flex-1'>{children}</div>
           </ThemeProvider>
         </body>
       </html>

@@ -1,30 +1,80 @@
+'use client';
+
 import Link from 'next/link';
 
 import {siteConfig} from '@/config/site';
 import {cn} from '@/lib/shadcn-ui/utils';
 import {SiTistory, SiNaver} from 'react-icons/si';
-import {BiSolidHome} from 'react-icons/bi';
 import {MainNav} from '@/components/main-nav';
 import {ModeToggle} from '@/components/mode-toggle';
 import {buttonVariants} from '@/components/ui/button';
+import {useEffect, useState} from 'react';
+import {styles} from '@/styles/common';
 
 export function MainHeader() {
+  const [active, setActive] = useState<string | null>();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+        setActive('');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    const navbarHighlighter = () => {
+      const sections = document.querySelectorAll('section[id]');
+
+      sections.forEach((current) => {
+        const sectionId = current.getAttribute('id');
+        // @ts-ignore
+        const sectionHeight = current.offsetHeight;
+        const sectionTop =
+          current.getBoundingClientRect().top - sectionHeight * 0.2;
+
+        if (sectionTop < 0 && sectionTop + sectionHeight > 0) {
+          setActive(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', navbarHighlighter);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', navbarHighlighter);
+    };
+  }, []);
+
   return (
-    <header className='supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur'>
-      <div className='container flex h-14 items-center'>
-        <div className='items-center justify-between space-x-2'>
-          <Link href='/'>
-            <div
-              className={cn(
-                buttonVariants({
-                  variant: 'ghost',
-                }),
-                'w-12 p-0',
-              )}
-            >
-              <BiSolidHome className='h-6 w-6' />
-              <span className='sr-only'>Home</span>
-            </div>
+    <header
+      className={`${
+        styles.paddingX
+      } fixed top-0 z-20 flex w-full items-center py-5 ${
+        scrolled ? 'bg-mainBackground' : 'bg-transparent'
+      }`}
+    >
+      <div
+        className={`container flex h-14 items-center space-x-24 ${
+          scrolled ? 'text-primary' : 'text-mainBackground'
+        }`}
+      >
+        <div className='items-center justify-between'>
+          <Link
+            href='/'
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            <span className='text-xl font-bold leading-snug lg:text-3xl'>
+              Saerom Park - Portfolio
+            </span>
           </Link>
         </div>
         <MainNav />

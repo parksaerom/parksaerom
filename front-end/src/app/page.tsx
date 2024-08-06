@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function IndexPage() {
   return (
-    <div className='container flex h-[50rem] flex-col place-content-center gap-y-12'>
+    <section className={`relative mx-auto h-screen w-full`}>
       <Image
         src='/images/laptop.jpg'
         width={500}
@@ -30,6 +30,6 @@ export default function IndexPage() {
           바랍니다. 감사합니다!
         </p>
       </div>
-    </div>
+    </section>
   );
 }
