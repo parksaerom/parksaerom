@@ -5,9 +5,9 @@ import {motion} from 'framer-motion';
 import {fadeIn} from '@/utils/motion';
 import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';
-import {FcPhoneAndroid, FcAlarmClock} from 'react-icons/fc';
 import {SiJavascript} from 'react-icons/si';
 import {FaJava, FaReact, FaWindows} from 'react-icons/fa';
+import '@/styles/tilt.css';
 interface IntroductionCardProps {
   index: number;
   title: string;
@@ -47,20 +47,20 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
       tiltMaxAngleY={30}
       glareColor='#A4ADB4'
       glareBorderRadius='20px'
+      glarePosition='all'
+      className='parallax-effect-glare-scale'
     >
-      <div className='xs:w-[250px] w-full'>
-        <motion.div
-          variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-          className='w-[15vw] rounded-[20px] outline outline-1 outline-primary'
-        >
-          <div className='flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
-            {icon}
-            <h3 className='text-center text-sm font-bold text-secondary xl:text-xl'>
-              {title}
-            </h3>
-          </div>
-        </motion.div>
-      </div>
+      <motion.div
+        variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
+        className='parallax-effect-glare-scale w-[15vw] rounded-[20px] outline outline-1 outline-primary '
+      >
+        <div className='inner-element flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
+          {icon}
+          <h3 className='text-center text-sm font-bold text-secondary xl:text-xl'>
+            {title}
+          </h3>
+        </div>
+      </motion.div>
     </Tilt>
   );
 }
@@ -77,7 +77,7 @@ export default function About() {
         {sectionsConfig.sections.about.content}
       </motion.p>
 
-      <div className='mt-20 flex flex-wrap gap-10 max-sm:justify-center'>
+      <div className='mt-20  flex flex-wrap gap-14 max-sm:justify-center'>
         {services.map((service, index) => (
           <IntroductionCard key={service.title} index={index} {...service} />
         ))}
