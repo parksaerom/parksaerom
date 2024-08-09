@@ -1,5 +1,6 @@
 import {styles} from '@/styles/common';
 import ComputersCanvas from '@/app/main/computer';
+import MainTypewriter from './type-writer';
 
 export default function Main() {
   return (
@@ -13,10 +14,7 @@ export default function Main() {
         </div>
 
         <div>
-          <h1 className={`${styles.mainHeadText} text-white`}>
-            안녕하세요, 저는 <span className='text-mainBackground'>박새롬</span>{' '}
-            입니다.
-          </h1>
+          <MainTypewriter />
           <p className={`${styles.mainSubText} text-white-100 mt-2`}>
             저는 풀스택 개발자를 꿈꾸고 있습니다.
             <br className='hidden sm:block' />
