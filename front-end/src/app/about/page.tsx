@@ -38,6 +38,34 @@ const services: IntroductionCardType[] = [
   },
 ];
 
+const skillsList: {title: string; content: string}[] = [
+  {
+    title: 'Front-end',
+    content:
+      'JavaScript, TypeScript, HTML/CSS, React, Redux, Next.js, Vue, XAML',
+  },
+  {
+    title: 'Back-end',
+    content: 'Java, C#, Spring, Node.js, express.js',
+  },
+  {
+    title: 'Database',
+    content: 'Oracle, MySQL, Redis, PostgreSQL',
+  },
+  {
+    title: 'Application',
+    content: 'React Native',
+  },
+  {
+    title: 'Server',
+    content: 'nginx, Apache, Tomcat, JEUS',
+  },
+  {
+    title: 'etc',
+    content: 'Git, GitHub Actions, Docker, Jenkins, Swagger',
+  },
+];
+
 function IntroductionCard({index, title, icon}: IntroductionCardProps) {
   return (
     <Tilt
@@ -76,8 +104,15 @@ export default function About() {
       >
         {sectionsConfig.sections.about.content}
       </motion.p>
+      <div className='my-8 text-base text-secondary lg:text-lg'>
+        {skillsList.map((skill) => (
+          <p className='mb-2'>
+            <span className='font-bold'>{skill.title}</span>: {skill.content}
+          </p>
+        ))}
+      </div>
 
-      <div className='mt-20  flex flex-wrap gap-14 max-sm:justify-center'>
+      <div className='mt-14 flex flex-wrap gap-14 max-sm:justify-center'>
         {services.map((service, index) => (
           <IntroductionCard key={service.title} index={index} {...service} />
         ))}

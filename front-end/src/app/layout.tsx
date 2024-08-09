@@ -77,7 +77,7 @@ export default function RootLayout({children}: RootLayoutProps) {
               <MainHeader />
               <Main />
             </div>
-            <div className='mx-72 my-24'>
+            <div className='mx-72 my-36 grid gap-y-48'>
               <About />
             </div>
             <div className='flex-1'>{children}</div>
