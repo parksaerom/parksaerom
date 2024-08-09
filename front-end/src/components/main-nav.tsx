@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import {siteConfig} from '@/config/site';
 
-export const MainNav = () => {
+export function MainNav() {
   const pathname = usePathname();
 
   return (
@@ -84,7 +84,7 @@ export const MainNav = () => {
       </NavigationMenuList>
     </NavigationMenu>
   );
-};
+}
 
 const ListItem = React.forwardRef<
   React.ElementRef<'a'>,

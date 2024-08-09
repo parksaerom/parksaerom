@@ -11,6 +11,8 @@ import {cn} from '@/lib/shadcn-ui/utils';
 import '@/styles/globals.css';
 import {siteConfig} from '@/config/site';
 import Main from './main/page';
+import AboutPage from './about/page';
+import About from './about/page';
 
 export const metadata: Metadata = {
   title: {
@@ -74,6 +76,9 @@ export default function RootLayout({children}: RootLayoutProps) {
             <div className='bg-main-pattern bg-cover bg-no-repeat'>
               <MainHeader />
               <Main />
+            </div>
+            <div className='mx-72 my-24'>
+              <About />
             </div>
             <div className='flex-1'>{children}</div>
           </ThemeProvider>

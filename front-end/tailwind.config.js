@@ -27,12 +27,13 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        lightPrimary: '#037AAD',
         primary: {
-          DEFAULT: '#0272A2',
+          DEFAULT: '#025A80',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: '#0272A2',
+          DEFAULT: '#01425E',
           foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
@@ -58,7 +59,7 @@ module.exports = {
         mainBackground: '#E8E4D8',
       },
       backgroundImage: {
-        'main-pattern': "url('@/assets/images/mainbg.jpg')",
+        'main-pattern': "url('/images/mainbg.jpg')",
       },
       fontFamily: {
         sans: ['var(--font-pretendard)', ...fontFamily.sans],
