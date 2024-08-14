@@ -39,6 +39,7 @@
     "react-icons": "^4.10.1",
     "react-parallax-tilt": "^1.7.235",
     "react-redux": "8.1.0",
+    "react-vertical-timeline-component": "^3.6.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.6",
     "three": "^0.156.1"
@@ -48,6 +49,7 @@
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
+    "@types/react-vertical-timeline-component": "^3.3.6",
     "@types/redux-logger": "3.0.9",
     "@types/three": "^0.156.0",
     "autoprefixer": "^10.4.14",
