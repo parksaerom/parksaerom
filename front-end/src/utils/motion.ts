@@ -7,13 +7,13 @@ export type TMotion = {
   duration: number;
 };
 
-export const textVariant = () => {
+export const textVariant = (): Variants => {
   return {
-    hidden: {
+    offScreen: {
       y: -50,
       opacity: 0,
     },
-    show: {
+    onScreen: {
       y: 0,
       opacity: 1,
       transition: {
@@ -31,12 +31,12 @@ export const fadeIn = (
   duration: TMotion['duration'],
 ): Variants => {
   return {
-    hidden: {
+    offScreen: {
       x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
       y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
       opacity: 0,
     },
-    show: {
+    onScreen: {
       x: 0,
       y: 0,
       opacity: 1,
@@ -55,11 +55,11 @@ export const zoomIn = (
   duration: TMotion['duration'],
 ) => {
   return {
-    hidden: {
+    offScreen: {
       scale: 0,
       opacity: 0,
     },
-    show: {
+    onScreen: {
       scale: 1,
       opacity: 1,
       transition: {
@@ -79,11 +79,11 @@ export const slideIn = (
   duration: TMotion['duration'],
 ) => {
   return {
-    hidden: {
+    offScreen: {
       x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
       y: direction === 'up' ? '100%' : direction === 'down' ? '100%' : 0,
     },
-    show: {
+    onScreen: {
       x: 0,
       y: 0,
       transition: {

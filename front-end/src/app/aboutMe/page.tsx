@@ -226,8 +226,8 @@ export default function AboutMePage() {
           <h1 className='my-3 scroll-m-20 border-b pb-2 text-xl font-bold tracking-tight lg:text-3xl'>
             보유 기술
           </h1>
-          {skillsList.map((skill) => (
-            <p className='[&:not(:first-child)]:mb-2'>
+          {skillsList.map((skill, index) => (
+            <p key={index} className='[&:not(:first-child)]:mb-2'>
               <span className='font-bold'>{skill.title}</span>: {skill.content}
             </p>
           ))}

@@ -19,7 +19,11 @@ export default function SectionHeader({useMotion, p, h2}: SectionHeader) {
   );
 
   return useMotion === true ? (
-    <motion.div variants={textVariant()}>
+    <motion.div
+      initial='offScreen'
+      whileInView='onScreen'
+      variants={textVariant()}
+    >
       <Content />
     </motion.div>
   ) : (

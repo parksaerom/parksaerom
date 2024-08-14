@@ -79,8 +79,10 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
       className='parallax-effect-glare-scale'
     >
       <motion.div
-        variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-        className='parallax-effect-glare-scale w-[15vw] rounded-[20px] outline outline-1 outline-primary '
+        initial='offScreen'
+        whileInView='onScreen'
+        variants={fadeIn('right', 'spring', index * 0.5, 1.75)}
+        className='parallax-effect-glare-scale w-[15vw] rounded-[20px] bg-card outline outline-1 outline-primary '
       >
         <div className='inner-element flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
           {icon}
@@ -98,19 +100,21 @@ export default function About() {
     <section>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.about} />
 
-      <motion.p
+      <motion.div
+        initial='offScreen'
+        whileInView='onScreen'
         variants={fadeIn('', '', 0.5, 1)}
-        className='mt-4 max-w-6xl text-[17px] leading-[30px] text-secondary'
+        className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
       >
         {sectionsConfig.sections.about.content}
-      </motion.p>
-      <div className='my-8 text-base text-secondary lg:text-lg'>
-        {skillsList.map((skill) => (
-          <p className='mb-2'>
-            <span className='font-bold'>{skill.title}</span>: {skill.content}
-          </p>
-        ))}
-      </div>
+        <div className='my-8 text-base text-secondary lg:text-lg'>
+          {skillsList.map((skill, index) => (
+            <p key={index} className='mb-2'>
+              <span className='font-bold'>{skill.title}</span>: {skill.content}
+            </p>
+          ))}
+        </div>
+      </motion.div>
 
       <div className='mt-14 flex flex-wrap gap-14 max-sm:justify-center'>
         {services.map((service, index) => (
