@@ -14,7 +14,7 @@ interface TypewriterProps {
   speed?: number;
 }
 
-function Typewriter({children, speed = 300}: TypewriterProps) {
+function Typewriter({children, speed = 100}: TypewriterProps) {
   const [displayedText, setDisplayedText] = useState<React.ReactNode[]>([]);
   const childrenNode = React.Children.toArray(children);
 
@@ -73,7 +73,7 @@ function Typewriter({children, speed = 300}: TypewriterProps) {
 
 export default function MainTypewriter() {
   return (
-    <h1 className={`${styles.mainHeadText} text-white`}>
+    <h1 className={`${styles.mainHeadText} static text-white`}>
       <Typewriter>
         안녕하세요, 저는 <span className='text-mainBackground'>박새롬</span>
         입니다.
