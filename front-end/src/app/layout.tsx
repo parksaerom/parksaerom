@@ -13,6 +13,7 @@ import {siteConfig} from '@/config/site';
 import Main from './main/page';
 import About from './about/page';
 import Experience from './experience/page';
+import Projects from './projects/page';
 
 export const metadata: Metadata = {
   title: {
@@ -80,6 +81,7 @@ export default function RootLayout({children}: RootLayoutProps) {
             <div className='mx-72 my-24 grid gap-y-36'>
               <About />
               <Experience />
+              {/* <Projects /> */}
             </div>
             <div className='flex-1'>{children}</div>
           </ThemeProvider>

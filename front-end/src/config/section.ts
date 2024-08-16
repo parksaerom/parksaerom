@@ -25,7 +25,7 @@ type TSectionList = {
     about: Required<TSection>;
     experience: TSection;
     feedbacks: TSection;
-    works: Required<TSection>;
+    projects: Required<TSection>;
   };
 };
 
@@ -64,14 +64,10 @@ export const sectionsConfig: TSectionList = {
       p: 'What others say',
       h2: 'Testimonials.',
     },
-    works: {
+    projects: {
       p: 'My work',
       h2: 'Projects.',
-      content: `Following projects showcases my skills and experience through
-      real-world examples of my work. Each project is briefly described with
-      links to code repositories and live demos in it. It reflects my
-      ability to solve complex problems, work with different technologies,
-      and manage projects effectively.`,
+      content: `그동안 제가 참여했던 일부 프로젝트들을 간략하게 구현해보았습니다. 다양한 라이브러리를 통해 창의적이고 기술적인 노력을 더해 완성한 결과물들을 보여드립니다. 앞으로도 성장하며 새로운 아이디어를 계속 실현해 나가겠습니다.`,
     },
   },
 };
