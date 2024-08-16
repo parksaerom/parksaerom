@@ -103,7 +103,7 @@ export default function About() {
       <motion.div
         initial='offScreen'
         whileInView='onScreen'
-        variants={fadeIn('', '', 0.5, 1)}
+        variants={fadeIn('', '', 0.1, 1)}
         className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
       >
         {sectionsConfig.sections.about.content}
