@@ -14,6 +14,7 @@ import Main from './main/page';
 import About from './about/page';
 import Experience from './experience/page';
 import Projects from './projects/page';
+import Contact from './contact/page';
 
 export const metadata: Metadata = {
   title: {
@@ -78,10 +79,11 @@ export default function RootLayout({children}: RootLayoutProps) {
               <MainHeader />
               <Main />
             </div>
-            <div className='mx-72 my-24 grid gap-y-36'>
+            <div className='container my-24 grid w-3/4 gap-y-36'>
               <About />
               <Experience />
               {/* <Projects /> */}
+              <Contact />
             </div>
             <div className='flex-1'>{children}</div>
           </ThemeProvider>
