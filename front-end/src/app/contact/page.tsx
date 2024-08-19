@@ -75,11 +75,11 @@ export default function Contact() {
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('up', 'tween', 0.2, 1)}
-        className='flex flex-1 overflow-hidden rounded-xl  bg-card'
+        className='flex overflow-hidden rounded-xl  bg-card'
       >
         <div className='flex-1  p-8'>
           <SectionHeader useMotion={false} {...sectionsConfig.contact} />
-          <form onSubmit={handleSubmit} className='mt-12 flex flex-col gap-8'>
+          <form onSubmit={handleSubmit} className='mt-10 flex flex-col gap-8'>
             {Object.keys(sectionsConfig.contact.form).map((input) => {
               const {span, placeholder} =
                 sectionsConfig.contact.form[
@@ -89,17 +89,15 @@ export default function Contact() {
 
               return (
                 <label key={input} className='flex flex-col'>
-                  <span className='mb-4 font-medium text-secondary'>
-                    {span}
-                  </span>
+                  <span className='mb-2 text-secondary'>{span}</span>
                   <Component
                     type={input === 'email' ? 'email' : 'text'}
                     name={input}
                     value={form[`${input}`]}
                     onChange={handleChange}
                     placeholder={placeholder}
-                    className='bg-tertiary rounded-lg border-none px-6 py-4 font-medium outline-none'
-                    {...(input === 'message' && {rows: 7})}
+                    className='rounded-lg px-6 py-4'
+                    {...(input === 'message' && {rows: 6})}
                   />
                 </label>
               );
@@ -107,11 +105,11 @@ export default function Contact() {
             <Button type='submit'>{loading ? 'Sending...' : 'Send'}</Button>
           </form>
         </div>
-        <div className='flex-1'>
+        <div className='hidden flex-1 md:block'>
           <img
             src={'/images/laptop.jpg'}
             alt={'contact'}
-            className='h-full  w-full object-cover'
+            className='h-full w-full object-cover'
           />
         </div>
       </motion.div>
