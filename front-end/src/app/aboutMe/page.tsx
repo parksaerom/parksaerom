@@ -59,7 +59,7 @@ export default function AboutMePage() {
       ],
     },
     {
-      name: '현대차 물류로봇관제 웹 (2022.06 프리랜서 근무)',
+      name: 'H사 물류로봇관제 웹 (2022.06 프리랜서 근무)',
       company: '(주)나비프라',
       skills:
         'React, JavaScript, Vuetify, three.js, Node.js, express.js, Redis',

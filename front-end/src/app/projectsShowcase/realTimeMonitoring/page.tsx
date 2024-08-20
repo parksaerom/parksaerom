@@ -5,7 +5,6 @@ import RealTimeLineChart from '@/app/projectsShowcase/realTimeMonitoring/compone
 import RealTimeDataGrid from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-data-grid';
 import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
 import {RealTimeLineChartProps} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
-import {Metadata} from 'next/types';
 
 export default function RealTimeMonitoringPage() {
   const realTimeLineChartList: RealTimeLineChartProps[] = [
@@ -88,7 +87,3 @@ export default function RealTimeMonitoringPage() {
     </div>
   );
 }
-
-export const metadata: Metadata = {
-  title: 'Real-time Monitoring',
-};

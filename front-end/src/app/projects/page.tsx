@@ -5,6 +5,20 @@ import {sectionsConfig} from '@/config/section';
 import {fadeIn} from '@/utils/motion';
 import {motion} from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {ReactNode} from 'react';
+import ThreeObjectControlPage from '../projectsShowcase/3DObjectControl/page';
+import GridDataAnalysisPage from '../projectsShowcase/gridDataAnalysis/page';
+import RealTimeMonitoringPage from '../projectsShowcase/realTimeMonitoring/page';
 
 export type ProjectsProps = {
   name: string;
@@ -14,6 +28,7 @@ export type ProjectsProps = {
     color: string;
   }[];
   image: string;
+  page: ReactNode;
 };
 
 const projects: ProjectsProps[] = [
@@ -36,6 +51,7 @@ const projects: ProjectsProps[] = [
       },
     ],
     image: '/images/laptop.jpg',
+    page: <RealTimeMonitoringPage />,
   },
   {
     name: 'Grid Data Analysis',
@@ -56,6 +72,7 @@ const projects: ProjectsProps[] = [
       },
     ],
     image: '/images/laptop.jpg',
+    page: <GridDataAnalysisPage />,
   },
   {
     name: '3D Object Control',
@@ -76,6 +93,7 @@ const projects: ProjectsProps[] = [
       },
     ],
     image: '/images/laptop.jpg',
+    page: <ThreeObjectControlPage />,
   },
 ];
 
@@ -85,45 +103,57 @@ function ProjectCard({
   description,
   tags,
   image,
+  page,
 }: {index: number} & ProjectsProps) {
   return (
-    <motion.div
-      initial='offScreen'
-      whileInView='onScreen'
-      variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
-    >
-      <Tilt
-        glareEnable
-        tiltEnable
-        tiltMaxAngleX={20}
-        tiltMaxAngleY={20}
-        glareBorderRadius='20px'
-        glarePosition='all'
-      >
-        <div className='h-[46vh] w-full rounded-2xl bg-card p-5 sm:w-[300px]'>
-          <div className='relative h-56 w-full'>
-            <img
-              src={image}
-              alt={name}
-              className='h-full w-full rounded-2xl object-cover'
-            />
-          </div>
-          <div className='mt-5'>
-            <h3 className='text-[24px] font-bold text-primary'>{name}</h3>
-            <p className='mt-2 h-16 text-[14px] text-secondary'>
-              {description}
-            </p>
-          </div>
-          <div className='mt-4 flex flex-wrap gap-2'>
-            {tags.map((tag) => (
-              <p key={tag.name} className={`text-[14px] ${tag.color}`}>
-                #{tag.name}
-              </p>
-            ))}
-          </div>
-        </div>
-      </Tilt>
-    </motion.div>
+    <Dialog>
+      <DialogTrigger asChild>
+        <motion.div
+          initial='offScreen'
+          whileInView='onScreen'
+          variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
+        >
+          <Tilt
+            glareEnable
+            tiltEnable
+            tiltMaxAngleX={20}
+            tiltMaxAngleY={20}
+            glareBorderRadius='20px'
+            glarePosition='all'
+          >
+            <div className='h-[46vh] w-full rounded-2xl bg-card p-5 sm:w-[300px]'>
+              <div className='relative h-56 w-full'>
+                <img
+                  src={image}
+                  alt={name}
+                  className='h-full w-full rounded-2xl object-cover'
+                />
+              </div>
+              <div className='mt-5'>
+                <h3 className='text-[24px] font-bold text-primary'>{name}</h3>
+                <p className='mt-2 h-16 text-[14px] text-secondary'>
+                  {description}
+                </p>
+              </div>
+              <div className='mt-4 flex flex-wrap gap-2'>
+                {tags.map((tag) => (
+                  <p key={tag.name} className={`text-[14px] ${tag.color}`}>
+                    #{tag.name}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Tilt>
+        </motion.div>
+      </DialogTrigger>
+      <DialogContent className='min-w-[75%]'>
+        <DialogHeader className='container pt-3'>
+          <DialogTitle>{name}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
+        </DialogHeader>
+        {page}
+      </DialogContent>
+    </Dialog>
   );
 }
 
