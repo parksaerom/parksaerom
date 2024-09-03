@@ -70,14 +70,14 @@ export default function Contact() {
   };
 
   return (
-    <section className='flex gap-10'>
+    <section className='mt-24 flex gap-10 '>
       <motion.div
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('up', 'tween', 0.2, 1)}
-        className='flex overflow-hidden rounded-xl  bg-card'
+        className='flex w-full overflow-hidden rounded-xl border border-primary bg-card'
       >
-        <div className='flex-1  p-8'>
+        <div className='flex-1 p-8'>
           <SectionHeader useMotion={false} {...sectionsConfig.contact} />
           <form onSubmit={handleSubmit} className='mt-10 flex flex-col gap-8'>
             {Object.keys(sectionsConfig.contact.form).map((input) => {
@@ -105,12 +105,12 @@ export default function Contact() {
             <Button type='submit'>{loading ? 'Sending...' : 'Send'}</Button>
           </form>
         </div>
-        <div className='hidden flex-1 md:block'>
-          <img
+        <div className='hidden w-full flex-1 bg-primary object-cover md:block'>
+          {/* <img
             src={'/images/laptop.jpg'}
             alt={'contact'}
             className='h-full w-full object-cover'
-          />
+          /> */}
         </div>
       </motion.div>
     </section>

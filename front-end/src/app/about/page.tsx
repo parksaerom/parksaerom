@@ -7,7 +7,6 @@ import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';
 import {SiJavascript} from 'react-icons/si';
 import {FaJava, FaReact, FaWindows} from 'react-icons/fa';
-import '@/styles/tilt.css';
 interface IntroductionCardProps {
   index: number;
   title: string;
@@ -76,15 +75,14 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
       glareColor='#A4ADB4'
       glareBorderRadius='20px'
       glarePosition='all'
-      className='parallax-effect-glare-scale'
     >
       <motion.div
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('right', 'spring', index * 0.5, 1.75)}
-        className='parallax-effect-glare-scale w-[15vw] rounded-[20px] bg-card outline outline-1 outline-primary '
+        className='w-[15vw] rounded-[20px] bg-card outline outline-1 outline-primary '
       >
-        <div className='inner-element flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
+        <div className='flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
           {icon}
           <h3 className='text-center text-sm font-bold text-secondary xl:text-xl'>
             {title}
