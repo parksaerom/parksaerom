@@ -61,7 +61,7 @@ export function MainNav() {
                 엑셀 그리드를 사용하여 데이터 입력하고 분석합니다.
               </ListItem>
               <ListItem
-                href='/projectsShowcase/3DObjectControl'
+                href='/projectsShowcase/3dObjectControl'
                 title='3D Object Control'
               >
                 three.js를 활용하여 지도 상에서 3D 객체를 제어합니다.

@@ -16,7 +16,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import {ReactNode} from 'react';
-import ThreeObjectControlPage from '../projectsShowcase/3DObjectControl/page';
+import ThreeObjectControlPage from '../projectsShowcase/3dObjectControl/page';
 import GridDataAnalysisPage from '../projectsShowcase/gridDataAnalysis/page';
 import RealTimeMonitoringPage from '../projectsShowcase/realTimeMonitoring/page';
 

@@ -1,4 +1,4 @@
-import ThreeCanvas from '@/app/projectsShowcase/3DObjectControl/components/three-canvas';
+import ThreeCanvas from '@/app/projectsShowcase/3dObjectControl/components/three-canvas';
 
 export default function ThreeObjectControlPage() {
   return (

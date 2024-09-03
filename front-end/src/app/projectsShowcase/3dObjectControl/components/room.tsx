@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {useGLTF} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
-import GlitterCircle from '@/app/projectsShowcase/3DObjectControl/components/glitter-circle';
+import GlitterCircle from '@/app/projectsShowcase/3dObjectControl/components/glitter-circle';
 import {useBox, BoxProps, useConvexPolyhedron} from '@react-three/cannon';
 
 type GLTFResult = GLTF & {
