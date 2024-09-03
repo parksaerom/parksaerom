@@ -73,7 +73,7 @@ export function MainHeader() {
             }}
           >
             <span className='text-xl font-bold leading-snug lg:text-3xl'>
-              Saerom Park - Portfolio
+              Portfolio
             </span>
           </Link>
         </div>

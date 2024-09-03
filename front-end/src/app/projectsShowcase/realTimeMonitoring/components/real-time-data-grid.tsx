@@ -35,15 +35,18 @@ export default function RealTimeDataGrid({
       {ridarSecondList.map((second, secondIndex) => (
         <Badge
           className={`justify-center ${secondIndex === 0 ? 'col-start-3' : ''}`}
+          key={secondIndex}
         >
           {second}
         </Badge>
       ))}
       {ridarNameList.map((ridarName, ridarIndex) => (
         <>
-          <Badge className='col-span-2 justify-center'>{ridarName}</Badge>
-          {gridData[ridarIndex].map((data) => (
-            <Badge variant='outline' className='justify-center'>
+          <Badge className='col-span-2 justify-center' key={ridarIndex}>
+            {ridarName}
+          </Badge>
+          {gridData[ridarIndex].map((data, index) => (
+            <Badge variant='outline' className='justify-center' key={index}>
               {data}
             </Badge>
           ))}

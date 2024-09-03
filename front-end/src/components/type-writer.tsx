@@ -1,6 +1,5 @@
 'use client';
 
-import {styles} from '@/styles/common';
 import React, {useEffect} from 'react';
 import {useState} from 'react';
 
@@ -12,9 +11,14 @@ interface TypewriterExtractTextArray {
 interface TypewriterProps {
   children: React.ReactNode;
   speed?: number;
+  className?: string;
 }
 
-function Typewriter({children, speed = 100}: TypewriterProps) {
+export default function Typewriter({
+  children,
+  speed = 100,
+  className = '',
+}: TypewriterProps) {
   const [displayedText, setDisplayedText] = useState<React.ReactNode[]>([]);
   const childrenNode = React.Children.toArray(children);
 
@@ -68,16 +72,5 @@ function Typewriter({children, speed = 100}: TypewriterProps) {
     return () => clearInterval(interval);
   }, [children, speed]);
 
-  return <>{displayedText}</>;
-}
-
-export default function MainTypewriter() {
-  return (
-    <h1 className={`${styles.mainHeadText} static text-white`}>
-      <Typewriter>
-        안녕하세요, 저는 <span className='text-mainBackground'>박새롬</span>
-        입니다.
-      </Typewriter>
-    </h1>
-  );
+  return <div className={className}>{displayedText}</div>;
 }
