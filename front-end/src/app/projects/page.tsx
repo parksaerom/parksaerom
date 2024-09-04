@@ -19,6 +19,7 @@ import {ReactNode} from 'react';
 import ThreeObjectControlPage from '../projectsShowcase/3dObjectControl/page';
 import GridDataAnalysisPage from '../projectsShowcase/gridDataAnalysis/page';
 import RealTimeMonitoringPage from '../projectsShowcase/realTimeMonitoring/page';
+import {Section} from '@/components/section';
 
 export type ProjectsProps = {
   name: string;
@@ -159,7 +160,7 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section>
+    <Section id='projects'>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.projects} />
 
       <div className='flex w-full'>
@@ -178,6 +179,6 @@ export default function Projects() {
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

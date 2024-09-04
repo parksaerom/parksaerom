@@ -8,6 +8,7 @@ import {useState} from 'react';
 import emailjs from '@emailjs/browser';
 import {siteConfig} from '@/config/site';
 import {Button} from '@/components/ui/button';
+import {Section} from '@/components/section';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
@@ -70,7 +71,7 @@ export default function Contact() {
   };
 
   return (
-    <section className='mt-24 flex gap-10 '>
+    <Section id='contact' className='mt-24 flex gap-10'>
       <motion.div
         initial='offScreen'
         whileInView='onScreen'
@@ -113,6 +114,6 @@ export default function Contact() {
           /> */}
         </div>
       </motion.div>
-    </section>
+    </Section>
   );
 }

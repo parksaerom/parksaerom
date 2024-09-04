@@ -7,6 +7,7 @@ import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';
 import {SiJavascript} from 'react-icons/si';
 import {FaJava, FaReact, FaWindows} from 'react-icons/fa';
+import {Section} from '@/components/section';
 interface IntroductionCardProps {
   index: number;
   title: string;
@@ -95,7 +96,7 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
 
 export default function About() {
   return (
-    <section>
+    <Section id='about'>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.about} />
 
       <motion.div
@@ -119,6 +120,6 @@ export default function About() {
           <IntroductionCard key={service.title} index={index} {...service} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

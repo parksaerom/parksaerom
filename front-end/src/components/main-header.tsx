@@ -11,52 +11,82 @@ import {buttonVariants} from '@/components/ui/button';
 import {useEffect, useState} from 'react';
 import {styles} from '@/styles/common';
 
+export type NavIdType = 'about' | 'experience' | 'projects' | 'contact';
+
+export type NavLinkType = {
+  id: NavIdType;
+  title: string;
+};
+
+const navLinks: NavLinkType[] = [
+  {
+    id: 'about',
+    title: 'About',
+  },
+  {
+    id: 'experience',
+    title: 'Experience',
+  },
+  {
+    id: 'projects',
+    title: 'Projects',
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+  },
+];
+
 export function MainHeader() {
-  const [active, setActive] = useState<string | null>();
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-        setActive('');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    const navbarHighlighter = () => {
-      const sections = document.querySelectorAll('section[id]');
-
-      sections.forEach((current) => {
-        const sectionId = current.getAttribute('id');
-        // @ts-ignore
-        const sectionHeight = current.offsetHeight;
-        const sectionTop =
-          current.getBoundingClientRect().top - sectionHeight * 0.2;
-
-        if (sectionTop < 0 && sectionTop + sectionHeight > 0) {
-          setActive(sectionId);
-        }
-      });
-    };
-
-    window.addEventListener('scroll', navbarHighlighter);
+    window.addEventListener('scroll', handleScrollEvent);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('scroll', navbarHighlighter);
+      window.removeEventListener('scroll', handleScrollEvent);
     };
-  }, []);
+  }, [navLinks]);
+
+  function handleScrollEvent() {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+    const scrollTop = window.scrollY;
+    if (scrollTop > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+      setActiveSection('');
+    }
+
+    navLinks.forEach((navLink) => {
+      const element = document.getElementById(navLink.id);
+      if (element) {
+        const {offsetTop, offsetHeight} = element;
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setActiveSection(navLink.id);
+        }
+      }
+    });
+  }
+
+  function handleScroll(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({behavior: 'smooth'});
+      window.history.pushState(null, '', `#${id}`);
+    }
+  }
 
   return (
     <header
       className={`${
         styles.paddingX
-      } fixed top-0 z-20 flex w-full items-center py-5 ${
+      } fixed top-0 z-20 flex w-full items-center py-3 ${
         scrolled ? 'bg-mainBackground' : 'bg-transparent'
       }`}
     >
@@ -73,50 +103,28 @@ export function MainHeader() {
             }}
           >
             <span className='text-xl font-bold leading-snug lg:text-3xl'>
-              Portfolio
+              Saerom Park - Portfolio
             </span>
           </Link>
         </div>
-        <MainNav />
-        <div className='flex flex-1 items-center justify-between space-x-2 md:justify-end'>
-          <nav className='flex items-center'>
-            <Link
-              href={siteConfig.links.tistory}
-              target='_blank'
-              rel='noopener noreferrer'
+        <ul className='relative z-10 flex max-w-max flex-1 items-center justify-center space-x-16 p-4'>
+          {navLinks.map((navLink) => (
+            <li
+              key={navLink.id}
+              onClick={() => {
+                handleScroll(navLink.id);
+              }}
             >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: 'ghost',
-                  }),
-                  'w-9 px-0',
-                )}
+              <button
+                className={` ${
+                  activeSection === navLink.id ? 'font-bold' : ''
+                }`}
               >
-                <SiTistory className='h-4 w-4 fill-current' />
-                <span className='sr-only'>Tistory</span>
-              </div>
-            </Link>
-            <Link
-              href={siteConfig.links.naver}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: 'ghost',
-                  }),
-                  'w-9 px-0',
-                )}
-              >
-                <SiNaver className='h-4 w-4 fill-current' />
-                <span className='sr-only'>Naver</span>
-              </div>
-            </Link>
-            <ModeToggle />
-          </nav>
-        </div>
+                {navLink.title}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </header>
   );

@@ -65,11 +65,7 @@ export const metadata: Metadata = {
   // manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function RootLayout({children}: RootLayoutProps) {
+export default function RootLayout() {
   return (
     <Providers>
       <html lang='en' className={fontPretendard.className}>
