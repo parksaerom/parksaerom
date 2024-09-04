@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {fadeIn} from '@/utils/motion';
 import {motion} from 'framer-motion';
 

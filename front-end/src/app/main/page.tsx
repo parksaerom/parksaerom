@@ -1,5 +1,5 @@
 import {styles} from '@/styles/common';
-import ComputersCanvas from '@/app/main/computer';
+import ComputersCanvas from '@/app/main/components/computer';
 import Typewriter from '@/components/type-writer';
 
 export default function Main() {
