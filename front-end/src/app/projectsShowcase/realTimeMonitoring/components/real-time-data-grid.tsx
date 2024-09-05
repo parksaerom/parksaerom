@@ -1,12 +1,13 @@
 import {Badge} from '@/components/ui/badge';
+import React from 'react';
 
 export interface RealTimeDataGridProps {
-  gridData?: Array<Array<string>>;
+  gridData?: string[][];
 }
 
 export default function RealTimeDataGrid({
   gridData = [
-    ['123.23', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', ''],
@@ -41,7 +42,7 @@ export default function RealTimeDataGrid({
         </Badge>
       ))}
       {ridarNameList.map((ridarName, ridarIndex) => (
-        <>
+        <React.Fragment key={ridarIndex}>
           <Badge className='col-span-2 justify-center' key={ridarIndex}>
             {ridarName}
           </Badge>
@@ -50,7 +51,7 @@ export default function RealTimeDataGrid({
               {data}
             </Badge>
           ))}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

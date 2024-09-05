@@ -122,7 +122,7 @@ function ProjectCard({
             glareBorderRadius='20px'
             glarePosition='all'
           >
-            <div className='h-[46vh] w-full rounded-2xl bg-card p-5 sm:w-[300px]'>
+            <div className='h-[46vh] w-full rounded-2xl border border-primary bg-card p-5 sm:w-[300px]'>
               <div className='relative h-56 w-full'>
                 <img
                   src={image}

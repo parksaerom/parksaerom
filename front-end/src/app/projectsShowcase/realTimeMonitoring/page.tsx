@@ -1,86 +1,234 @@
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
-import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
-import RealTimeLineChart from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
+import RealTimeLineChart, {
+  DataPoint,
+} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
 import RealTimeDataGrid from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-data-grid';
 import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
 import {RealTimeLineChartProps} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
+import {useEffect, useRef, useState} from 'react';
+import React from 'react';
+import {Button} from '@/components/ui/button';
+import html2canvas from 'html2canvas';
+import saveAs from 'file-saver';
+
+const velocityAngleDataTitleList = [
+  '현재 속도:',
+  'FF Steer 각도:',
+  'RR Steer 각도:',
+];
 
 export default function RealTimeMonitoringPage() {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [flData, setFlData] = useState<DataPoint[]>([]);
+  const [rrData, setRrData] = useState<DataPoint[]>([]);
   const realTimeLineChartList: RealTimeLineChartProps[] = [
     {
       title: 'FL Traction Motor',
-      chartData1: [
-        {x: 1, y: 123},
-        {x: 2, y: 223},
-        {x: 3, y: 124},
-        {x: 4, y: 213},
-        {x: 5, y: 34},
-        {x: 6, y: 543},
-      ],
-      chartData2: [
-        {x: 1, y: 323},
-        {x: 2, y: 245},
-        {x: 3, y: 344},
-        {x: 4, y: 343},
-        {x: 5, y: 234},
-        {x: 6, y: 143},
-      ],
+      chartData: flData,
     },
     {
       title: 'RR Traction Motor',
-      chartData1: [
-        {x: 1, y: 123},
-        {x: 2, y: 223},
-        {x: 3, y: 124},
-        {x: 4, y: 213},
-        {x: 5, y: 34},
-        {x: 6, y: 543},
-      ],
-      chartData2: [
-        {x: 1, y: 323},
-        {x: 2, y: 245},
-        {x: 3, y: 344},
-        {x: 4, y: 343},
-        {x: 5, y: 234},
-        {x: 6, y: 143},
-      ],
+      chartData: rrData,
     },
   ];
+  const defaultLidarDataSet = [
+    ['', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', ''],
+  ];
+  const defaultVelocityAngleDataSet = [0, 0, 0];
+  const [lidarDataSet, setLidarDataSet] =
+    useState<string[][]>(defaultLidarDataSet);
+  const [velocityAngleDataSet, setVelocityAngleDataSet] = useState<number[]>(
+    defaultVelocityAngleDataSet,
+  );
+
+  const [isRunning, setIsRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  function generateRandomDataPoint(x: number): DataPoint {
+    return {
+      x: x,
+      y: Math.floor(Math.random() * 100),
+    };
+  }
+
+  function generateLidarDataSet(): string[][] {
+    const sets: string[][] = [];
+
+    for (let setIndex = 0; setIndex < 4; setIndex++) {
+      const set: string[] = [];
+
+      for (let i = 0; i < 9; i++) {
+        const randomNumber = +(Math.random() * (999 - 100) + 100).toFixed(2);
+        set.push(`${randomNumber}`);
+      }
+
+      sets.push(set);
+    }
+
+    return sets;
+  }
+
+  function generateVelocityAngleDataSet(): number[] {
+    const smallNumbers: number[] = [];
+
+    for (let i = 0; i < 3; i++) {
+      const randomNumber = Math.floor(Math.random() * 90) + 1;
+      smallNumbers.push(randomNumber);
+    }
+
+    return smallNumbers;
+  }
+
+  function startDataGeneration() {
+    setIsRunning(true);
+    setIsPaused(false);
+    intervalRef.current = setInterval(() => {
+      setFlData((prevData) => {
+        let newData = [
+          ...prevData,
+          generateRandomDataPoint(prevData.length + 1),
+        ];
+        if (newData.length > 50) {
+          newData = newData
+            .slice(1)
+            .map((point) => ({...point, x: point.x - 1}));
+        }
+        return newData;
+      });
+
+      setRrData((prevData) => {
+        let newData = [
+          ...prevData,
+          generateRandomDataPoint(prevData.length + 1),
+        ];
+        if (newData.length > 50) {
+          newData = newData
+            .slice(1)
+            .map((point) => ({...point, x: point.x - 1}));
+        }
+        return newData;
+      });
+
+      setLidarDataSet((prevSets) => {
+        const newSets = generateLidarDataSet();
+        return [...prevSets.slice(1), newSets[0]];
+      });
+
+      setVelocityAngleDataSet(generateVelocityAngleDataSet());
+    }, 1000);
+  }
+
+  function pauseDataGeneration() {
+    setIsPaused(true);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }
+
+  function stopDataGeneration() {
+    setIsRunning(false);
+    setIsPaused(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setFlData([]);
+    setRrData([]);
+    setLidarDataSet(defaultLidarDataSet);
+    setVelocityAngleDataSet(defaultVelocityAngleDataSet);
+  }
+
+  async function onDownload() {
+    if (!divRef.current) return;
+
+    try {
+      const div = divRef.current;
+      const canvas = await html2canvas(div, {
+        scale: 2,
+        backgroundColor: 'white',
+      });
+      canvas.toBlob((blob) => {
+        if (blob !== null) {
+          saveAs(blob, 'monitoring.png');
+        }
+      });
+    } catch (error) {
+      alert('다운로드를 실패했습니다.');
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className='container my-7 flex h-full flex-1 flex-wrap'>
+    <div
+      ref={divRef}
+      className='container my-7 flex h-full flex-1 flex-wrap pb-10'
+    >
       <section className='grid w-full grid-cols-2 gap-4'>
         {realTimeLineChartList.map((lineChart) => (
-          <Card>
-            <CardHeader className='py-2'>
+          <Card key={lineChart.title}>
+            <CardHeader className='py-5'>
               <CardTitle className='text-center text-base'>
                 {lineChart.title}
               </CardTitle>
             </CardHeader>
-            <CardContent className='pl-2'>
+            <CardContent className='pb-0 pl-2'>
               <RealTimeLineChart
                 title={lineChart.title}
-                chartData1={lineChart.chartData1}
-                chartData2={lineChart.chartData2}
+                chartData={lineChart.chartData}
               />
             </CardContent>
           </Card>
         ))}
-        <RealTimeDataGrid />
+        <RealTimeDataGrid gridData={lidarDataSet} />
         <div className='flex flex-col space-y-2'>
-          <Card className='flex items-center space-x-2 p-4'>
-            <Label className='w-14 text-xs'>현재 속도:</Label>
-            <Input className='h-8 w-28' type='text' />
-            <Label className='w-20 text-xs'>FF Steer 각도:</Label>
-            <Input className='h-8 w-28' type='text' />
-            <Label className='w-20  text-xs'>RR Steer 각도:</Label>
-            <Input className='h-8 w-28' type='text' />
+          <Card className='flex items-center space-x-2 p-4 text-xs'>
+            {velocityAngleDataTitleList.map((title, index) => (
+              <React.Fragment key={index}>
+                <Label className='w-20 text-xs'>{title}</Label>
+                <div className='h-8 w-28 rounded-md border border-input px-3 py-2'>
+                  {velocityAngleDataSet[index]}
+                </div>
+              </React.Fragment>
+            ))}
           </Card>
-          <Card className='flex flex-wrap items-center justify-center space-x-6 p-3'>
-            <BiPlay className='h-12 w-12 text-green-600' />
-            <BiPause className='h-12 w-12 text-yellow-400' />
-            <BiStop className='h-12 w-12 text-red-500' />
-            <BiSolidDownload className='h-10 w-10 text-blue-500' />
+          <Card className='flex flex-wrap items-center justify-center space-x-6 bg-transparent p-3'>
+            <Button
+              variant='ghost'
+              onClick={startDataGeneration}
+              disabled={isRunning && !isPaused}
+            >
+              <BiPlay className='h-12 w-12 text-green-600' />
+            </Button>
+            <Button
+              variant='ghost'
+              onClick={pauseDataGeneration}
+              disabled={!isRunning || isPaused}
+            >
+              <BiPause className='h-12 w-12 text-yellow-400' />
+            </Button>
+            <Button
+              variant='ghost'
+              onClick={stopDataGeneration}
+              disabled={!isRunning && !isPaused}
+            >
+              <BiStop className='h-12 w-12 text-red-500' />
+            </Button>
+            <Button variant='ghost' onClick={onDownload}>
+              <BiSolidDownload className='h-10 w-10 text-blue-500' />
+            </Button>
           </Card>
         </div>
       </section>

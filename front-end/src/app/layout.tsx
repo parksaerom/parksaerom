@@ -78,7 +78,7 @@ export default function RootLayout() {
             <div className='container my-24 grid w-3/4 gap-y-36'>
               <About />
               <Experience />
-              {/* <Projects /> */}
+              <Projects />
               <Contact />
             </div>
           </ThemeProvider>

@@ -22,23 +22,27 @@ ChartJS.register(
   Legend,
 );
 
+export type DataPoint = {x: number; y: number};
+
 export interface RealTimeLineChartProps {
   title: string;
-  chartData1: Array<{x: number; y: number}>;
-  chartData2: Array<{x: number; y: number}>;
+  chartData: DataPoint[];
 }
 
 export default function RealTimeLineChart({
   title = 'Real-Time Line Chart',
-  chartData1,
-  chartData2,
+  chartData,
 }: RealTimeLineChartProps) {
   const options = {
+    interaction: {
+      intersect: false,
+    },
     responsive: true,
     scales: {
       x: {
         type: 'linear' as const,
-        min: 0,
+        min: 1,
+        max: 50,
         title: {
           display: true,
           text: 'sec',
@@ -49,7 +53,7 @@ export default function RealTimeLineChart({
       },
       y: {
         min: 0,
-        max: 600,
+        max: 100,
         beginAtZero: true,
         title: {
           display: true,
@@ -67,16 +71,12 @@ export default function RealTimeLineChart({
   const data = {
     datasets: [
       {
-        label: 'Dataset 1',
-        data: chartData1,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: chartData2,
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        label: 'Dataset',
+        data: chartData,
+        borderColor: 'rgb(2, 90, 128)',
+        borderWidth: 1,
+        radius: 0,
+        backgroundColor: 'rgba(2, 90, 128)',
       },
     ],
   };
