@@ -54,7 +54,7 @@ export default function RealTimeMonitoringPage() {
   function generateRandomDataPoint(x: number): DataPoint {
     return {
       x: x,
-      y: Math.floor(Math.random() * 100),
+      y: Math.floor(Math.random() * (100 - 10) + 10),
     };
   }
 

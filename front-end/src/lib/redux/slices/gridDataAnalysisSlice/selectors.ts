@@ -4,6 +4,9 @@ import {createSelector} from '@reduxjs/toolkit';
 export const selectGridData = (state: ReduxState) =>
   state.gridDataAnalysis.gridData;
 
+export const selectSelectedColumnRowInfo = (state: ReduxState) =>
+  state.gridDataAnalysis.selectedColumnRowInfo;
+
 export const selectRowData = (row: number) =>
   createSelector(selectGridData, (gridData) => gridData[row]);
 

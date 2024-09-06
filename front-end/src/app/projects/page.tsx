@@ -106,6 +106,12 @@ function ProjectCard({
   image,
   page,
 }: {index: number} & ProjectsProps) {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === ' ') {
+      event.preventDefault(); // 스페이스바 기본 동작 방지
+    }
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -147,7 +153,7 @@ function ProjectCard({
           </Tilt>
         </motion.div>
       </DialogTrigger>
-      <DialogContent className='min-w-[75%]'>
+      <DialogContent onKeyDown={handleKeyDown} className='min-w-[75%]'>
         <DialogHeader className='container pt-3'>
           <DialogTitle>{name}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>

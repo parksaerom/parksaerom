@@ -53,7 +53,7 @@ export default function RealTimeLineChart({
       },
       y: {
         min: 0,
-        max: 100,
+        max: 120,
         beginAtZero: true,
         title: {
           display: true,

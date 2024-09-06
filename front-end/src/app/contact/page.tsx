@@ -9,6 +9,7 @@ import emailjs from '@emailjs/browser';
 import {siteConfig} from '@/config/site';
 import {Button} from '@/components/ui/button';
 import {Section} from '@/components/section';
+import {useToast} from '@/hooks/use-toast';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
@@ -23,6 +24,7 @@ const emailjsConfig = {
 export default function Contact() {
   const [form, setForm] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
+  const {toast} = useToast();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined,
@@ -57,15 +59,16 @@ export default function Contact() {
       .then(
         () => {
           setLoading(false);
-          alert('메일이 전송되었습니다.');
-
+          toast({
+            description: '메일이 전송되었습니다.',
+          });
           setForm(INITIAL_STATE);
         },
         (error) => {
           setLoading(false);
-
-          console.log(error);
-          alert('메일 전송이 실패했습니다.');
+          toast({
+            description: '메일 전송이 실패했습니다.',
+          });
         },
       );
   };

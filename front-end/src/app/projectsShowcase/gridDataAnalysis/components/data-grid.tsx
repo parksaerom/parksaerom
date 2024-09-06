@@ -11,31 +11,10 @@ export default function ExcelDataGrid() {
   const dispatch = useDispatch();
   const {hotTableComponent, triggerUpdate} = useHotTable();
 
-  function ChangedGridData(changeData: CellChange[]) {
+  function changedGridData(changeData: CellChange[]) {
     dispatch(updateGridData(changeData));
     triggerUpdate();
   }
-
-  // function BeforeChangedGridData(changeData: (CellChange | null)[]) {
-  //   dispatch(updateGridData(changeData));
-  //   console.log(changeData);
-
-  //   const updatedData = gridData.map((row) => [...row]);
-  //   changeData.forEach(([row, column, oldValue, newValue]) => {
-  //     if (
-  //       updatedData[row] &&
-  //       typeof column === 'number' &&
-  //       updatedData[row][column] !== undefined
-  //     ) {
-  //       updatedData[row][column] = newValue;
-  //     }
-  //   });
-  //   let colData = hotTableComponent?.current?.hotInstance?.getDataAtCol(2);
-  //   console.log(colData, gridData);
-  //   //console.log(gridData[0]);
-  //   dispatch(setGridData(updatedData));
-  //   return false;
-  // }
 
   return (
     <HotTable
@@ -47,11 +26,8 @@ export default function ExcelDataGrid() {
       minRows={23}
       minCols={9}
       manualColumnResize={true}
-      // beforeChange={(change) => {
-      //   BeforeChangedGridData(change);
-      // }}
       afterChange={(change) => {
-        if (change) ChangedGridData(change);
+        if (change) changedGridData(change);
       }}
       licenseKey='non-commercial-and-evaluation'
     />

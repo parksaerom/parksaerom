@@ -15,6 +15,7 @@ import About from './about/page';
 import Experience from './experience/page';
 import Projects from './projects/page';
 import Contact from './contact/page';
+import {Toaster} from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: {
@@ -81,6 +82,7 @@ export default function RootLayout() {
               <Projects />
               <Contact />
             </div>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

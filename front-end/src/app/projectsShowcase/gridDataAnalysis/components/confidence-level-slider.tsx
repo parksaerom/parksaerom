@@ -11,7 +11,7 @@ export default function ConfidenceLevelSlider() {
   const dispatch = useDispatch();
   const confidenceLevel = useSelector(selectSelectedConfidenceLevel);
 
-  function UdateConfidenceLevel(value: number[]) {
+  function udateConfidenceLevel(value: number[]) {
     dispatch(updateSelectedConfidenceLevel(value[0]));
   }
 
@@ -25,10 +25,10 @@ export default function ConfidenceLevelSlider() {
       </div>
       <Slider
         id='confidence'
-        max={1}
+        max={0.99}
         defaultValue={[confidenceLevel]}
         step={0.01}
-        onValueChange={(value) => UdateConfidenceLevel(value)}
+        onValueChange={(value) => udateConfidenceLevel(value)}
         className='[&_[role=slider]]:h-4 [&_[role=slider]]:w-4'
       />
     </>

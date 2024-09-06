@@ -9,13 +9,11 @@ import {useHotTable} from './data-grid-context';
 import {useEffect, useState} from 'react';
 import {
   GridDataType,
-  updateSelectedColumnRowIndex,
+  RowColHeader,
+  updateSelectedColumnRowInfo,
   useDispatch,
 } from '@/lib/redux';
-interface RowColHeader {
-  index: number;
-  name: string;
-}
+
 interface DataSelectorProps {
   gridDataType: GridDataType;
 }
@@ -27,7 +25,7 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
   >([]);
   const dispatch = useDispatch();
 
-  function UpdateNonEmptyColumnsRow() {
+  function updateNonEmptyColumnsRow() {
     if (hotTableComponent.current) {
       const hotInstance = hotTableComponent.current.hotInstance;
       if (hotInstance) {
@@ -57,18 +55,21 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
     }
   }
 
-  function OnChangeValue(value: string) {
-    dispatch(updateSelectedColumnRowIndex(Number(value)));
+  function onChangeValue(selectedColumnRowInfo: RowColHeader) {
+    dispatch(updateSelectedColumnRowInfo(selectedColumnRowInfo));
   }
 
   useEffect(() => {
-    UpdateNonEmptyColumnsRow();
+    updateNonEmptyColumnsRow();
   }, [updateTrigger, hotTableComponent.current]);
 
   return (
     <Select
       onValueChange={(value) => {
-        if (value) OnChangeValue(value);
+        const selectedColumnRowInfo = JSON.parse(value); // JSON 문자열을 다시 객체로 파싱
+        if (selectedColumnRowInfo) {
+          onChangeValue(selectedColumnRowInfo); // columnRowInfo 객체를 저장
+        }
       }}
     >
       <SelectTrigger className='w-full'>
@@ -78,7 +79,7 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
         {nonEmptyColumnsRows.length > 0 ? (
           nonEmptyColumnsRows.map((columnRowInfo) => (
             <SelectItem
-              value={columnRowInfo.index.toString()}
+              value={JSON.stringify(columnRowInfo)}
               key={columnRowInfo.index}
             >
               {columnRowInfo.name}

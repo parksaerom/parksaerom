@@ -2,11 +2,14 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {CellChange} from 'handsontable/common';
 
 export type GridDataType = 'ROW' | 'COLUMN';
-
+export interface RowColHeader {
+  index: number;
+  name: string;
+}
 export interface GridDataAnalysisState {
   gridData: string[][];
   dataType: GridDataType;
-  selectedColumnRowIndex: number | null;
+  selectedColumnRowInfo: RowColHeader | null;
   selectedConfidenceLevel: number;
   dataList: number[];
 }
@@ -16,7 +19,7 @@ const initialState: GridDataAnalysisState = {
     .fill('')
     .map(() => new Array(9).fill('').map(() => '')),
   dataType: 'COLUMN',
-  selectedColumnRowIndex: null,
+  selectedColumnRowInfo: null,
   selectedConfidenceLevel: 0.95,
   dataList: [],
 };
@@ -31,8 +34,11 @@ export const gridDataAnalysisSlice = createSlice({
     setGridData: (state, action: PayloadAction<string[][]>) => {
       state.gridData = action.payload;
     },
-    updateSelectedColumnRowIndex: (state, action: PayloadAction<number>) => {
-      state.selectedColumnRowIndex = action.payload;
+    updateSelectedColumnRowInfo: (
+      state,
+      action: PayloadAction<RowColHeader>,
+    ) => {
+      state.selectedColumnRowInfo = action.payload;
     },
     updateSelectedConfidenceLevel: (state, action: PayloadAction<number>) => {
       state.selectedConfidenceLevel = action.payload;
@@ -59,6 +65,7 @@ export const gridDataAnalysisSlice = createSlice({
         state.gridData[row][column] = value;
       }
     },
+    resetGridDataAnalysis: () => initialState,
   },
 });
 
@@ -66,7 +73,8 @@ export const {
   setGridDataType,
   setGridData,
   updateSelectedConfidenceLevel,
-  updateSelectedColumnRowIndex,
+  updateSelectedColumnRowInfo,
   updateGridData,
   updateCell,
+  resetGridDataAnalysis,
 } = gridDataAnalysisSlice.actions;
