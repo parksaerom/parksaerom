@@ -138,12 +138,11 @@ function GridDataAnalysisContent() {
   function onAnalysisData() {
     const selectedColumnRowIndex = selectedColumnRowInfo?.index;
 
-    if (!selectedColumnRowIndex) {
-      toast({
-        description: '데이터를 선택해 주세요.',
-      });
-    } else {
-      if (hotTableComponent.current && selectedColumnRowIndex) {
+    if (
+      selectedColumnRowIndex !== undefined &&
+      selectedColumnRowInfo !== null
+    ) {
+      if (hotTableComponent.current) {
         const hotInstance = hotTableComponent.current.hotInstance;
 
         if (hotInstance) {
@@ -168,6 +167,10 @@ function GridDataAnalysisContent() {
           }
         }
       }
+    } else {
+      toast({
+        description: '데이터를 선택해 주세요.',
+      });
     }
   }
 
