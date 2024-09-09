@@ -1,16 +1,10 @@
 import {Metadata} from 'next/types';
 import {Providers} from '@/lib/providers';
-import {MainHeader} from '@/components/main-header';
 import {ThemeProvider} from '@/components/providers';
 import {fontPretendard} from '@/styles/fonts';
 import {cn} from '@/lib/shadcn-ui/utils';
 import '@/styles/globals.css';
 import {siteConfig} from '@/config/site';
-import Main from './main/page';
-import About from './about/page';
-import Experience from './experience/page';
-import Projects from './projects/page';
-import Contact from './contact/page';
 import {Toaster} from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
@@ -62,22 +56,17 @@ export const metadata: Metadata = {
   // manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-export default function RootLayout() {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Providers>
       <html lang='en' className={fontPretendard.className}>
         <body className={cn('relative z-0  bg-mainBackground')}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            <div className='bg-main-pattern bg-cover bg-no-repeat'>
-              <MainHeader />
-              <Main />
-            </div>
-            <div className='container my-24 grid w-3/4 gap-y-36'>
-              <About />
-              <Experience />
-              <Projects />
-              <Contact />
-            </div>
+            {children}
             <Toaster />
           </ThemeProvider>
         </body>

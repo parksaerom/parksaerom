@@ -3,7 +3,7 @@ import {useGLTF} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import {useCylinder} from '@react-three/cannon';
 import type {CylinderProps} from '@react-three/cannon';
-import GlitterCircle from '@/app/projectsShowcase/3dObjectControl/components/glitter-circle';
+import GlitterCircle from '@/app/projects/3dObjectControl/components/glitter-circle';
 type HouseGLTFResult = GLTF & {
   nodes: {
     [nodeName: string]: THREE.Mesh;

@@ -1,13 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-
-import {siteConfig} from '@/config/site';
-import {cn} from '@/lib/shadcn-ui/utils';
-import {SiTistory, SiNaver} from 'react-icons/si';
-import {MainNav} from '@/components/main-nav';
-import {ModeToggle} from '@/components/mode-toggle';
-import {buttonVariants} from '@/components/ui/button';
 import {useEffect, useState} from 'react';
 import {styles} from '@/styles/common';
 

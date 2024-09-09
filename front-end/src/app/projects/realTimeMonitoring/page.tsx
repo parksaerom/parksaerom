@@ -4,10 +4,10 @@ import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Label} from '@/components/ui/label';
 import RealTimeLineChart, {
   DataPoint,
-} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
-import RealTimeDataGrid from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-data-grid';
+} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
+import RealTimeDataGrid from '@/app/projects/realTimeMonitoring/components/real-time-data-grid';
 import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
-import {RealTimeLineChartProps} from '@/app/projectsShowcase/realTimeMonitoring/components/real-time-line-chart';
+import {RealTimeLineChartProps} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import {useEffect, useRef, useState} from 'react';
 import React from 'react';
 import {Button} from '@/components/ui/button';

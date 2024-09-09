@@ -7,18 +7,16 @@ import {motion} from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
 import {ReactNode} from 'react';
-import ThreeObjectControlPage from '../projectsShowcase/3dObjectControl/page';
-import GridDataAnalysisPage from '../projectsShowcase/gridDataAnalysis/page';
-import RealTimeMonitoringPage from '../projectsShowcase/realTimeMonitoring/page';
+import ThreeObjectControlPage from '@/app/projects/3dObjectControl/page';
+import GridDataAnalysisPage from '@/app/projects/gridDataAnalysis/page';
+import RealTimeMonitoringPage from '@/app/projects/realTimeMonitoring/page';
 import {Section} from '@/components/section';
 
 export interface ProjectsProps {

@@ -4,10 +4,10 @@ import React from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Sky, OrbitControls, PerspectiveCamera, Html} from '@react-three/drei';
 import {Physics} from '@react-three/cannon';
-import Cat from '@/app/projectsShowcase/3dObjectControl/components/cat';
-import Ground from '@/app/projectsShowcase/3dObjectControl/components/ground';
-import House from '@/app/projectsShowcase/3dObjectControl/components/house';
-import Room from '@/app/projectsShowcase/3dObjectControl/components/room';
+import Cat from '@/app/projects/3dObjectControl/components/cat';
+import Ground from '@/app/projects/3dObjectControl/components/ground';
+import House from '@/app/projects/3dObjectControl/components/house';
+import Room from '@/app/projects/3dObjectControl/components/room';
 import {useSelector, selectInside} from '@/lib/redux';
 
 export default function ThreeCanvas() {

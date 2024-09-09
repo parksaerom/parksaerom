@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import {BiLoaderAlt} from 'react-icons/bi';
 
 const ExcelDataGrid = dynamic(
-  () => import('@/app/projectsShowcase/gridDataAnalysis/components/data-grid'),
+  () => import('@/app/projects/gridDataAnalysis/components/data-grid'),
   {
     ssr: false,
     loading: () => <BiLoaderAlt className='mr-2 h-4 w-4 animate-spin' />,

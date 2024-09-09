@@ -3,9 +3,9 @@
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {Button} from '@/components/ui/button';
 import {PiColumns, PiRows} from 'react-icons/pi';
-import DataSelector from '@/app/projectsShowcase/gridDataAnalysis/components/data-selector';
-import ConfidenceLevelSlider from '@/app/projectsShowcase/gridDataAnalysis/components/confidence-level-slider';
-import Input from '@/app/projectsShowcase/gridDataAnalysis/components/input';
+import DataSelector from '@/app/projects/gridDataAnalysis/components/data-selector';
+import ConfidenceLevelSlider from '@/app/projects/gridDataAnalysis/components/confidence-level-slider';
+import Input from '@/app/projects/gridDataAnalysis/components/input';
 import {HotTableProvider, useHotTable} from './components/data-grid-context';
 import {
   useSelector,
