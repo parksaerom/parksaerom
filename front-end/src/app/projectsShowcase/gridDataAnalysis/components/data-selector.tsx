@@ -25,6 +25,10 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
   >([]);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    updateNonEmptyColumnsRow();
+  }, [updateTrigger, hotTableComponent.current]);
+
   function updateNonEmptyColumnsRow() {
     if (hotTableComponent.current) {
       const hotInstance = hotTableComponent.current.hotInstance;
@@ -58,10 +62,6 @@ export default function DataSelector({gridDataType}: DataSelectorProps) {
   function onChangeValue(selectedColumnRowInfo: RowColHeader) {
     dispatch(updateSelectedColumnRowInfo(selectedColumnRowInfo));
   }
-
-  useEffect(() => {
-    updateNonEmptyColumnsRow();
-  }, [updateTrigger, hotTableComponent.current]);
 
   return (
     <Select

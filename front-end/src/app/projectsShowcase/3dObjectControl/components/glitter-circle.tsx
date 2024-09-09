@@ -4,9 +4,9 @@ import * as THREE from 'three';
 
 export default function GlitterCircle({args, ...props}: MeshProps) {
   const circleMesh = useRef<THREE.Mesh>(null);
-
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load('/images/glitter-ring-circle.png');
+
   useFrame(() => {
     if (circleMesh.current) {
       circleMesh.current.rotation.z += 0.03;

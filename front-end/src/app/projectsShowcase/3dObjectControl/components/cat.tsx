@@ -3,15 +3,7 @@ import React, {useRef, useState, useEffect} from 'react';
 import {useGLTF, useAnimations, Html} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import {useFrame} from '@react-three/fiber';
-import {
-  ConvexPolyhedronProps,
-  useConvexPolyhedron,
-  useBox,
-  useCylinder,
-  CylinderProps,
-  BoxProps,
-  Triplet,
-} from '@react-three/cannon';
+import {useCylinder, CylinderProps, Triplet} from '@react-three/cannon';
 import {
   selectInside,
   selectShowText,
@@ -87,7 +79,18 @@ export default function Cat({args, ...props}: CylinderProps) {
   });
 
   useEffect(() => api.position.subscribe((v) => (catPosition.current = v)), []);
+
   useEffect(() => api.rotation.subscribe((v) => (catRotation.current = v)), []);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [handleKeyDown, handleKeyUp]);
 
   useFrame(() => {
     const speed = 0.07;
@@ -134,7 +137,7 @@ export default function Cat({args, ...props}: CylinderProps) {
     }
   });
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  function handleKeyDown(event: KeyboardEvent) {
     switch (event.key) {
       case 'Up':
       case 'ArrowUp':
@@ -189,13 +192,13 @@ export default function Cat({args, ...props}: CylinderProps) {
     if (event.key === ' ' || event.key === 'Spacebar') {
       api.velocity.set(0, 10, 0);
     }
-  };
+  }
 
-  const robotFadeIn = () => {
+  function robotFadeIn() {
     if (!actions?.walk?.isRunning()) actions?.walk?.reset().fadeIn(1).play();
-  };
+  }
 
-  const handleKeyUp = (event: KeyboardEvent) => {
+  function handleKeyUp(event: KeyboardEvent) {
     switch (event.key) {
       case 'Up':
       case 'ArrowUp':
@@ -224,17 +227,7 @@ export default function Cat({args, ...props}: CylinderProps) {
       default:
         break;
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, [handleKeyDown, handleKeyUp]);
+  }
 
   return (
     <group ref={catRef as React.Ref<THREE.Group>} dispose={null} scale={2}>

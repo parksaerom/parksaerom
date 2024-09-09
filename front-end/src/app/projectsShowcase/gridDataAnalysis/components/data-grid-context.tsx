@@ -28,7 +28,6 @@ export const HotTableProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const hotTableComponent = useRef<HotTable>(null);
   const [updateTrigger, setUpdateTrigger] = useState(false);
-
   const triggerUpdate = useCallback(() => {
     setUpdateTrigger((prev) => !prev);
   }, []);

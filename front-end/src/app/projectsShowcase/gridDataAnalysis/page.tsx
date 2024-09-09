@@ -49,7 +49,6 @@ function GridDataAnalysisContent() {
   const selectedColumnRowInfo = useSelector(selectSelectedColumnRowInfo);
   const confidenceLevel = useSelector(selectSelectedConfidenceLevel);
   const {toast} = useToast();
-
   const dispatch = useDispatch();
 
   useEffect(() => {

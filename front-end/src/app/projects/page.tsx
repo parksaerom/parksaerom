@@ -21,7 +21,7 @@ import GridDataAnalysisPage from '../projectsShowcase/gridDataAnalysis/page';
 import RealTimeMonitoringPage from '../projectsShowcase/realTimeMonitoring/page';
 import {Section} from '@/components/section';
 
-export type ProjectsProps = {
+export interface ProjectsProps {
   name: string;
   description: string;
   tags: {
@@ -30,7 +30,7 @@ export type ProjectsProps = {
   }[];
   image: string;
   page: ReactNode;
-};
+}
 
 const projects: ProjectsProps[] = [
   {
@@ -106,11 +106,12 @@ function ProjectCard({
   image,
   page,
 }: {index: number} & ProjectsProps) {
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  function handleKeyDown(event: React.KeyboardEvent) {
     if (event.key === ' ') {
-      event.preventDefault(); // 스페이스바 기본 동작 방지
+      // 스페이스바 기본 동작 방지
+      event.preventDefault();
     }
-  };
+  }
 
   return (
     <Dialog>

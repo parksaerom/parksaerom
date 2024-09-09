@@ -44,6 +44,16 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
     right: false,
   });
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [handleKeyDown, handleKeyUp]);
+
   useFrame(() => {
     if (robotRef.current) {
       const speed = 0.01;
@@ -77,7 +87,7 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
     }
   });
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  function handleKeyDown(event: KeyboardEvent) {
     switch (event.key) {
       case 'ArrowUp':
         setIsMoving((prev) => ({...prev, up: true}));
@@ -94,14 +104,14 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
       default:
         break;
     }
-  };
+  }
 
-  const robotFadeIn = () => {
+  function robotFadeIn() {
     if (!actions?.shake?.isRunning())
       actions?.shake?.reset().fadeIn(0.5).play();
-  };
+  }
 
-  const handleKeyUp = (event: KeyboardEvent) => {
+  function handleKeyUp(event: KeyboardEvent) {
     switch (event.key) {
       case 'ArrowUp':
         setIsMoving((prev) => ({...prev, up: false}));
@@ -122,17 +132,7 @@ export default function Robot(props: JSX.IntrinsicElements['group']) {
       default:
         break;
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, [handleKeyDown, handleKeyUp]);
+  }
 
   return (
     <group ref={robotRef} {...props}>

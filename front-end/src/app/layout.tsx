@@ -1,10 +1,6 @@
 import {Metadata} from 'next/types';
-
-/* Components */
 import {Providers} from '@/lib/providers';
 import {MainHeader} from '@/components/main-header';
-
-/* Instruments */
 import {ThemeProvider} from '@/components/providers';
 import {fontPretendard} from '@/styles/fonts';
 import {cn} from '@/lib/shadcn-ui/utils';

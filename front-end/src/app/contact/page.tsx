@@ -26,15 +26,15 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const {toast} = useToast();
 
-  const handleChange = (
+  function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined,
-  ) => {
+  ) {
     if (e === undefined) return;
     const {name, value} = e.target;
     setForm({...form, [name]: value});
-  };
+  }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement> | undefined) {
     if (e === undefined) return;
     e.preventDefault();
     setLoading(true);
@@ -71,7 +71,7 @@ export default function Contact() {
           });
         },
       );
-  };
+  }
 
   return (
     <Section id='contact' className='mt-24 flex gap-10'>

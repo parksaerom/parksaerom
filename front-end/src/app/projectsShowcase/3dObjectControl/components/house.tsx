@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import {useGLTF} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
-import {useBox, useCylinder} from '@react-three/cannon';
-import type {BoxProps, CylinderProps} from '@react-three/cannon';
+import {useCylinder} from '@react-three/cannon';
+import type {CylinderProps} from '@react-three/cannon';
 import GlitterCircle from '@/app/projectsShowcase/3dObjectControl/components/glitter-circle';
 type HouseGLTFResult = GLTF & {
   nodes: {
@@ -102,13 +102,6 @@ export default function House(props: JSX.IntrinsicElements['group']) {
   const {nodes, materials} = useGLTF(
     '/three/forest-house.glb',
   ) as HouseGLTFResult;
-  //   const {vertices, faces, normals, axes, boundingSphereRadius} =
-  //     getGeometryFromGLTFNodes(nodes);
-  //   const [ref] = useConvexPolyhedron(() => ({
-  //     args: [vertices, faces, normals, axes, boundingSphereRadius],
-  //     mass: 100,
-  //     position: [0, -1.5, 0],
-  //   }));
 
   return (
     <group {...props} dispose={null}>

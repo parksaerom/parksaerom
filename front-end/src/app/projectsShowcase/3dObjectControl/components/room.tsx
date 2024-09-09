@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {useGLTF} from '@react-three/drei';
 import {GLTF} from 'three-stdlib';
 import GlitterCircle from '@/app/projectsShowcase/3dObjectControl/components/glitter-circle';
-import {useBox, BoxProps, useConvexPolyhedron} from '@react-three/cannon';
+import {useBox, BoxProps} from '@react-three/cannon';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -390,6 +390,7 @@ function RoomObject({args, ...props}: BoxProps) {
     args,
     props,
   ]);
+
   return (
     <mesh ref={ref as React.MutableRefObject<THREE.Mesh>} visible={false}>
       <boxGeometry args={args} />
@@ -400,6 +401,7 @@ function RoomObject({args, ...props}: BoxProps) {
 
 export default function Room(props: JSX.IntrinsicElements['group']) {
   const {nodes, materials} = useGLTF('/three/room.glb') as GLTFResult;
+
   return (
     <>
       <GlitterCircle position={[-17, 0.1, 2]} rotation={[-Math.PI / 2, 0, 0]} />

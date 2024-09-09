@@ -1,6 +1,5 @@
 import {Label} from '@/components/ui/label';
 import {Slider} from '@/components/ui/slider';
-import {useState} from 'react';
 import {
   selectSelectedConfidenceLevel,
   updateSelectedConfidenceLevel,
