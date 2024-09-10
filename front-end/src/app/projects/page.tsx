@@ -18,6 +18,7 @@ import ThreeObjectControlPage from '@/app/projects/3dObjectControl/page';
 import GridDataAnalysisPage from '@/app/projects/gridDataAnalysis/page';
 import RealTimeMonitoringPage from '@/app/projects/realTimeMonitoring/page';
 import {Section} from '@/components/section';
+import Image from 'next/image';
 
 export interface ProjectsProps {
   name: string;
@@ -129,8 +130,10 @@ function ProjectCard({
           >
             <div className='h-[46vh] w-full rounded-2xl border border-primary bg-card p-5 sm:w-[300px]'>
               <div className='relative h-56 w-full'>
-                <img
+                <Image
                   src={image}
+                  width={300}
+                  height={300}
                   alt={name}
                   className='h-full w-full rounded-2xl object-cover'
                 />
