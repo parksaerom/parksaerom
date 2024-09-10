@@ -10,6 +10,7 @@ import {siteConfig} from '@/config/site';
 import {Button} from '@/components/ui/button';
 import {Section} from '@/components/section';
 import {useToast} from '@/hooks/use-toast';
+import Image from 'next/image';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
@@ -74,47 +75,59 @@ export default function Contact() {
   }
 
   return (
-    <Section id='contact' className='mt-24 flex gap-10'>
+    <Section id='contact' className='mt-5 flex gap-10'>
       <motion.div
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('up', 'tween', 0.2, 1)}
         className='flex w-full overflow-hidden rounded-xl border border-primary bg-card'
       >
-        <div className='flex-1 p-8'>
-          <SectionHeader useMotion={false} {...sectionsConfig.contact} />
-          <form onSubmit={handleSubmit} className='mt-10 flex flex-col gap-8'>
-            {Object.keys(sectionsConfig.contact.form).map((input) => {
-              const {span, placeholder} =
-                sectionsConfig.contact.form[
-                  input as keyof typeof sectionsConfig.contact.form
-                ];
-              const Component = input === 'message' ? 'textarea' : 'input';
+        <div className='relative w-full'>
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            className='absolute left-0 top-0 h-full w-full object-cover'
+          >
+            <source src='/images/sky.webm' type='video/webm' />
+            Your browser does not support the video tag.
+          </video>
 
-              return (
-                <label key={input} className='flex flex-col'>
-                  <span className='mb-2 text-secondary'>{span}</span>
-                  <Component
-                    type={input === 'email' ? 'email' : 'text'}
-                    name={input}
-                    value={form[`${input}`]}
-                    onChange={handleChange}
-                    placeholder={placeholder}
-                    className='rounded-lg px-6 py-4'
-                    {...(input === 'message' && {rows: 6})}
-                  />
-                </label>
-              );
-            })}
-            <Button type='submit'>{loading ? 'Sending...' : 'Send'}</Button>
-          </form>
-        </div>
-        <div className='hidden w-full flex-1 bg-primary object-cover md:block'>
-          {/* <img
-            src={'/images/laptop.jpg'}
-            alt={'contact'}
-            className='h-full w-full object-cover'
-          /> */}
+          {/* Contact Form */}
+          <div className='relative z-10 flex h-full items-center justify-center'>
+            <div className='my-20 w-full max-w-xl rounded-lg bg-card bg-opacity-70 p-8 shadow-lg'>
+              <SectionHeader useMotion={false} {...sectionsConfig.contact} />
+              <form
+                onSubmit={handleSubmit}
+                className='mt-5 flex flex-col gap-3'
+              >
+                {Object.keys(sectionsConfig.contact.form).map((input) => {
+                  const {span, placeholder} =
+                    sectionsConfig.contact.form[
+                      input as keyof typeof sectionsConfig.contact.form
+                    ];
+                  const Component = input === 'message' ? 'textarea' : 'input';
+
+                  return (
+                    <label key={input} className='flex flex-col'>
+                      <span className='mb-2 text-secondary'>{span}</span>
+                      <Component
+                        type={input === 'email' ? 'email' : 'text'}
+                        name={input}
+                        value={form[`${input}`]}
+                        onChange={handleChange}
+                        placeholder={placeholder}
+                        className='rounded-lg px-4 py-3'
+                        {...(input === 'message' && {rows: 4})}
+                      />
+                    </label>
+                  );
+                })}
+                <Button type='submit'>{loading ? 'Sending...' : 'Send'}</Button>
+              </form>
+            </div>
+          </div>
         </div>
       </motion.div>
     </Section>

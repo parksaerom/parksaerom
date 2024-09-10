@@ -35,12 +35,12 @@ export const sectionsConfig: TSectionList = {
     h2: 'Contact.',
     form: {
       name: {
-        span: 'Your Name',
+        span: '이름',
         placeholder: "What's your name?",
       },
-      email: {span: 'Your Email', placeholder: "What's your email?"},
+      email: {span: '이메일 주소', placeholder: "What's your email?"},
       message: {
-        span: 'Your Message',
+        span: '메시지',
         placeholder: 'What do you want to say?',
       },
     },

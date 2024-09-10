@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'parksaerom',
+  name: 'Saerom Park - Portfolio',
   //url: "https://ui.shadcn.com",
   creator: 'parksaerom',
   email: 'saerom216@gmail.com',
