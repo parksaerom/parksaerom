@@ -49,7 +49,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/laptop.jpg',
+    image: '/images/monitoring.png',
     page: <RealTimeMonitoringPage />,
   },
   {
@@ -70,7 +70,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/laptop.jpg',
+    image: '/images/grid-data-analysis.png',
     page: <GridDataAnalysisPage />,
   },
   {
@@ -91,7 +91,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/laptop.jpg',
+    image: '/images/three-object-control.png',
     page: <ThreeObjectControlPage />,
   },
 ];
