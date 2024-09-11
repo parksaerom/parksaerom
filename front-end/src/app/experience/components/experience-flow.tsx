@@ -261,7 +261,13 @@ function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
         variants={fadeIn('left', 'spring', 0.1, 1.75)}
         className='flex'
       >
-        <Card className='w-[24vw] min-w-80 cursor-default overscroll-auto border-primary bg-card'>
+        <Card
+          onWheel={(e) => {
+            e.stopPropagation();
+            window.scrollBy(0, e.deltaY);
+          }}
+          className='w-[24vw] min-w-80 cursor-default border-primary bg-card'
+        >
           <CardHeader className='mt-5 py-3'>
             <CardDescription className='text-secondary'>
               {data.date}
