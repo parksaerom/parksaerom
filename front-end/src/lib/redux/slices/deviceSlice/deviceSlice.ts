@@ -12,10 +12,10 @@ export const deviceSlice = createSlice({
   name: 'device',
   initialState,
   reducers: {
-    setMobile: (state, action: PayloadAction<boolean>) => {
+    setIsMobile: (state, action: PayloadAction<boolean>) => {
       state.isMobile = action.payload;
     },
   },
 });
 
-export const {setMobile} = deviceSlice.actions;
+export const {setIsMobile} = deviceSlice.actions;

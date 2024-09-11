@@ -11,7 +11,7 @@ export default function IndexPage() {
         <MainHeader />
         <Main />
       </div>
-      <div className='container my-24 grid w-3/4 gap-y-36'>
+      <div className='container my-24 grid gap-y-36'>
         <About />
         <Experience />
         <Projects />

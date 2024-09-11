@@ -6,6 +6,7 @@ import {cn} from '@/lib/shadcn-ui/utils';
 import '@/styles/globals.css';
 import {siteConfig} from '@/config/site';
 import {Toaster} from '@/components/ui/toaster';
+import MobileChecker from '@/components/mobile-checker';
 
 export const metadata: Metadata = {
   title: {
@@ -68,6 +69,7 @@ export default function RootLayout({children}: RootLayoutProps) {
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             {children}
             <Toaster />
+            <MobileChecker />
           </ThemeProvider>
         </body>
       </html>

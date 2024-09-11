@@ -1,5 +1,6 @@
 'use client';
 
+import {DataPointType} from '@/types';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,11 +23,9 @@ ChartJS.register(
   Legend,
 );
 
-export type DataPoint = {x: number; y: number};
-
 export interface RealTimeLineChartProps {
   title: string;
-  chartData: DataPoint[];
+  chartData: DataPointType[];
 }
 
 export default function RealTimeLineChart({

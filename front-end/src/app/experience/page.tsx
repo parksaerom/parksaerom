@@ -11,8 +11,8 @@ export default function Experience() {
     <Section id='experience'>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.experience} />
       <div className='mt-20 flex h-[5300px] flex-row gap-10'>
-        <ExperienceText className='relative h-full basis-2/5 sm:hidden md:block' />
-        <ExperienceFlow className='basis-3/5' />
+        <ExperienceText className='relative hidden h-full basis-2/5 sm:flex' />
+        <ExperienceFlow className='sm:basis-3/5' />
       </div>
       <Determination />
     </Section>

@@ -1,11 +1,10 @@
 'use client';
 
-import React, {Suspense, useEffect, useRef, useState} from 'react';
+import React, {Suspense, useRef} from 'react';
 import {Canvas, useFrame} from '@react-three/fiber';
 import {Html, OrbitControls, Preload, useGLTF} from '@react-three/drei';
-
-import {isMobileScreen} from '@/utils/device';
 import {BiLoaderAlt} from 'react-icons/bi';
+import {selectIsMobile, useSelector} from '@/lib/redux';
 
 function Computer() {
   const computer = useGLTF('/three/computer.glb');
@@ -30,21 +29,7 @@ function Computer() {
 }
 
 export default function ComputersCanvas() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const updateDeviceType = () => {
-      const mobile = isMobileScreen();
-      setIsMobile(mobile);
-    };
-
-    updateDeviceType();
-    window.addEventListener('resize', updateDeviceType);
-
-    return () => {
-      window.removeEventListener('resize', updateDeviceType);
-    };
-  }, []);
+  const isMobile = useSelector(selectIsMobile);
 
   return (
     <>

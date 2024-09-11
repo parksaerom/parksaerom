@@ -19,6 +19,7 @@ import GridDataAnalysisPage from '@/app/projects/gridDataAnalysis/page';
 import RealTimeMonitoringPage from '@/app/projects/realTimeMonitoring/page';
 import {Section} from '@/components/section';
 import Image from 'next/image';
+import {selectIsMobile, useSelector} from '@/lib/redux';
 
 export interface ProjectsProps {
   name: string;
@@ -167,26 +168,40 @@ function ProjectCard({
 }
 
 export default function Projects() {
+  const isMobile = useSelector(selectIsMobile);
   return (
-    <Section id='projects'>
-      <SectionHeader useMotion={true} {...sectionsConfig.sections.projects} />
+    <>
+      {isMobile ? (
+        <></>
+      ) : (
+        <Section id='projects'>
+          <SectionHeader
+            useMotion={true}
+            {...sectionsConfig.sections.projects}
+          />
 
-      <div className='flex w-full'>
-        <motion.p
-          initial='offScreen'
-          whileInView='onScreen'
-          variants={fadeIn('', '', 0.1, 1)}
-          className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
-        >
-          {sectionsConfig.sections.projects.content}
-        </motion.p>
-      </div>
+          <div className='flex w-full'>
+            <motion.p
+              initial='offScreen'
+              whileInView='onScreen'
+              variants={fadeIn('', '', 0.1, 1)}
+              className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
+            >
+              {sectionsConfig.sections.projects.content}
+            </motion.p>
+          </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
-      </div>
-    </Section>
+          <div className='mt-20 flex flex-wrap gap-7'>
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={`project-${index}`}
+                index={index}
+                {...project}
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+    </>
   );
 }

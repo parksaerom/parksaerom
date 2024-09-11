@@ -23,6 +23,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {selectIsMobile, useSelector} from '@/lib/redux';
 
 type ExperienceNodeType = Node<
   {
@@ -39,7 +40,7 @@ type ExperienceNodeType = Node<
 export const experienceArray = [
   {
     id: '0',
-    position: {x: 5, y: 5},
+    position: {x: 5, y: 5, mobileY: 0},
     data: {
       index: 0,
       title: '서울시 건축물 내진성능 자가점검 시스템 개발',
@@ -56,7 +57,7 @@ export const experienceArray = [
   },
   {
     id: '1',
-    position: {x: 200, y: 450},
+    position: {x: 200, y: 450, mobileY: 500},
     data: {
       index: 1,
       title: '우주전파센터 우주환경 예보 통합모델 개발',
@@ -72,7 +73,7 @@ export const experienceArray = [
   },
   {
     id: '2',
-    position: {x: 120, y: 840},
+    position: {x: 120, y: 840, mobileY: 950},
     data: {
       index: 2,
       title: '기상청 국가기후자료관리 및 서비스체계 구축',
@@ -87,7 +88,7 @@ export const experienceArray = [
   },
   {
     id: '3',
-    position: {x: 5, y: 1220},
+    position: {x: 5, y: 1220, mobileY: 1350},
     data: {
       index: 3,
       title: '기상청 이중편파레이더 현업예보지원',
@@ -103,7 +104,7 @@ export const experienceArray = [
   },
   {
     id: '4',
-    position: {x: 120, y: 1600},
+    position: {x: 120, y: 1600, mobileY: 1800},
     data: {
       index: 4,
       title: '수자원공사 위성산출물 표출 시스템',
@@ -119,7 +120,7 @@ export const experienceArray = [
 
   {
     id: '5',
-    position: {x: 200, y: 2000},
+    position: {x: 200, y: 2000, mobileY: 2230},
     data: {
       index: 5,
       title: '윈도우용 품질관리 솔루션',
@@ -128,7 +129,7 @@ export const experienceArray = [
       skills: 'C#, XMAL, WPF, HTML/CSS, Docker, Jenkins, swagger',
       points: [
         'Front-end, Back-end 메인 개발',
-        '제조 공장에서 생산되는 제품의 품질향상에 필요한 데이터들을 가공/시각화하여 품질 향상을 위한 의사결정에 도움을 주는 윈도우 프로그램으로 MSA, SPC, 검정/추정, 선형 회귀, 상관분석 등의 품질관리 관련 기능 탑재된 데이터 분석 엔진을 C#언어를 사용해 API 시스템을 개발하였습니다. XMAL을 사용하여 Window GUI 및 그래프/보고서 표출 개발하였습니다.',
+        '제조 공장에서 생산되는 제품의 데이터들을 가공/시각화하여 품질 향상을 위한 품질관리 윈도우 프로그램으로 MSA, SPC, 검정/추정, 선형 회귀, 상관분석 등의 품질관리 데이터 분석 엔진을 C#언어를 사용하여 API로 개발하였습니다. WPF을 사용하여 Window GUI 및 그래프/보고서 표출 개발하였습니다.',
         'Docker 기반으로 Jenkins와 함께 제품 빌드, 배포, 업데이트를 자동화하였습니다.',
         '솔루션 개발을 위해 매주 1~2회 통계학과 교수님께 수업을 받으며 관련 지식 공부 후 이를 바탕으로 기획/개발/배포/운영을 진행하였습니다.',
         '데이터 바우처 사업을 통해 일반 기업들에게도 프로그램 커스터마이징 및 추가 기능을 개발을 하여 기획/개발/배포/운영을 진행하였습니다.',
@@ -137,7 +138,7 @@ export const experienceArray = [
   },
   {
     id: '6',
-    position: {x: 100, y: 2600},
+    position: {x: 100, y: 2600, mobileY: 2850},
     data: {
       index: 6,
       title: '기상청 홈페이지 통합 정비 사업',
@@ -152,7 +153,7 @@ export const experienceArray = [
   },
   {
     id: '7',
-    position: {x: 20, y: 3450},
+    position: {x: 20, y: 3450, mobileY: 3230},
     data: {
       index: 7,
       title: '웹용 품질관리 솔루션',
@@ -167,7 +168,7 @@ export const experienceArray = [
   },
   {
     id: '8',
-    position: {x: 120, y: 3850},
+    position: {x: 120, y: 3850, mobileY: 3700},
     data: {
       index: 8,
       title: 'H사 물류로봇관제 웹',
@@ -184,7 +185,7 @@ export const experienceArray = [
   },
   {
     id: '9',
-    position: {x: 5, y: 4250},
+    position: {x: 5, y: 4250, mobileY: 4150},
     data: {
       index: 9,
       title: '물류로봇관제 웹',
@@ -201,7 +202,7 @@ export const experienceArray = [
   },
   {
     id: '10',
-    position: {x: 100, y: 4800},
+    position: {x: 100, y: 4800, mobileY: 4780},
     data: {
       index: 10,
       title: '물류로봇관제 웹 기능 추가',
@@ -260,23 +261,28 @@ function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
         variants={fadeIn('left', 'spring', 0.1, 1.75)}
         className='flex'
       >
-        <Card className='w-[30rem] border-primary bg-card'>
+        <Card className='w-[24vw] min-w-80 cursor-default overscroll-auto border-primary bg-card'>
           <CardHeader className='mt-5 py-3'>
             <CardDescription className='text-secondary'>
               {data.date}
             </CardDescription>
-            <CardTitle className='h2 text-primary'>{data.title}</CardTitle>
-            <CardDescription className='text-[16px] font-semibold text-secondary'>
+            <CardTitle className='text-lg text-primary sm:text-2xl'>
+              {data.title}
+            </CardTitle>
+            <CardDescription className='text-sm font-semibold text-secondary sm:text-[16px]'>
               {data.companyName}
             </CardDescription>
-            <CardDescription className='text-[16px] font-semibold text-secondary'>
+            <CardDescription className='text-sm font-semibold text-secondary sm:text-[16px]'>
               {data.skills}
             </CardDescription>
           </CardHeader>
           <CardContent className='ml-5 text-secondary'>
             <ul className='list-disc'>
               {data.points.map((point, index) => (
-                <li key={`experience-point-${index}`} className=' text-md pl-1'>
+                <li
+                  key={`experience-point-${index}`}
+                  className='pl-1 text-sm sm:text-base'
+                >
                   {point}
                 </li>
               ))}
@@ -331,19 +337,26 @@ const edgeTypes: EdgeTypes = {
 };
 
 export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
+  const isMobile = useSelector(selectIsMobile);
   const initialNodes: Node[] = [
-    ...experienceArray.map((experience) => ({
+    ...experienceArray.map((experience, index) => ({
       ...experience,
       type: 'experience',
+      position: {
+        x: isMobile ? 0 : experience.position.x,
+        y: isMobile ? experience.position.mobileY : experience.position.y,
+      },
     })),
     {
       id: 'last',
-      position: {x: 30, y: 5300},
+      position: {
+        x: isMobile ? 150 : 30,
+        y: 5300,
+      },
       type: 'transparent',
       data: {},
     },
   ];
-
   const initialEdges: Edge[] = experienceArray.map((experience, index) => {
     if (index === experienceArray.length - 1) {
       return {

@@ -81,7 +81,7 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('right', 'spring', index * 0.5, 1.75)}
-        className='w-[15vw] rounded-[20px] bg-card outline outline-1 outline-primary '
+        className='w-[15vw] min-w-28 rounded-[20px] bg-card outline outline-1 outline-primary '
       >
         <div className='flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
           {icon}

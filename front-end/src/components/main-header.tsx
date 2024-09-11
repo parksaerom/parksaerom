@@ -1,10 +1,10 @@
 'use client';
 
+import {NavIdType} from '@/types';
+import {handleScroll} from '@/utils/scroll';
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
-import {styles} from '@/styles/common';
-
-export type NavIdType = 'about' | 'experience' | 'projects' | 'contact';
+import {BiMenu} from 'react-icons/bi';
 
 export type NavLinkType = {
   id: NavIdType;
@@ -33,6 +33,7 @@ const navLinks: NavLinkType[] = [
 export function MainHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScrollEvent);
@@ -67,19 +68,9 @@ export function MainHeader() {
     });
   }
 
-  function handleScroll(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({behavior: 'smooth'});
-      window.history.pushState(null, '', `#${id}`);
-    }
-  }
-
   return (
-    <header
-      className={`${
-        styles.paddingX
-      } fixed top-0 z-20 flex w-full items-center py-3 ${
+    <nav
+      className={`fixed top-0 z-20 flex w-full items-center py-3 ${
         scrolled ? 'bg-mainBackground' : 'bg-transparent'
       }`}
     >
@@ -92,15 +83,16 @@ export function MainHeader() {
           <Link
             href='/'
             onClick={() => {
-              window.scrollTo(0, 0);
+              handleScroll('main');
             }}
           >
-            <span className='text-xl font-bold leading-snug lg:text-3xl'>
+            <span className='text-lg font-bold leading-snug lg:text-3xl'>
               Saerom Park - Portfolio
             </span>
           </Link>
         </div>
-        <ul className='relative z-10 flex max-w-max flex-1 items-center justify-center space-x-16 p-4'>
+
+        <ul className='relative z-10 hidden max-w-max flex-1 items-center justify-center space-x-16 p-4 sm:flex'>
           {navLinks.map((navLink) => (
             <li
               key={navLink.id}
@@ -118,7 +110,40 @@ export function MainHeader() {
             </li>
           ))}
         </ul>
+
+        <div className='flex flex-1 items-center justify-end sm:hidden'>
+          <BiMenu
+            className='h-[28px] w-[28px] object-contain'
+            onClick={() => setToggle(!toggle)}
+          />
+          <div
+            className={`${
+              !toggle ? 'hidden' : 'flex'
+            } absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-lg bg-card bg-opacity-90 p-6 text-secondary`}
+          >
+            <ul className='flex flex-1 list-none flex-col items-start justify-end gap-4'>
+              {navLinks.map((navLink) => {
+                return navLink.id === 'projects' ? (
+                  <></>
+                ) : (
+                  <li
+                    key={navLink.id}
+                    className={`font-poppins cursor-pointer text-[16px] font-medium ${
+                      activeSection === navLink.id ? 'font-bold' : ''
+                    }`}
+                    onClick={() => {
+                      setToggle(!toggle);
+                      handleScroll(navLink.id);
+                    }}
+                  >
+                    {navLink.title}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }

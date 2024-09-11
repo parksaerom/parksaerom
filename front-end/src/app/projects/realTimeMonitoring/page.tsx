@@ -2,9 +2,7 @@
 
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Label} from '@/components/ui/label';
-import RealTimeLineChart, {
-  DataPoint,
-} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
+import RealTimeLineChart from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import RealTimeDataGrid from '@/app/projects/realTimeMonitoring/components/real-time-data-grid';
 import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
 import {RealTimeLineChartProps} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
@@ -13,6 +11,7 @@ import React from 'react';
 import {Button} from '@/components/ui/button';
 import html2canvas from 'html2canvas';
 import saveAs from 'file-saver';
+import {DataPointType} from '@/types';
 
 const velocityAngleDataTitleList = [
   '현재 속도:',
@@ -22,8 +21,8 @@ const velocityAngleDataTitleList = [
 
 export default function RealTimeMonitoringPage() {
   const divRef = useRef<HTMLDivElement>(null);
-  const [flData, setFlData] = useState<DataPoint[]>([]);
-  const [rrData, setRrData] = useState<DataPoint[]>([]);
+  const [flData, setFlData] = useState<DataPointType[]>([]);
+  const [rrData, setRrData] = useState<DataPointType[]>([]);
   const realTimeLineChartList: RealTimeLineChartProps[] = [
     {
       title: 'FL Traction Motor',
@@ -51,7 +50,7 @@ export default function RealTimeMonitoringPage() {
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  function generateRandomDataPoint(x: number): DataPoint {
+  function generateRandomDataPoint(x: number): DataPointType {
     return {
       x: x,
       y: Math.floor(Math.random() * (100 - 10) + 10),

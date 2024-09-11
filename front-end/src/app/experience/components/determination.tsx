@@ -16,9 +16,9 @@ export default function Determination({className = ''}: DeterminationProps) {
       variants={fadeIn('up', 'spring', 0.4, 1.75)}
       className={`flex justify-center text-secondary ${className}`}
     >
-      <Card className='w-3/4 border-primary bg-card p-10'>
+      <Card className='w-3/4 min-w-80 border-primary bg-card sm:p-10'>
         <CardHeader className='mt-5 py-3'>
-          <CardTitle className='h2 text-primary'>
+          <CardTitle className='text-xl text-primary sm:text-2xl'>
             저는 길지 않은 경력이지만, 지금까지 다양한 업무를 진행해왔습니다.
           </CardTitle>
         </CardHeader>
