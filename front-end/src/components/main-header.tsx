@@ -87,7 +87,7 @@ export function MainHeader() {
               handleScroll('main');
             }}
           >
-            <span className='text-lg font-bold leading-snug lg:text-3xl'>
+            <span className='text-lg font-bold leading-snug sm:text-3xl'>
               Saerom Park - Portfolio
             </span>
           </Link>

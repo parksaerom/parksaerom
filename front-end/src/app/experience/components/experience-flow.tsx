@@ -349,7 +349,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       ...experience,
       type: 'experience',
       position: {
-        x: isMobile ? 0 : experience.position.x,
+        x: isMobile ? 3 : experience.position.x,
         y: isMobile ? experience.position.mobileY : experience.position.y,
       },
     })),
