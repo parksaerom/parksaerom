@@ -1,9 +1,9 @@
 'use client';
 
 import {fadeIn, TMotion} from '@/utils/motion';
-import {ArrayLength, NumberRange} from '@/utils/type';
 import {motion} from 'framer-motion';
 import {experienceArray} from './experience-flow';
+import {ArrayLength, NumberRange} from '@/types';
 
 type ExperienceTextSize = 'xl' | '2xl' | '4xl';
 type ExperienceArrayRange = NumberRange<ArrayLength<typeof experienceArray>>;

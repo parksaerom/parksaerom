@@ -1,5 +1,6 @@
 import {styles} from '@/styles/common';
 import ComputersCanvas from '@/app/main/components/computer';
+import ScrollDownButton from '@/app/main/components/scroll-down-button';
 import Typewriter from '@/components/type-writer';
 
 export default function Main() {
@@ -27,6 +28,7 @@ export default function Main() {
         </div>
       </div>
       <ComputersCanvas />
+      <ScrollDownButton />
     </section>
   );
 }

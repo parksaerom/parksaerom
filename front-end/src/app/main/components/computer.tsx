@@ -16,7 +16,7 @@ function Computer() {
     if (computerMesh.current) {
       const elapsedTime = clock.getElapsedTime();
       computerMesh.current.position.y =
-        Math.sin(elapsedTime * floatSpeed) * 0.1; // 부유하는 높이 조절
+        Math.sin(elapsedTime * floatSpeed) * 0.06; // 부유하는 높이 조절
     }
   });
 
@@ -24,7 +24,7 @@ function Computer() {
     <mesh ref={computerMesh}>
       <hemisphereLight intensity={3} />
       <pointLight intensity={5} />
-      <primitive object={computer.scene} scale={1.4} position={[0, -1.6, -1]} />
+      <primitive object={computer.scene} scale={1.4} position={[0, -1.4, -1]} />
     </mesh>
   );
 }
