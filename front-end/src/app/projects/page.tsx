@@ -185,7 +185,7 @@ export default function Projects() {
               initial='offScreen'
               whileInView='onScreen'
               variants={fadeIn('', '', 0.1, 1)}
-              className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
+              className='mt-4 text-base leading-[30px] text-secondary lg:text-lg'
             >
               {sectionsConfig.sections.projects.content}
             </motion.p>

@@ -10,11 +10,11 @@ export default function Experience() {
   return (
     <Section id='experience'>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.experience} />
-      <div className='mt-20 flex h-[5300px] flex-row gap-10'>
+      <div className='mt-20 flex h-[4900px] flex-row gap-10'>
         <ExperienceText className='relative hidden h-full basis-2/5 sm:flex' />
         <ExperienceFlow className='sm:basis-3/5' />
       </div>
-      <Determination />
+      <Determination className=' -bottom-6' />
     </Section>
   );
 }

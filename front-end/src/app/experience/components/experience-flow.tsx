@@ -261,13 +261,7 @@ function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
         variants={fadeIn('left', 'spring', 0.1, 1.75)}
         className='flex'
       >
-        <Card
-          onWheel={(e) => {
-            e.stopPropagation();
-            window.scrollBy(0, e.deltaY);
-          }}
-          className='w-[24vw] min-w-80 cursor-default border-primary bg-card'
-        >
+        <Card className='w-[24vw] min-w-80 cursor-default border-primary bg-card'>
           <CardHeader className='mt-5 py-3'>
             <CardDescription className='text-secondary'>
               {data.date}
@@ -318,7 +312,7 @@ function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
 
 function TransparentNode({data}: NodeProps) {
   return (
-    <div className='relative h-10 w-10'>
+    <div className='relative h-1 w-1'>
       <Handle
         type='target'
         position={Position.Top}
@@ -390,11 +384,16 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
       defaultEdgeOptions={defaultEdgeOptions}
+      elementsSelectable={false}
+      nodesConnectable={false}
+      nodesDraggable={false}
       zoomOnScroll={false}
       panOnScroll={false}
       panOnDrag={false}
       zoomOnPinch={false}
       zoomOnDoubleClick={false}
+      fitView
+      fitViewOptions={{padding: 0}}
       className={`pointer-events-none ${className}`}
     />
   );

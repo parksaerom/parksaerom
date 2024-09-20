@@ -61,12 +61,12 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
     <div
       className={`mr-10 content-end text-center font-extralight leading-tight text-secondary ${className}`}
     >
-      <MotionExperienceText experienceIndex={0} className='ml-56 mt-56'>
+      <MotionExperienceText experienceIndex={0} className='ml-56 mt-48'>
         저는 자바 개발자로
         <br />
         시작했습니다.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={2} className='-mt-20'>
+      <MotionExperienceText experienceIndex={2} className='-mt-40'>
         혼자 백팩을 메고
         <br />
         서울시청, 수자원공사, 기상청에 반영을 하러 다니면서
@@ -75,7 +75,7 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         <br />
         단시간에 많은 걸 배웠어요.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={3} className='mt-16'>
+      <MotionExperienceText experienceIndex={3}>
         연구 개발 사업에 평소에 눈여겨보던
         <br /> React Native를 제안하여
         <br />
@@ -85,13 +85,13 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         experienceIndex={3}
         delay={0.6}
         fontSize='xl'
-        className='ml-56 mt-64'
+        className='ml-56 mt-36'
       >
         이때부터 새로운 언어에도
         <br />
         관심이 많이 생긴 것 같아요.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={5} className='ml-3 mt-10'>
+      <MotionExperienceText experienceIndex={5} className='-mt-24 ml-3'>
         그러던 와중에, 인터넷 환경이 되지 않는 공장에서
         <br />
         사용하기 위한 윈도우 어플리케이션 프로젝트를
@@ -101,7 +101,7 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
       <MotionExperienceText
         experienceIndex={5}
         delay={0.6}
-        className='ml-28 mt-48'
+        className='ml-28 mt-8'
       >
         매주 자문 교수님께 통계 수업을 들으며 <br />
         로직을 개발해가고,
@@ -113,7 +113,7 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         experienceIndex={5}
         fontSize='xl'
         delay={0.7}
-        className='ml-10 mt-96'
+        className='ml-10 mt-52'
       >
         동시에 3~4개의 프로젝트를 진행하느라
         <br />
@@ -121,7 +121,11 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         <br />
         가장 기억에 남는 시기이기도 해요.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={6} fontSize='xl' className='mt-24'>
+      <MotionExperienceText
+        experienceIndex={6}
+        fontSize='xl'
+        className='-mt-32'
+      >
         하지만 어느 날, <br />
         Visual Studio 켜서 C#으로 윈도우 어플리케이션 개발하다가,
         <br />
@@ -130,45 +134,41 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         문득 '내가 너무 이것 저것 깊이 없이 하고 있는 것 아닐까?' <br />
         하는 생각이 들었어요.
       </MotionExperienceText>
-      <MotionExperienceText
-        experienceIndex={7}
-        fontSize='xl'
-        className='-mt-96'
-      >
+      <MotionExperienceText experienceIndex={6} fontSize='xl' className='mt-52'>
         매년 개발부 연봉 인상률 1위를 할 정도로
         <br />
         인정을 많이 해주셨고, 예뻐해주셨어서
         <br />
         고민을 정말 많이 했지만
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={7} className='-mt-60 ml-16'>
+      <MotionExperienceText experienceIndex={6} className='ml-16 mt-96'>
         좀 더 웹 개발에 집중하고 싶다는 생각이 들어
         <br />
         저는 <a className='text-3xl font-semibold'>퇴사</a>를 결심하게 됐습니다.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={7} className='mt-20'>
+      <MotionExperienceText experienceIndex={7} className='-mt-36'>
         감사하게 퇴사를 한 뒤에도,
         <br />
         제가 담당하던 프로젝트를 마무리 할 수 있게
         <br />
         기회를 주셨어요.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={7} className='ml-16 mt-56'>
-        이때부터, 프리랜서로
+      <MotionExperienceText experienceIndex={7} className='ml-28 mt-10'>
+        자연스럽게 이때부터, 프리랜서로
         <br />
         일을 하게 되었습니다.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={9} className='mt-28'>
+      <MotionExperienceText experienceIndex={8} className='mt-28'>
         이전에 일을 도운 인연으로 <br />
         스타트업을 잠시 돕게 되었어요.
       </MotionExperienceText>
-      <MotionExperienceText experienceIndex={9} fontSize='xl' className='mt-64'>
+      <MotionExperienceText experienceIndex={8} fontSize='xl' className='mt-64'>
         웹 개발 쪽에 신입 프론트엔드 개발자 한명 밖에 없던 상황이어서
         <br />
         기반을 다지는데 많이 신경썼습니다.
       </MotionExperienceText>
       <MotionExperienceText
-        experienceIndex={9}
+        experienceIndex={8}
         fontSize='xl'
         className='ml-44 mt-96'
       >

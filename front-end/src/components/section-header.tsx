@@ -23,6 +23,7 @@ export default function SectionHeader({useMotion, p, h2}: SectionHeader) {
       initial='offScreen'
       whileInView='onScreen'
       variants={textVariant()}
+      className='max-w-full'
     >
       <Content />
     </motion.div>

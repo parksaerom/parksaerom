@@ -5,7 +5,7 @@ import {motion} from 'framer-motion';
 
 export default function ScrollDownButton() {
   return (
-    <div className='xs:bottom-10 absolute bottom-14 flex w-full items-center justify-center'>
+    <div className='absolute bottom-24 flex w-full items-center justify-center md:bottom-10'>
       <div
         onClick={() => {
           handleScroll('about');

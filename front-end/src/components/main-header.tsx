@@ -87,7 +87,7 @@ export function MainHeader() {
               handleScroll('main');
             }}
           >
-            <span className='text-lg font-bold leading-snug sm:text-3xl'>
+            <span className='text-sm font-bold leading-snug md:text-xl xl:text-3xl'>
               Saerom Park - Portfolio
             </span>
           </Link>
@@ -129,7 +129,7 @@ export function MainHeader() {
                 ) : (
                   <li
                     key={navLink.id}
-                    className={`font-poppins cursor-pointer text-[16px] font-medium ${
+                    className={`cursor-pointer text-sm font-medium ${
                       activeSection === navLink.id ? 'font-bold' : ''
                     }`}
                     onClick={() => {

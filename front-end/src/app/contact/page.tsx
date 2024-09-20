@@ -112,14 +112,16 @@ export default function Contact() {
 
                   return (
                     <label key={input} className='flex flex-col'>
-                      <span className='mb-2 text-secondary'>{span}</span>
+                      <span className='mb-2 text-sm text-secondary sm:text-base'>
+                        {span}
+                      </span>
                       <Component
                         type={input === 'email' ? 'email' : 'text'}
                         name={input}
                         value={form[`${input}`]}
                         onChange={handleChange}
                         placeholder={placeholder}
-                        className='rounded-lg px-4 py-3'
+                        className='rounded-lg px-4 py-3 text-sm sm:text-base'
                         {...(input === 'message' && {rows: 4})}
                       />
                     </label>

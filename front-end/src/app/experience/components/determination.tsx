@@ -22,7 +22,7 @@ export default function Determination({className = ''}: DeterminationProps) {
             저는 길지 않은 경력이지만, 지금까지 다양한 업무를 진행해왔습니다.
           </CardTitle>
         </CardHeader>
-        <CardContent className='text-secondary'>
+        <CardContent className='text-sm text-secondary sm:text-base'>
           변화가 빠른 IT업계에서 빠른 습득력과 적응력은 분명히 큰 장점이라고
           생각합니다. 그리고 그 능력을 인정받아 웹, 모바일 앱, 윈도우 프로그램
           등 다양한 업무를 맡을 수 있었고 회사 솔루션 개발 기획부터 개발, 배포,

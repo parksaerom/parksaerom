@@ -83,9 +83,9 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
         variants={fadeIn('right', 'spring', index * 0.5, 1.75)}
         className='w-[15vw] min-w-28 rounded-[20px] bg-card outline outline-1 outline-primary '
       >
-        <div className='flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
+        <div className='flex min-h-[30vh] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
           {icon}
-          <h3 className='text-center text-sm font-bold text-secondary xl:text-xl'>
+          <h3 className='text-center text-xs font-bold text-secondary xl:text-xl'>
             {title}
           </h3>
         </div>
@@ -103,10 +103,10 @@ export default function About() {
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('', '', 0.1, 1)}
-        className='mt-4 max-w-6xl text-base leading-[30px] text-secondary lg:text-lg'
+        className='mt-4 text-base text-secondary lg:text-lg'
       >
         {sectionsConfig.sections.about.content}
-        <div className='my-8 text-base text-secondary lg:text-lg'>
+        <div className='my-8 text-sm text-secondary lg:text-lg'>
           {skillsList.map((skill, index) => (
             <p key={index} className='mb-2'>
               <span className='font-bold'>{skill.title}</span>: {skill.content}
