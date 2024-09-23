@@ -5,9 +5,8 @@ import {motion} from 'framer-motion';
 import {fadeIn} from '@/utils/motion';
 import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';
-import {SiJavascript} from 'react-icons/si';
-import {FaJava, FaReact, FaWindows} from 'react-icons/fa';
 import {Section} from '@/components/section';
+import {FaJava, FaJavascript, FaReact, FaWindows} from '@/icons/icons';
 interface IntroductionCardProps {
   index: number;
   title: string;
@@ -22,7 +21,7 @@ interface IntroductionCardType {
 const services: IntroductionCardType[] = [
   {
     title: 'Frontend Developer',
-    icon: <SiJavascript className='h-10 w-10 text-primary' />,
+    icon: <FaJavascript className='h-10 w-10 text-primary' />,
   },
   {
     title: 'Backend Developer',

@@ -10,9 +10,14 @@ import House from '@/app/projects/3dObjectControl/components/house';
 import Room from '@/app/projects/3dObjectControl/components/room';
 import {useSelector, selectInside} from '@/lib/redux';
 
+type controlOptionsType = {
+  keys: string[];
+  action: string;
+};
+
 export default function ThreeCanvas() {
   const inside = useSelector(selectInside);
-  const controlOptions = [
+  const controlOptions: controlOptionsType[] = [
     {keys: ['↑', 'W'], action: 'Forward'},
     {keys: ['←', 'A'], action: 'Left'},
     {keys: ['→', 'D'], action: 'Right'},
@@ -34,7 +39,7 @@ export default function ThreeCanvas() {
             <span className='ml-3 text-sm'>{action}: </span>
             {keys.map((key) => (
               <span
-                className='items-center justify-center rounded border border-b-[3px] border-gray-400 border-transparent bg-white px-2 py-1 text-xs text-black'
+                className='items-center justify-center rounded border border-b-[3px] border-gray-500 bg-white px-2 py-1 text-xs text-black'
                 key={key}
               >
                 {key}

@@ -3,8 +3,8 @@
 import React, {Suspense, useRef} from 'react';
 import {Canvas, useFrame} from '@react-three/fiber';
 import {Html, OrbitControls, Preload, useGLTF} from '@react-three/drei';
-import {BiLoaderAlt} from 'react-icons/bi';
 import {selectIsMobile, useSelector} from '@/lib/redux';
+import {BiLoaderAlt} from '@/icons/icons';
 
 function Computer() {
   const computer = useGLTF('/three/computer.glb');

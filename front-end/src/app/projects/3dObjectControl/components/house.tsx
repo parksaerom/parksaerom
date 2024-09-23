@@ -104,7 +104,7 @@ export default function House(props: JSX.IntrinsicElements['group']) {
   ) as HouseGLTFResult;
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props}>
       <HillPhysicsObject args={[7.5, 7.5, 5.5, 50]} position={[6, 0.5, 0.5]} />
       <GlitterCircle
         position={[-9.5, 5.5, -1]}

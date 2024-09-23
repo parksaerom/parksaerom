@@ -408,7 +408,6 @@ export default function Room(props: JSX.IntrinsicElements['group']) {
       <RoomObject args={[7, 7.5, 18]} position={[0, 3.8, 0]} />
       <group
         {...props}
-        dispose={null}
         scale={4}
         rotation={[0, Math.PI, 0]}
         position={[0, -0.5, 0]}

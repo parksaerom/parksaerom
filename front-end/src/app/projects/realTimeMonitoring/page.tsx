@@ -4,7 +4,6 @@ import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Label} from '@/components/ui/label';
 import RealTimeLineChart from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import RealTimeDataGrid from '@/app/projects/realTimeMonitoring/components/real-time-data-grid';
-import {BiPlay, BiStop, BiPause, BiSolidDownload} from 'react-icons/bi';
 import {RealTimeLineChartProps} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import {useEffect, useRef, useState} from 'react';
 import React from 'react';
@@ -12,6 +11,7 @@ import {Button} from '@/components/ui/button';
 import html2canvas from 'html2canvas';
 import saveAs from 'file-saver';
 import {DataPointType} from '@/types';
+import {BiPause, BiPlay, BiSolidDownload, BiStop} from '@/icons/icons';
 
 const velocityAngleDataTitleList = [
   '현재 속도:',

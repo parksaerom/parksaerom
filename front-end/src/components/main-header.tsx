@@ -1,11 +1,11 @@
 'use client';
 
+import {BiMenu} from '@/icons/icons';
 import {NavIdType} from '@/types';
 import {handleScroll} from '@/utils/scroll';
 import Link from 'next/link';
 import React from 'react';
 import {useEffect, useState} from 'react';
-import {BiMenu} from 'react-icons/bi';
 
 export type NavLinkType = {
   id: NavIdType;

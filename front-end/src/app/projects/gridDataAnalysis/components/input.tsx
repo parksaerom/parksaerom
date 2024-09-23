@@ -1,5 +1,5 @@
+import {BiLoaderAlt} from '@/icons/icons';
 import dynamic from 'next/dynamic';
-import {BiLoaderAlt} from 'react-icons/bi';
 
 const ExcelDataGrid = dynamic(
   () => import('@/app/projects/gridDataAnalysis/components/data-grid'),
