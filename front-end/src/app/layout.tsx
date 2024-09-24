@@ -64,7 +64,7 @@ interface RootLayoutProps {
 export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Providers>
-      <html lang='en' className={fontPretendard.className}>
+      <html lang='ko' className={fontPretendard.variable}>
         <body className={cn('relative z-0 bg-mainBackground')}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             {children}

@@ -29,7 +29,7 @@ export default function Main() {
         <div className='sm:hidden'>
           <div className={`${styles.mainHeadText}`}>
             안녕하세요, <br />
-            <span className='text-mainBackground'>박새롬</span>
+            <strong className='text-mainBackground'>박새롬</strong>
             입니다.
           </div>
           <p className={`${styles.mainSubText}`}>

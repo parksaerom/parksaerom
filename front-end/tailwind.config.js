@@ -64,7 +64,7 @@ module.exports = {
         mainBackground: '#E8E4D8',
       },
       backgroundImage: {
-        'main-pattern': "url('/images/mainbg.jpg')",
+        'main-pattern': "url('/images/mainbg.webp')",
       },
       fontFamily: {
         sans: ['var(--font-pretendard)', ...fontFamily.sans],

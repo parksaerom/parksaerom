@@ -51,7 +51,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/monitoring.png',
+    image: '/images/monitoring.webp',
     page: <RealTimeMonitoringPage />,
   },
   {
@@ -72,7 +72,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/grid-data-analysis.png',
+    image: '/images/grid-data-analysis.webp',
     page: <GridDataAnalysisPage />,
   },
   {
@@ -93,7 +93,7 @@ const projects: ProjectsProps[] = [
         color: 'text-pink-600',
       },
     ],
-    image: '/images/three-object-control.png',
+    image: '/images/three-object-control.webp',
     page: <ThreeObjectControlPage />,
   },
 ];
@@ -115,7 +115,7 @@ function ProjectCard({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <motion.div
           initial='offScreen'
           whileInView='onScreen'
@@ -129,7 +129,7 @@ function ProjectCard({
             glareBorderRadius='20px'
             glarePosition='all'
           >
-            <div className='h-[46vh] w-full cursor-pointer rounded-2xl border border-primary bg-card p-5 sm:w-[300px]'>
+            <div className='h-[46vh] w-full cursor-pointer rounded-2xl border border-primary bg-card p-5 text-left sm:w-[300px]'>
               <div className='relative h-56 w-full'>
                 <Image
                   src={image}

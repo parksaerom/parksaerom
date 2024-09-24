@@ -355,6 +355,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       },
       type: 'transparent',
       data: {},
+      ariaLabel: 'transparent_node',
     },
   ];
   const initialEdges: Edge[] = experienceArray.map((experience, index) => {
@@ -394,6 +395,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       zoomOnDoubleClick={false}
       fitView
       fitViewOptions={{padding: 0}}
+      proOptions={{hideAttribution: true}}
       className={`pointer-events-none ${className}`}
     />
   );
