@@ -1,6 +1,5 @@
 import {Metadata} from 'next/types';
 import {Providers} from '@/lib/providers';
-import {ThemeProvider} from '@/components/providers';
 import {fontPretendard} from '@/styles/fonts';
 import {cn} from '@/lib/shadcn-ui/utils';
 import '@/styles/globals.css';
@@ -56,11 +55,9 @@ export default function RootLayout({children}: RootLayoutProps) {
     <Providers>
       <html lang='ko' className={fontPretendard.variable}>
         <body className={cn('relative z-0 bg-mainBackground')}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            {children}
-            <Toaster />
-            <MobileChecker />
-          </ThemeProvider>
+          {children}
+          <Toaster />
+          <MobileChecker />
         </body>
       </html>
     </Providers>
