@@ -25,36 +25,26 @@ export const metadata: Metadata = {
   authors: [
     {
       name: siteConfig.creator,
-      //url: 'https://shadcn.com',
+      url: siteConfig.url,
     },
   ],
   creator: siteConfig.creator,
-  // themeColor: [
-  //   { media: "(prefers-color-scheme: light)", color: "white" },
-  //   { media: "(prefers-color-scheme: dark)", color: "black" },
-  // ],
-  // openGraph: {
-  //   type: "website",
-  //   locale: "en_US",
-  //   url: siteConfig.url,
-  //   title: siteConfig.name,
-  //   description: siteConfig.description,
-  //   siteName: siteConfig.name,
-  //   images: [
-  //     {
-  //       url: siteConfig.ogImage,
-  //       width: 1200,
-  //       height: 630,
-  //       alt: siteConfig.name,
-  //     },
-  //   ],
-  // },
-  // icons: {
-  //   icon: "/favicon.ico",
-  //   shortcut: "/favicon-16x16.png",
-  //   apple: "/apple-touch-icon.png",
-  // },
-  // manifest: `${siteConfig.url}/site.webmanifest`,
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
 };
 
 interface RootLayoutProps {
