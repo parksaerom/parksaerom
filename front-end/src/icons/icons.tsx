@@ -13,9 +13,10 @@ function Icon({
   name,
   color = 'currentColor',
   className = '',
+  ...props
 }: IconWithNameProps) {
   return (
-    <svg className={`${className}`} fill={color}>
+    <svg className={`${className}`} fill={color} {...props}>
       <use href={`/icons/sprite.svg#${name}`} />
     </svg>
   );

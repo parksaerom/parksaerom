@@ -57,7 +57,7 @@ export const experienceArray = [
   },
   {
     id: '1',
-    position: {x: 200, y: 450, mobileY: 500},
+    position: {x: 200, y: 450, mobileY: 480},
     data: {
       index: 1,
       title: '우주전파센터 우주환경 예보 통합모델 개발',
@@ -73,7 +73,7 @@ export const experienceArray = [
   },
   {
     id: '2',
-    position: {x: 120, y: 840, mobileY: 950},
+    position: {x: 120, y: 840, mobileY: 920},
     data: {
       index: 2,
       title: '기상청 국가기후자료관리 및 서비스체계 구축',
@@ -88,7 +88,7 @@ export const experienceArray = [
   },
   {
     id: '3',
-    position: {x: 5, y: 1220, mobileY: 1350},
+    position: {x: 5, y: 1220, mobileY: 1320},
     data: {
       index: 3,
       title: '기상청 이중편파레이더 현업예보지원',
@@ -104,7 +104,7 @@ export const experienceArray = [
   },
   {
     id: '4',
-    position: {x: 120, y: 1600, mobileY: 1800},
+    position: {x: 120, y: 1600, mobileY: 1755},
     data: {
       index: 4,
       title: '수자원공사 위성산출물 표출 시스템',
@@ -120,7 +120,7 @@ export const experienceArray = [
 
   {
     id: '5',
-    position: {x: 200, y: 2000, mobileY: 2230},
+    position: {x: 200, y: 2000, mobileY: 2170},
     data: {
       index: 5,
       title: '윈도우용 품질관리 솔루션',
@@ -138,7 +138,7 @@ export const experienceArray = [
   },
   {
     id: '6',
-    position: {x: 100, y: 2600, mobileY: 2850},
+    position: {x: 100, y: 2600, mobileY: 2785},
     data: {
       index: 6,
       title: '기상청 홈페이지 통합 정비 사업',
@@ -153,7 +153,7 @@ export const experienceArray = [
   },
   {
     id: '7',
-    position: {x: 20, y: 3450, mobileY: 3230},
+    position: {x: 20, y: 3450, mobileY: 3180},
     data: {
       index: 7,
       title: '웹용 품질관리 솔루션',
@@ -168,7 +168,7 @@ export const experienceArray = [
   },
   {
     id: '8',
-    position: {x: 120, y: 3850, mobileY: 3700},
+    position: {x: 120, y: 3850, mobileY: 3635},
     data: {
       index: 8,
       title: 'H사 물류로봇관제 웹',
@@ -185,7 +185,7 @@ export const experienceArray = [
   },
   {
     id: '9',
-    position: {x: 5, y: 4250, mobileY: 4150},
+    position: {x: 5, y: 4250, mobileY: 4070},
     data: {
       index: 9,
       title: '물류로봇관제 웹',
@@ -202,7 +202,7 @@ export const experienceArray = [
   },
   {
     id: '10',
-    position: {x: 100, y: 4800, mobileY: 4780},
+    position: {x: 100, y: 4800, mobileY: 4705},
     data: {
       index: 10,
       title: '물류로봇관제 웹 기능 추가',
@@ -240,16 +240,7 @@ function ExperienceEdge({
     targetPosition,
   });
 
-  return (
-    <motion.path
-      id={id}
-      className='react-flow__edge-path'
-      d={edgePath}
-      initial='offScreen'
-      whileInView='onScreen'
-      variants={fadeIn('up', 'spring', 0.3, 1.75)}
-    />
-  );
+  return <path id={id} className='react-flow__edge-path' d={edgePath} />;
 }
 
 function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
@@ -339,7 +330,7 @@ const edgeTypes: EdgeTypes = {
 export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
   const isMobile = useSelector(selectIsMobile);
   const initialNodes: Node[] = [
-    ...experienceArray.map((experience, index) => ({
+    ...experienceArray.map((experience) => ({
       ...experience,
       type: 'experience',
       position: {
@@ -351,7 +342,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       id: 'last',
       position: {
         x: isMobile ? 150 : 30,
-        y: 5300,
+        y: isMobile ? 5200 : 5300,
       },
       type: 'transparent',
       data: {},
@@ -374,6 +365,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
         source: experience.id,
         target: experienceArray[index + 1].id,
         type: 'experience',
+        style: {stroke: 'black', strokeWidth: 3},
       };
     }
   });

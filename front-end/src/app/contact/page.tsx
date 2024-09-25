@@ -122,6 +122,7 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder={placeholder}
                         className='rounded-lg px-4 py-3 text-sm sm:text-base'
+                        autoComplete='on'
                         {...(input === 'message' && {rows: 4})}
                       />
                     </label>

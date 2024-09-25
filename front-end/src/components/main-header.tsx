@@ -114,13 +114,13 @@ export function MainHeader() {
 
         <div className='flex flex-1 items-center justify-end sm:hidden'>
           <BiMenu
-            className='h-[28px] w-[28px] object-contain'
+            className='h-[24px] w-[24px] object-contain'
             onClick={() => setToggle(!toggle)}
           />
           <div
             className={`${
               !toggle ? 'hidden' : 'flex'
-            } absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-lg bg-card bg-opacity-90 p-6 text-secondary`}
+            } absolute right-0 top-14 z-10 mx-4 my-2 min-w-[140px] rounded-lg bg-card bg-opacity-90 p-6 text-secondary`}
           >
             <ul className='flex flex-1 list-none flex-col items-start justify-end gap-4'>
               {navLinks.map((navLink) => {
