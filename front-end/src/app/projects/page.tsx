@@ -108,7 +108,6 @@ function ProjectCard({
 }: {index: number} & ProjectsProps) {
   function handleKeyDown(event: React.KeyboardEvent) {
     if (event.key === ' ') {
-      // 스페이스바 기본 동작 방지
       event.preventDefault();
     }
   }

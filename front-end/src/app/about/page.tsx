@@ -102,7 +102,7 @@ export default function About() {
         initial='offScreen'
         whileInView='onScreen'
         variants={fadeIn('', '', 0.1, 1)}
-        className='mt-4 text-base text-secondary lg:text-lg'
+        className='mt-4 text-sm text-secondary lg:text-lg'
       >
         {sectionsConfig.sections.about.content}
         <div className='my-8 text-sm text-secondary lg:text-lg'>

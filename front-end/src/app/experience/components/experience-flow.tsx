@@ -98,7 +98,7 @@ export const experienceArray = [
         'React Native, Java, JavaScript, HTML/CSS, Spring, Oracle Database, Tomcat',
       points: [
         'Front-end, Back-end 메인 개발',
-        '기상청 레이더 이미지 및 영상 정보를 표출하고 현재 위치 또는 지정 위치에 대한 날씨 위험 경보를 알려주는 웹앱으로 혼자 안드로이드, iOS 두 개의 플랫폼을 개발해야 했기 때문에 한 번의 코딩으로 iOS와 안드로이드 두 개의 플랫폼을 지원하는 앱을 만들 수 있는 React Native를 사용하였습니다.',
+        '기상청 레이더 이미지 및 영상 정보를 표출하고 현재 위치 또는 지정 위치에 대한 날씨 위험 경보를 알려주는 웹앱으로 혼자 안드로이드, iOS 두 개의 플랫폼을 개발해야 했기 때문에 iOS와 안드로이드 두 개의 플랫폼을 지원하는 앱을 만들 수 있는 React Native를 사용하였습니다.',
       ],
     },
   },
@@ -175,7 +175,7 @@ export const experienceArray = [
       companyName: '(주)나비프라',
       date: '2022.06 프리랜서 근무',
       skills:
-        'React, JavaScript, Vuetify, three.js, Node.js, express.js, Redis',
+        'React, JavaScript, Material UI, Three.js, Node.js, express.js, Redis',
       points: [
         'Front-end 및 Back-end 메인 개발',
         '물류 로봇을 관제하는 웹 어플리케이션으로 로봇의 경로를 설정하고 명령을 내릴 수 있는 로봇 관제 페이지와 로봇 정보 관리 페이지를 추가 개발하였습니다.',
@@ -192,27 +192,29 @@ export const experienceArray = [
       companyName: '(주)나비프라',
       date: '2022.10 ~ 2023.02 프리랜서 근무',
       skills:
-        'Vue, JavaScript, TypeScript, Vuex, Pinia, Vuetify, three.js, Node.js, express.js, Redis, PostgreSQL, Docker',
+        'Vue, JavaScript, TypeScript, Vuex, Pinia, Vuetify, Three.js, Node.js, express.js, Redis, PostgreSQL, Docker',
       points: [
         'Front-end 및 Back-end 메인 개발',
-        '로봇이 Mapping한 지도를 뿌려주고 로봇의 위치와 경로를 설정할 수 있으며 로봇 정보를 조회 및 수정할 수 있는 물류 로봇을 관제하는 웹 어플리케이션으로 S사, P사 등에 납품되었습니다. 각 기업에 맞게 추가 요구사항들을 개발하고 API를 개발하였습니다. Redis/PostgreSQL을 사용하여 로봇과 통신하고, 로그인 관리를 하는 Back-end API와 Three.js를 사용하여 로봇의 상태, 경로를 표출하는 프론트엔드 모두 개발하였으며 Docker기반으로 변경을 도왔습니다.',
+        '로봇이 Mapping한 지도를 뿌려주고 로봇의 위치와 경로를 설정할 수 있으며 로봇 정보를 조회 및 수정할 수 있는 물류 로봇을 관제하는 웹 어플리케이션으로 S사, P사 등에 납품되었습니다. 각 기업에 맞게 추가 요구사항들을 개발하고 API를 개발하였습니다.',
+        'Redis/PostgreSQL을 사용하여 로봇과 통신하고, 로그인 관리를 하는 Back-end API와 Three.js를 사용하여 로봇의 상태, 경로를 표출하는 프론트엔드 모두 개발하였으며 Docker기반으로 변경을 도왔습니다.',
         '로봇 하나만 관제하는 Navi-Core, 로봇 여러 개를 관제하는 Navi-Brain으로 프로젝트가 나뉘어 있었는데 Navi-Core는 JavaScript/Vue2/Vuex, Navi-Brain은 TypeScript/Vue3/Pinia를 사용하였습니다.',
       ],
     },
   },
   {
     id: '10',
-    position: {x: 100, y: 4800, mobileY: 4705},
+    position: {x: 100, y: 4850, mobileY: 4705},
     data: {
       index: 10,
       title: '물류로봇관제 웹 기능 추가',
       companyName: '(주)나비프라',
       date: '2023.08 ~ 2023.09 프리랜서 근무',
       skills:
-        'Vue, JavaScript, Vuex, Vuetify, three.js, Node.js, express.js, Redis, Docker',
+        'Vue, JavaScript, Vuex, Vuetify, Three.js, Node.js, express.js, Redis, Docker',
       points: [
         'Front-end 및 Back-end 메인 개발',
-        '기존 웹 어플리케이션에 로봇의 RiDAR 실시간 데이터를 그래프와 표로 표출하고 저장하는 기능과 로봇의 위치와 경로를 설정하며 단위 테스트를 할 수 있는 기능을 추가하였습니다.',
+        '로봇의 RiDAR 실시간 데이터를 그래프와 표로 표출/저장하는 기능과 로봇의 위치와 경로를 설정하며 단위 테스트를 할 수 있는 기능을 개발하였습니다.',
+        'Redis를 사용하여 로봇과 데이터를 주고 받는 Back-end API와 Three.js, Chart.js를 사용하여 실시간 데이터 표출, 단위 테스트 Front-end 모두 개발하였습니다.',
       ],
     },
   },
@@ -342,7 +344,7 @@ export default function ExperienceFlow({className = ''}: ExperienceFlowProps) {
       id: 'last',
       position: {
         x: isMobile ? 150 : 30,
-        y: isMobile ? 5200 : 5300,
+        y: isMobile ? 5400 : 5500,
       },
       type: 'transparent',
       data: {},

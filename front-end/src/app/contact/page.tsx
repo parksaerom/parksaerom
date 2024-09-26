@@ -10,7 +10,6 @@ import {siteConfig} from '@/config/site';
 import {Button} from '@/components/ui/button';
 import {Section} from '@/components/section';
 import {useToast} from '@/hooks/use-toast';
-import Image from 'next/image';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
@@ -83,7 +82,6 @@ export default function Contact() {
         className='flex w-full overflow-hidden rounded-xl border border-primary bg-card'
       >
         <div className='relative w-full'>
-          {/* Video Background */}
           <video
             autoPlay
             loop
@@ -92,10 +90,9 @@ export default function Contact() {
             className='absolute left-0 top-0 h-full w-full object-cover'
           >
             <source src='/images/sky.webm' type='video/webm' />
-            Your browser does not support the video tag.
+            브라우저가 비디오 태그를 지원하지 않습니다.
           </video>
 
-          {/* Contact Form */}
           <div className='relative z-10 flex h-full items-center justify-center'>
             <div className='my-20 w-full max-w-xl rounded-lg bg-card bg-opacity-70 p-8 shadow-lg'>
               <SectionHeader useMotion={false} {...sectionsConfig.contact} />

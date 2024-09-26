@@ -117,7 +117,7 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
       >
         동시에 3~4개의 프로젝트를 진행하느라
         <br />
-        일주일 동안 10시간도 못자기도 했지만
+        일주일 동안 10시간도 못 자기도 했지만
         <br />
         가장 기억에 남는 시기이기도 해요.
       </MotionExperienceText>
@@ -131,13 +131,13 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         <br />
         VSCode 켜서 JavaScript로 앱 개발하고, <br />
         이번엔 IntelliJ 켜서 Java로 웹 개발을 하고 있는 저를 보면서 <br />
-        문득 '내가 너무 이것 저것 깊이 없이 하고 있는 것 아닐까?' <br />
+        문득 '내가 너무 이것저것 깊이 없이 하고 있는 것 아닐까?' <br />
         하는 생각이 들었어요.
       </MotionExperienceText>
       <MotionExperienceText experienceIndex={6} fontSize='xl' className='mt-52'>
         매년 개발부 연봉 인상률 1위를 할 정도로
         <br />
-        인정을 많이 해주셨고, 예뻐해주셨어서
+        인정을 많이 해주셨고, 예뻐해 주셨어서
         <br />
         고민을 정말 많이 했지만
       </MotionExperienceText>
@@ -145,12 +145,12 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         좀 더 웹 개발에 집중하고 싶다는 생각이 들어
         <br />
         저는 <strong className='text-3xl font-semibold'>퇴사</strong>를 결심하게
-        됐습니다.
+        되었습니 다.
       </MotionExperienceText>
       <MotionExperienceText experienceIndex={7} className='-mt-36'>
         감사하게 퇴사를 한 뒤에도,
         <br />
-        제가 담당하던 프로젝트를 마무리 할 수 있게
+        제가 담당하던 프로젝트를 마무리할 수 있게
         <br />
         기회를 주셨어요.
       </MotionExperienceText>
@@ -164,9 +164,9 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         스타트업을 잠시 돕게 되었어요.
       </MotionExperienceText>
       <MotionExperienceText experienceIndex={8} fontSize='xl' className='mt-64'>
-        웹 개발 쪽에 신입 프론트엔드 개발자 한명 밖에 없던 상황이어서
+        웹 개발 쪽에 신입 프론트엔드 개발자 한 명 밖에 없던 상황이어서
         <br />
-        기반을 다지는데 많이 신경썼습니다.
+        기반을 다지는데 많이 신경 썼습니다.
       </MotionExperienceText>
       <MotionExperienceText
         experienceIndex={8}
