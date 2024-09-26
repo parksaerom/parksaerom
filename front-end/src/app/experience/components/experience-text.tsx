@@ -145,7 +145,7 @@ export default function ExperienceText({className = ''}: ExperienceTextProps) {
         좀 더 웹 개발에 집중하고 싶다는 생각이 들어
         <br />
         저는 <strong className='text-3xl font-semibold'>퇴사</strong>를 결심하게
-        되었습니 다.
+        되었습니다.
       </MotionExperienceText>
       <MotionExperienceText experienceIndex={7} className='-mt-36'>
         감사하게 퇴사를 한 뒤에도,
