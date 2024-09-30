@@ -15,11 +15,12 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     '개발자',
-    '웹 개발자',
-    '개발자 포트폴리오',
-    '웹 개발자 포트폴리오',
-    '프론트엔드 개발자',
-    '백엔드 개발자',
+    '웹',
+    '포트폴리오',
+    '프론트엔드',
+    '백엔드',
+    '풀스택',
+    '박새롬',
   ],
   authors: [
     {
