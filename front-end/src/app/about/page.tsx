@@ -74,7 +74,6 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
       tiltMaxAngleY={30}
       glareColor='#A4ADB4'
       glareBorderRadius='20px'
-      glarePosition='all'
     >
       <motion.div
         initial='offScreen'
