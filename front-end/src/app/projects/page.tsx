@@ -85,7 +85,7 @@ const projects: ProjectsProps[] = [
         color: 'text-blue-500',
       },
       {
-        name: 'three.js',
+        name: 'Three.js',
         color: 'text-lime-600',
       },
       {
@@ -128,7 +128,7 @@ function ProjectCard({
             glareBorderRadius='20px'
             glarePosition='all'
           >
-            <div className='h-[46vh] w-full cursor-pointer rounded-2xl border border-primary bg-card p-5 text-left sm:w-[300px]'>
+            <div className='w-full cursor-pointer rounded-2xl border border-primary bg-card p-5 text-left sm:w-[300px]'>
               <div className='relative h-56 w-full'>
                 <Image
                   src={image}
