@@ -24,6 +24,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {selectIsMobile, useSelector} from '@/lib/redux';
+import {MotionDiv} from '@/components/motion';
 
 type ExperienceNodeType = Node<
   {
@@ -104,7 +105,7 @@ export const experienceArray = [
   },
   {
     id: '4',
-    position: {x: 120, y: 1600, mobileY: 1755},
+    position: {x: 120, y: 1615, mobileY: 1755},
     data: {
       index: 4,
       title: '수자원공사 위성산출물 표출 시스템',
@@ -113,7 +114,7 @@ export const experienceArray = [
       skills: 'Java, JavaScript, HTML/CSS, Spring, MySQL, Tomcat',
       points: [
         'Front-end, Back-end 메인 개발',
-        '위성 지도 위에 위성산출물을 표출하고 위성산출물에 대한 정보를 제공하는 웹 사이트로 OpenLayers 및 GeoServer를 이용하여 위성산출물을 위성지도 위에 표출하고 해당 위성산출물 이미지를 png, tif 파일로 다운로드할 수 있는 GIS 기반 웹 사이트 개발/배포하였습니다.',
+        '위성 지도 위에 위성산출물을 표출하고 위성산출물에 대한 정보를 제공하는 웹 사이트로 OpenLayers 및 GeoServer를 이용하여 위성산출물을 위성지도 위에 표출하고 해당 위성산출물 이미지를 png, tif 파일로 다운로드할 수 있는 GIS 기반 웹 사이트 개발/배포/운영하였습니다.',
       ],
     },
   },
@@ -179,7 +180,7 @@ export const experienceArray = [
       points: [
         'Front-end 및 Back-end 메인 개발',
         '물류 로봇을 관제하는 웹 어플리케이션으로 로봇의 경로를 설정하고 명령을 내릴 수 있는 로봇 관제 페이지와 로봇 정보 관리 페이지를 추가 개발하였습니다.',
-        'Redis를 사용하여 로봇과 데이터를 주고 받는 Back-end API와 Three.js를 사용하여 로봇의 상태, 경로를 표출하는 Front-end 모두 개발하였습니다.',
+        'Redis를 사용하여 로봇과 데이터를 주고 받는 Back-end API와 Three.js를 사용하여 로봇의 상태, 경로, 움직임 등을 표출하고 로봇을 제어하는 Front-end 모두 개발하였습니다.',
       ],
     },
   },
@@ -196,14 +197,14 @@ export const experienceArray = [
       points: [
         'Front-end 및 Back-end 메인 개발',
         '로봇이 Mapping한 지도를 뿌려주고 로봇의 위치와 경로를 설정할 수 있으며 로봇 정보를 조회 및 수정할 수 있는 물류 로봇을 관제하는 웹 어플리케이션으로 S사, P사 등에 납품되었습니다. 각 기업에 맞게 추가 요구사항들을 개발하고 API를 개발하였습니다.',
-        'Redis/PostgreSQL을 사용하여 로봇과 통신하고, 로그인 관리를 하는 Back-end API와 Three.js를 사용하여 로봇의 상태, 경로를 표출하는 프론트엔드 모두 개발하였으며 Docker기반으로 변경을 도왔습니다.',
+        'Redis/PostgreSQL을 사용하여 로봇과 통신하고, 로그인 관리를 하는 Back-end API와 Three.js를 사용하여 로봇의 상태, 움직임 등을 표출하고 로봇을 제어하는 프론트엔드 모두 개발하였으며 Docker기반으로 변경을 도왔습니다.',
         '로봇 하나만 관제하는 Navi-Core, 로봇 여러 개를 관제하는 Navi-Brain으로 프로젝트가 나뉘어 있었는데 Navi-Core는 JavaScript/Vue2/Vuex, Navi-Brain은 TypeScript/Vue3/Pinia를 사용하였습니다.',
       ],
     },
   },
   {
     id: '10',
-    position: {x: 100, y: 4850, mobileY: 4705},
+    position: {x: 100, y: 4850, mobileY: 4720},
     data: {
       index: 10,
       title: '물류로봇관제 웹 기능 추가',
@@ -248,9 +249,7 @@ function ExperienceEdge({
 function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
   return (
     <>
-      <motion.div
-        initial='offScreen'
-        whileInView='onScreen'
+      <MotionDiv
         variants={fadeIn('left', 'spring', 0.1, 1.75)}
         className='flex'
       >
@@ -282,7 +281,7 @@ function ExperienceNode({data}: NodeProps<ExperienceNodeType>) {
             </ul>
           </CardContent>
         </Card>
-      </motion.div>
+      </MotionDiv>
       {data.index === 0 ? (
         <></>
       ) : (

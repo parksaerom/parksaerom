@@ -7,7 +7,34 @@ export type TMotion = {
   duration: number;
 };
 
-export const textVariant = (): Variants => {
+export interface CustomVariants extends Variants {
+  offScreen: {
+    scale?: number;
+    x?: number;
+    y?: number;
+    opacity?: number;
+    transition?: {
+      type?: string;
+      delay?: number;
+      duration?: number;
+      ease?: string;
+    };
+  };
+  onScreen: {
+    scale?: number;
+    x?: number;
+    y?: number;
+    opacity?: number;
+    transition?: {
+      type?: string;
+      delay?: number;
+      duration?: number;
+      ease?: string;
+    };
+  };
+}
+
+export const textVariant = (): CustomVariants => {
   return {
     offScreen: {
       y: -50,
@@ -29,7 +56,7 @@ export const fadeIn = (
   type: TMotion['type'],
   delay: TMotion['delay'],
   duration: TMotion['duration'],
-): Variants => {
+): CustomVariants => {
   return {
     offScreen: {
       x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
@@ -53,7 +80,7 @@ export const fadeIn = (
 export const zoomIn = (
   delay: TMotion['delay'],
   duration: TMotion['duration'],
-) => {
+): CustomVariants => {
   return {
     offScreen: {
       scale: 0,

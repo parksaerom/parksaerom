@@ -20,6 +20,7 @@ import RealTimeMonitoringPage from '@/app/projects/realTimeMonitoring/page';
 import {Section} from '@/components/section';
 import Image from 'next/image';
 import {selectIsMobile, useSelector} from '@/lib/redux';
+import {MotionDiv, MotionP} from '@/components/motion';
 
 export interface ProjectsProps {
   name: string;
@@ -115,11 +116,7 @@ function ProjectCard({
   return (
     <Dialog>
       <DialogTrigger>
-        <motion.div
-          initial='offScreen'
-          whileInView='onScreen'
-          variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
-        >
+        <MotionDiv variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
           <Tilt
             glareEnable
             tiltEnable
@@ -153,7 +150,7 @@ function ProjectCard({
               </div>
             </div>
           </Tilt>
-        </motion.div>
+        </MotionDiv>
       </DialogTrigger>
       <DialogContent onKeyDown={handleKeyDown} className='min-w-[75%]'>
         <DialogHeader className='container pt-3'>
@@ -180,14 +177,14 @@ export default function Projects() {
           />
 
           <div className='flex w-full'>
-            <motion.p
+            <MotionP
               initial='offScreen'
               whileInView='onScreen'
               variants={fadeIn('', '', 0.1, 1)}
               className='mt-4 text-base leading-[30px] text-secondary lg:text-lg'
             >
               {sectionsConfig.sections.projects.content}
-            </motion.p>
+            </MotionP>
           </div>
 
           <div className='mt-20 flex flex-wrap gap-7'>

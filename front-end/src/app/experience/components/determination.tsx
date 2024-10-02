@@ -1,5 +1,6 @@
 'use client';
 
+import {MotionDiv} from '@/components/motion';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {fadeIn} from '@/utils/motion';
 import {motion} from 'framer-motion';
@@ -10,9 +11,7 @@ interface DeterminationProps {
 
 export default function Determination({className = ''}: DeterminationProps) {
   return (
-    <motion.div
-      initial='offScreen'
-      whileInView='onScreen'
+    <MotionDiv
       variants={fadeIn('up', 'spring', 0.4, 1.75)}
       className={`flex justify-center text-secondary ${className}`}
     >
@@ -61,6 +60,6 @@ export default function Determination({className = ''}: DeterminationProps) {
           해주는 촉매가 되었고 지금도 성장을 하기 위해 노력하고 있습니다.
         </CardContent>
       </Card>
-    </motion.div>
+    </MotionDiv>
   );
 }

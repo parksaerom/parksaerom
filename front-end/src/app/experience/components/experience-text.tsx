@@ -4,6 +4,7 @@ import {fadeIn, TMotion} from '@/utils/motion';
 import {motion} from 'framer-motion';
 import {experienceArray} from './experience-flow';
 import {ArrayLength, NumberRange} from '@/types';
+import {MotionP} from '@/components/motion';
 
 type ExperienceTextSize = 'xl' | '2xl' | '4xl';
 type ExperienceArrayRange = NumberRange<ArrayLength<typeof experienceArray>>;
@@ -44,7 +45,7 @@ function MotionExperienceText({
       : '';
   const y = experienceIndex ? getPositionY(experienceIndex) : experienceIndex;
   return (
-    <motion.p
+    <MotionP
       initial='offScreen'
       whileInView='onScreen'
       variants={fadeIn(direction, type, delay, duration)}
@@ -52,7 +53,7 @@ function MotionExperienceText({
       className={`absolute ${textSize} ${className ? className : ''}`}
     >
       {children}
-    </motion.p>
+    </MotionP>
   );
 }
 

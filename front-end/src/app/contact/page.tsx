@@ -10,6 +10,7 @@ import {siteConfig} from '@/config/site';
 import {Button} from '@/components/ui/button';
 import {Section} from '@/components/section';
 import {useToast} from '@/hooks/use-toast';
+import {MotionDiv} from '@/components/motion';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
@@ -75,9 +76,7 @@ export default function Contact() {
 
   return (
     <Section id='contact' className='mt-5 flex gap-10'>
-      <motion.div
-        initial='offScreen'
-        whileInView='onScreen'
+      <MotionDiv
         variants={fadeIn('up', 'tween', 0.2, 1)}
         className='flex w-full overflow-hidden rounded-xl border border-primary bg-card'
       >
@@ -130,7 +129,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
     </Section>
   );
 }

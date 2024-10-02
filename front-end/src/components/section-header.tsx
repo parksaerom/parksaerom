@@ -3,6 +3,7 @@
 import {styles} from '@/styles/common';
 import {motion} from 'framer-motion';
 import {textVariant} from '@/utils/motion';
+import {MotionDiv} from './motion';
 
 interface SectionHeader {
   useMotion: boolean;
@@ -19,14 +20,9 @@ export default function SectionHeader({useMotion, p, h2}: SectionHeader) {
   );
 
   return useMotion === true ? (
-    <motion.div
-      initial='offScreen'
-      whileInView='onScreen'
-      variants={textVariant()}
-      className='max-w-full'
-    >
+    <MotionDiv variants={textVariant()} className='max-w-full'>
       <Content />
-    </motion.div>
+    </MotionDiv>
   ) : (
     <Content />
   );

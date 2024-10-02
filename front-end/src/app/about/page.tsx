@@ -7,6 +7,7 @@ import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';
 import {Section} from '@/components/section';
 import {FaJava, FaJavascript, FaReact, FaWindows} from '@/icons/icons';
+import {MotionDiv} from '@/components/motion';
 interface IntroductionCardProps {
   index: number;
   title: string;
@@ -75,9 +76,7 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
       glareColor='#A4ADB4'
       glareBorderRadius='20px'
     >
-      <motion.div
-        initial='offScreen'
-        whileInView='onScreen'
+      <MotionDiv
         variants={fadeIn('right', 'spring', index * 0.5, 1.75)}
         className='w-[15vw] min-w-28 rounded-[20px] bg-card outline outline-1 outline-primary '
       >
@@ -87,7 +86,7 @@ function IntroductionCard({index, title, icon}: IntroductionCardProps) {
             {title}
           </h3>
         </div>
-      </motion.div>
+      </MotionDiv>
     </Tilt>
   );
 }
@@ -97,9 +96,7 @@ export default function About() {
     <Section id='about'>
       <SectionHeader useMotion={true} {...sectionsConfig.sections.about} />
 
-      <motion.div
-        initial='offScreen'
-        whileInView='onScreen'
+      <MotionDiv
         variants={fadeIn('', '', 0.1, 1)}
         className='mt-4 text-sm text-secondary lg:text-lg'
       >
@@ -111,7 +108,7 @@ export default function About() {
             </p>
           ))}
         </div>
-      </motion.div>
+      </MotionDiv>
 
       <div className='mt-14 flex flex-wrap gap-14 max-sm:justify-center'>
         {services.map((service, index) => (
