@@ -1,7 +1,6 @@
 'use client';
 
 import SectionHeader from '@/components/section-header';
-import {motion} from 'framer-motion';
 import {fadeIn} from '@/utils/motion';
 import {sectionsConfig} from '@/config/section';
 import Tilt from 'react-parallax-tilt';

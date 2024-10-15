@@ -79,7 +79,7 @@ const projects: ProjectsProps[] = [
   {
     name: '3D Object Control',
     description:
-      'three.js를 활용하여 귀여운 캐릭터를 표출하고, 3D 공간을 탐험할 수 있습니다.',
+      'three.js를 활용하여 귀여운 캐릭터를 표출하고, 방향키를 사용해 3D 공간을 탐험할 수 있습니다.',
     tags: [
       {
         name: 'react',

@@ -12,6 +12,8 @@ import html2canvas from 'html2canvas';
 import saveAs from 'file-saver';
 import {DataPointType} from '@/types';
 import {BiPause, BiPlay, BiSolidDownload, BiStop} from '@/icons/icons';
+import {Step} from 'react-joyride';
+import {JoyRide} from '@/components/joyride';
 
 const velocityAngleDataTitleList = [
   '현재 속도:',
@@ -49,6 +51,32 @@ export default function RealTimeMonitoringPage() {
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const steps: Array<Step> = [
+    {
+      target: '#play',
+      content: '실시간 데이터 모니터링을 시작합니다.',
+      disableBeacon: true,
+      placement: 'bottom',
+    },
+    {
+      target: '#pause',
+      content: '실시간 데이터 모니터링을 일시 정지합니다.',
+      disableBeacon: true,
+      placement: 'bottom',
+    },
+    {
+      target: '#stop',
+      content: '실시간 데이터 모니터링을 정지합니다.',
+      disableBeacon: true,
+      placement: 'bottom',
+    },
+    {
+      target: '#download',
+      content: '현재 화면을 이미지로 다운로드합니다.',
+      disableBeacon: true,
+      placement: 'bottom',
+    },
+  ];
 
   function generateRandomDataPoint(x: number): DataPointType {
     return {
@@ -177,6 +205,7 @@ export default function RealTimeMonitoringPage() {
       ref={divRef}
       className='container my-7 flex h-full flex-1 flex-wrap pb-10'
     >
+      <JoyRide steps={steps} />
       <section className='grid w-full grid-cols-2 gap-4'>
         {realTimeLineChartList.map((lineChart) => (
           <Card key={lineChart.title}>
@@ -207,6 +236,8 @@ export default function RealTimeMonitoringPage() {
           </Card>
           <Card className='flex flex-wrap items-center justify-center space-x-6 bg-transparent p-3'>
             <Button
+              id='play'
+              title='재생'
               variant='ghost'
               onClick={startDataGeneration}
               disabled={isRunning && !isPaused}
@@ -214,6 +245,8 @@ export default function RealTimeMonitoringPage() {
               <BiPlay className='h-12 w-12 text-green-600' />
             </Button>
             <Button
+              id='pause'
+              title='일시 정지'
               variant='ghost'
               onClick={pauseDataGeneration}
               disabled={!isRunning || isPaused}
@@ -221,13 +254,20 @@ export default function RealTimeMonitoringPage() {
               <BiPause className='h-12 w-12 text-yellow-400' />
             </Button>
             <Button
+              id='stop'
+              title='정지'
               variant='ghost'
               onClick={stopDataGeneration}
               disabled={!isRunning && !isPaused}
             >
               <BiStop className='h-12 w-12 text-red-500' />
             </Button>
-            <Button variant='ghost' onClick={onDownload}>
+            <Button
+              id='download'
+              title='다운로드'
+              variant='ghost'
+              onClick={onDownload}
+            >
               <BiSolidDownload className='h-10 w-10 text-blue-500' />
             </Button>
           </Card>

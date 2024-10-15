@@ -17,6 +17,8 @@ import {
 import {useEffect, useState} from 'react';
 import {useToast} from '@/hooks/use-toast';
 import {PiColumns, PiRows} from '@/icons/icons';
+import {JoyRide} from '@/components/joyride';
+import {Step} from 'react-joyride';
 
 interface StatisticsResult {
   sampleSize: number;
@@ -50,6 +52,38 @@ function GridDataAnalysisContent() {
   const confidenceLevel = useSelector(selectSelectedConfidenceLevel);
   const {toast} = useToast();
   const dispatch = useDispatch();
+  const steps: Array<Step> = [
+    {
+      target: '#input',
+      content: '엑셀 입력폼에 숫자로 데이터를 입력합니다.',
+      disableBeacon: true,
+      placement: 'right',
+    },
+    {
+      target: '#selectData',
+      content: '어떤 행/열의 데이터를 분석할 것인지 선택합니다.',
+      disableBeacon: true,
+      placement: 'left',
+    },
+    {
+      target: '#confidenceLevel',
+      content: '신뢰 수준을 선택합니다.',
+      disableBeacon: true,
+      placement: 'left',
+    },
+    {
+      target: '#analysis',
+      content: '분석 버튼을 눌러 분석을 시작합니다.',
+      disableBeacon: true,
+      placement: 'left',
+    },
+    {
+      target: '#output',
+      content: '분석 결과가 나타납니다.',
+      disableBeacon: true,
+      placement: 'right-end',
+    },
+  ];
 
   useEffect(() => {
     return () => {
@@ -176,11 +210,12 @@ function GridDataAnalysisContent() {
 
   return (
     <div className='container flex h-full gap-6 py-6'>
-      <div className='flex w-[40%] flex-col space-y-2'>
+      <JoyRide steps={steps} />
+      <div id='input' className='flex w-[40%] flex-col space-y-2'>
         <p className='text-sm font-bold opacity-80'>Input</p>
         <Input />
       </div>
-      <div className='flex w-[40%] flex-col space-y-2'>
+      <div id='output' className='flex w-[40%] flex-col space-y-2'>
         <p className='text-sm font-bold opacity-80'>Output</p>
         <div className='h-[34.6rem] overflow-y-auto border bg-muted'>
           {statisticsColumnResults.map((result, index) => (
@@ -219,7 +254,7 @@ function GridDataAnalysisContent() {
         </div>
       </div>
       <div className='flex w-[15%] flex-1 flex-col gap-5'>
-        <div className='flex flex-col gap-2'>
+        <div id='selectData' className='flex flex-col gap-2'>
           <span className='text-sm font-bold opacity-80'>데이터 입력</span>
           <Tabs
             defaultValue={selectedGridDataType}
@@ -246,10 +281,14 @@ function GridDataAnalysisContent() {
             </TabsContent>
           </Tabs>
         </div>
-        <div className='flex flex-col gap-3'>
+        <div id='confidenceLevel' className='flex flex-col gap-3'>
           <ConfidenceLevelSlider />
         </div>
-        <Button className='justify-center' onClick={onAnalysisData}>
+        <Button
+          id='analysis'
+          className='justify-center'
+          onClick={onAnalysisData}
+        >
           분석
         </Button>
       </div>
