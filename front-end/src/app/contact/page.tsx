@@ -3,7 +3,6 @@
 import SectionHeader from '@/components/section-header';
 import {sectionsConfig} from '@/config/section';
 import {fadeIn} from '@/utils/motion';
-import {motion} from 'framer-motion';
 import {useState} from 'react';
 import emailjs from '@emailjs/browser';
 import {siteConfig} from '@/config/site';
@@ -100,7 +99,7 @@ export default function Contact() {
                 className='mt-5 flex flex-col gap-3'
               >
                 {Object.keys(sectionsConfig.contact.form).map((input) => {
-                  const {span, placeholder} =
+                  const {span} =
                     sectionsConfig.contact.form[
                       input as keyof typeof sectionsConfig.contact.form
                     ];
@@ -116,7 +115,6 @@ export default function Contact() {
                         name={input}
                         value={form[`${input}`]}
                         onChange={handleChange}
-                        placeholder={placeholder}
                         className='rounded-lg px-4 py-3 text-sm sm:text-base'
                         autoComplete='on'
                         {...(input === 'message' && {rows: 4})}

@@ -9,15 +9,12 @@ type TSectionList = {
     form: {
       name: {
         span: string;
-        placeholder: string;
       };
       email: {
         span: string;
-        placeholder: string;
       };
       message: {
         span: string;
-        placeholder: string;
       };
     };
   } & TSection;
@@ -36,12 +33,10 @@ export const sectionsConfig: TSectionList = {
     form: {
       name: {
         span: '이름',
-        placeholder: "What's your name?",
       },
-      email: {span: '이메일 주소', placeholder: "What's your email?"},
+      email: {span: '이메일 주소'},
       message: {
         span: '메시지',
-        placeholder: 'What do you want to say?',
       },
     },
   },
