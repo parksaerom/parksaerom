@@ -5,6 +5,7 @@ import {Button} from '@/components/ui/button';
 import DataSelector from '@/app/projects/gridDataAnalysis/components/data-selector';
 import ConfidenceLevelSlider from '@/app/projects/gridDataAnalysis/components/confidence-level-slider';
 import Input from '@/app/projects/gridDataAnalysis/components/input';
+import StatisticsResult from '@/app/projects/gridDataAnalysis/components/statistics-result';
 import {HotTableProvider, useHotTable} from './components/data-grid-context';
 import {
   useSelector,
@@ -14,13 +15,13 @@ import {
   useDispatch,
   resetGridDataAnalysis,
 } from '@/lib/redux';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useToast} from '@/hooks/use-toast';
 import {PiColumns, PiRows} from '@/icons/icons';
 import {JoyRide} from '@/components/joyride';
 import {Step} from 'react-joyride';
 
-interface StatisticsResult {
+export interface StatisticsResult {
   sampleSize: number;
   mean: number;
   sampleStandardDeviation: number;
@@ -36,7 +37,7 @@ interface StatisticsResult {
   upperBound: number;
 }
 
-interface StatisticsColumnResult extends StatisticsResult {
+export interface StatisticsColumnResult extends StatisticsResult {
   columnName: string;
   columnType: GridDataType;
 }
@@ -52,6 +53,7 @@ function GridDataAnalysisContent() {
   const confidenceLevel = useSelector(selectSelectedConfidenceLevel);
   const {toast} = useToast();
   const dispatch = useDispatch();
+  const ouputScrollRef = useRef<HTMLDivElement>(null);
   const steps: Array<Step> = [
     {
       target: '#input',
@@ -90,6 +92,12 @@ function GridDataAnalysisContent() {
       dispatch(resetGridDataAnalysis());
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    if (ouputScrollRef.current) {
+      ouputScrollRef.current.scrollTop = ouputScrollRef.current.scrollHeight;
+    }
+  }, [statisticsColumnResults]);
 
   function calculateStatistics(data: number[]) {
     try {
@@ -217,39 +225,12 @@ function GridDataAnalysisContent() {
       </div>
       <div id='output' className='flex w-[40%] flex-col space-y-2'>
         <p className='text-sm font-bold opacity-80'>Output</p>
-        <div className='h-[34.6rem] overflow-y-auto border bg-muted'>
+        <div
+          ref={ouputScrollRef}
+          className='h-[34.6rem] overflow-y-auto border bg-muted'
+        >
           {statisticsColumnResults.map((result, index) => (
-            <div key={index} className='mb-4 p-4 text-sm'>
-              <h2 className='m-1 text-lg font-bold'>
-                {result.columnName}
-                {result.columnType === 'COLUMN' ? '열' : '행'} 분석 결과
-              </h2>
-              <p>표본 개수(Total Count) = {result.sampleSize}</p>
-              <p>평균(Mean) = {result.mean.toFixed(2)}</p>
-              <p>
-                표본 표준편차(Standard Deviation )={' '}
-                {result.sampleStandardDeviation.toFixed(2)}
-              </p>
-              <p>
-                평균의 표준 오차(Standard Error) ={' '}
-                {result.standardErrorOfMean.toFixed(2)}
-              </p>
-              <p>최소값(Minimum Value) = {result.min}</p>
-              <p>최대값(Maximum Value) = {result.max}</p>
-              <p>중앙값(Median) = {result.median}</p>
-              <p>모분산(Variance) = {result.populationVariance.toFixed(2)}</p>
-              <p>제곱합(Sum Of Squares) = {result.sumOfSquares.toFixed(2)}</p>
-              <p>
-                편차 제곱합(Deviation Sum) = {result.deviationSum.toFixed(2)}
-              </p>
-              <p>
-                신뢰구간[Lower Bound, Upper Bound] = [
-                {result.lowerBound.toFixed(2)}, {result.upperBound.toFixed(2)}]
-              </p>
-              <p>
-                오차 한계(Margin of Error) = {result.marginOfError.toFixed(2)}
-              </p>
-            </div>
+            <StatisticsResult key={index} result={result} />
           ))}
         </div>
       </div>
