@@ -96,6 +96,10 @@ export default function Cat({args, ...props}: CylinderProps) {
     const speed = 0.07;
     const newPosition = catPosition.current;
     const newRotation = catRotation.current;
+    const minX = -20;
+    const maxX = 20;
+    const minZ = -20;
+    const maxZ = 20;
 
     if (
       (!inside &&
@@ -131,6 +135,10 @@ export default function Cat({args, ...props}: CylinderProps) {
         newRotation[1] = 0;
         newPosition[2] += speed;
       }
+
+      newPosition[0] = Math.max(minX, Math.min(maxX, newPosition[0]));
+      newPosition[2] = Math.max(minZ, Math.min(maxZ, newPosition[2]));
+
       robotFadeIn();
       api.rotation.set(0, newRotation[1], 0);
       api.position.set(newPosition[0], newPosition[1], newPosition[2]);
