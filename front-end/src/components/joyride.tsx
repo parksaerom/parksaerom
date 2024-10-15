@@ -12,7 +12,7 @@ export function JoyRide(props: Props) {
       showProgress
       hideBackButton
       disableScrolling
-      showSkipButton
+      locale={{next: '다음', last: '시작'}}
       styles={{
         options: {
           primaryColor: '#025A80',
