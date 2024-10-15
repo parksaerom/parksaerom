@@ -104,13 +104,19 @@ export default function Contact() {
                       input as keyof typeof sectionsConfig.contact.form
                     ];
                   const Component = input === 'message' ? 'textarea' : 'input';
+                  const inputId = `contact-${input}`;
 
                   return (
-                    <label key={input} className='flex flex-col'>
+                    <label
+                      key={input}
+                      className='flex flex-col'
+                      htmlFor={inputId}
+                    >
                       <span className='mb-2 text-sm text-secondary sm:text-base'>
                         {span}
                       </span>
                       <Component
+                        id={inputId}
                         type={input === 'email' ? 'email' : 'text'}
                         name={input}
                         value={form[`${input}`]}
