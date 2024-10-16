@@ -1,4 +1,12 @@
-import ThreeCanvas from '@/app/projects/3dObjectControl/components/three-canvas';
+import {Skeleton} from '@/components/ui/skeleton';
+import dynamic from 'next/dynamic';
+
+const ThreeCanvas = dynamic(
+  () => import('@/app/projects/3dObjectControl/components/three-canvas'),
+  {
+    loading: () => <Skeleton className='h-[65vh] w-[100vw]' />,
+  },
+);
 
 export default function ThreeObjectControlPage() {
   return (

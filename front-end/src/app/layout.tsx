@@ -6,6 +6,7 @@ import '@/styles/globals.css';
 import {siteConfig} from '@/config/site';
 import {Toaster} from '@/components/ui/toaster';
 import MobileChecker from '@/components/mobile-checker';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,15 @@ export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Providers>
       <html lang='ko' className={fontPretendard.variable}>
+        <Head>
+          <link
+            rel='preload'
+            href='/fonts/PretendardVariable.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
+          />
+        </Head>
         <body className={cn('relative z-0 bg-mainBackground')}>
           {children}
           <Toaster />

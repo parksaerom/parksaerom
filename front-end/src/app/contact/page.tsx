@@ -10,7 +10,12 @@ import {Button} from '@/components/ui/button';
 import {Section} from '@/components/section';
 import {useToast} from '@/hooks/use-toast';
 import {MotionDiv} from '@/components/motion';
+import dynamic from 'next/dynamic';
 
+const LazyLoadVideo = dynamic(
+  () => import('@/app/contact/components/lazy-load-video'),
+  {ssr: false},
+);
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(sectionsConfig.contact.form).map((input) => [input, '']),
 );
@@ -80,17 +85,7 @@ export default function Contact() {
         className='flex w-full overflow-hidden rounded-xl border border-primary bg-card'
       >
         <div className='relative w-full'>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className='absolute left-0 top-0 h-full w-full object-cover'
-          >
-            <source src='/images/sky.webm' type='video/webm' />
-            브라우저가 비디오 태그를 지원하지 않습니다.
-          </video>
-
+          <LazyLoadVideo />
           <div className='relative z-10 flex h-full items-center justify-center'>
             <div className='my-20 w-full max-w-xl rounded-lg bg-card bg-opacity-70 p-8 shadow-lg'>
               <SectionHeader useMotion={false} {...sectionsConfig.contact} />

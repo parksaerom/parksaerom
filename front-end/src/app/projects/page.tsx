@@ -132,6 +132,7 @@ function ProjectCard({
                   width={300}
                   height={300}
                   alt={name}
+                  loading='lazy'
                   className='h-full w-full rounded-2xl object-cover'
                 />
               </div>

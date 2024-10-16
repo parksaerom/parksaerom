@@ -1,10 +1,13 @@
-import '@xyflow/react/dist/style.css';
 import {sectionsConfig} from '@/config/section';
 import SectionHeader from '@/components/section-header';
-import ExperienceFlow from '@/app/experience/components/experience-flow';
 import ExperienceText from '@/app/experience/components/experience-text';
 import Determination from '@/app/experience/components/determination';
 import {Section} from '@/components/section';
+import dynamic from 'next/dynamic';
+const ExperienceFlow = dynamic(
+  () => import('@/app/experience/components/experience-flow'),
+  {ssr: false},
+);
 
 export default function Experience() {
   return (

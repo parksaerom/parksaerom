@@ -1,7 +1,15 @@
 import {styles} from '@/styles/common';
-import ComputersCanvas from '@/app/main/components/computer';
 import ScrollDownButton from '@/app/main/components/scroll-down-button';
-import Typewriter from '@/components/type-writer';
+import dynamic from 'next/dynamic';
+const Typewriter = dynamic(() => import('@/components/type-writer'), {
+  ssr: false,
+});
+const ComputersCanvas = dynamic(
+  () => import('@/app/main/components/computer'),
+  {
+    ssr: false,
+  },
+);
 
 export default function Main() {
   return (
@@ -15,10 +23,13 @@ export default function Main() {
         </div>
 
         <div className='hidden sm:block'>
-          <Typewriter className={`${styles.mainHeadText}`}>
-            안녕하세요, 저는 <span className='text-mainBackground'>박새롬</span>
-            입니다.
-          </Typewriter>
+          <div className='md:min-h-[90px] xl:min-h-[135px]'>
+            <Typewriter className={`${styles.mainHeadText}`}>
+              안녕하세요, 저는{' '}
+              <span className='text-mainBackground'>박새롬</span>
+              입니다.
+            </Typewriter>
+          </div>
           <p className={`${styles.mainSubText}`}>
             저는 풀스택 개발자를 꿈꾸고 있습니다.
             <br />

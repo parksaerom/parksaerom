@@ -1,5 +1,4 @@
 'use client';
-
 import {
   ReactFlow,
   type Node,
@@ -14,7 +13,6 @@ import {
   EdgeTypes,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import {motion} from 'framer-motion';
 import {fadeIn} from '@/utils/motion';
 import {
   Card,

@@ -2,18 +2,24 @@
 
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Label} from '@/components/ui/label';
-import RealTimeLineChart from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import RealTimeDataGrid from '@/app/projects/realTimeMonitoring/components/real-time-data-grid';
 import {RealTimeLineChartProps} from '@/app/projects/realTimeMonitoring/components/real-time-line-chart';
 import {useEffect, useRef, useState} from 'react';
 import React from 'react';
 import {Button} from '@/components/ui/button';
-import html2canvas from 'html2canvas';
-import saveAs from 'file-saver';
 import {DataPointType} from '@/types';
 import {BiPause, BiPlay, BiSolidDownload, BiStop} from '@/icons/icons';
 import {Step} from 'react-joyride';
 import {JoyRide} from '@/components/joyride';
+import dynamic from 'next/dynamic';
+import {Skeleton} from '@/components/ui/skeleton';
+const RealTimeLineChart = dynamic(
+  () =>
+    import('@/app/projects/realTimeMonitoring/components/real-time-line-chart'),
+  {
+    loading: () => <Skeleton className='h-[280px] w-[640px]' />,
+  },
+);
 
 const velocityAngleDataTitleList = [
   '현재 속도:',
@@ -178,10 +184,13 @@ export default function RealTimeMonitoringPage() {
 
     try {
       const div = divRef.current;
+      const html2canvas = (await import('html2canvas')).default;
+      const {saveAs} = await import('file-saver');
       const canvas = await html2canvas(div, {
         scale: 2,
         backgroundColor: 'white',
       });
+
       canvas.toBlob((blob) => {
         if (blob !== null) {
           saveAs(blob, 'monitoring.png');

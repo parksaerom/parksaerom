@@ -1,6 +1,6 @@
 export const styles = {
   mainHeadText:
-    'static text-white font-black text-[#BB502D] md:text-[50px] xl:text-[80px] text-[40px] mt-2',
+    'static text-white font-black text-[#BB502D] md:text-[50px] xl:text-[80px] text-[40px]',
   mainSubText:
     'text-white-100 static mt-2 text-white font-medium md:text-[20px] xl:text-[30px] text-[14px]',
 
