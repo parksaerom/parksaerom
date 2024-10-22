@@ -42,7 +42,7 @@ export const experienceArray = [
     position: {x: 5, y: 5, mobileY: 0},
     data: {
       index: 0,
-      title: '서울시 건축물 내진성능 자가점검 시스템 개발',
+      title: '서울시 지진안전포털',
       companyName: '(주)에스이랩',
       date: '2018.01 ~ 2019.01',
       skills: 'Java, JavaScript, HTML/CSS, Spring, Oracle Database, JEUS',
@@ -59,7 +59,7 @@ export const experienceArray = [
     position: {x: 200, y: 450, mobileY: 480},
     data: {
       index: 1,
-      title: '우주전파센터 우주환경 예보 통합모델 개발',
+      title: '우주전파센터 인트라넷 우주환경예보 및 모델검증시스템',
       companyName: '(주)에스이랩',
       date: '2018.02 ~ 2018.04',
       skills: 'Java, JavaScript, HTML/CSS, Spring, MySQL, Tomcat',
@@ -75,7 +75,7 @@ export const experienceArray = [
     position: {x: 120, y: 840, mobileY: 920},
     data: {
       index: 2,
-      title: '기상청 국가기후자료관리 및 서비스체계 구축',
+      title: '기상청 기상자료개발포털',
       companyName: '(주)에스이랩',
       date: '2018.02 ~ 2018.05',
       skills: 'Java, JavaScript, HTML/CSS, Spring, Oracle Database, Tomcat',
@@ -90,7 +90,7 @@ export const experienceArray = [
     position: {x: 5, y: 1220, mobileY: 1320},
     data: {
       index: 3,
-      title: '기상청 이중편파레이더 현업예보지원',
+      title: '기상청 우리동네레이더날씨알리미 앱(서비스 종료)',
       companyName: '(주)에스이랩',
       date: '2018.06 ~ 2020.11',
       skills:
@@ -106,7 +106,7 @@ export const experienceArray = [
     position: {x: 120, y: 1615, mobileY: 1755},
     data: {
       index: 4,
-      title: '수자원공사 위성산출물 표출 시스템',
+      title: '수자원공사 인트라넷 수질 모니터링 시스템',
       companyName: '(주)에스이랩',
       date: '2018.12 ~ 2019.02',
       skills: 'Java, JavaScript, HTML/CSS, Spring, MySQL, Tomcat',
@@ -122,13 +122,13 @@ export const experienceArray = [
     position: {x: 200, y: 2000, mobileY: 2170},
     data: {
       index: 5,
-      title: '윈도우용 품질관리 솔루션',
+      title: '윈도우즈용 품질관리 솔루션',
       companyName: '(주)에스이랩',
       date: '2019.02 ~ 2021.04',
-      skills: 'C#, XMAL, WPF, HTML/CSS, Docker, Jenkins, swagger',
+      skills: 'C#, .NET, WPF, HTML/CSS, Docker, Jenkins, swagger',
       points: [
         'Front-end, Back-end 메인 개발',
-        '제조 공장에서 생산되는 제품의 데이터들을 가공/시각화하여 품질 향상을 위한 품질관리 윈도우 프로그램으로 MSA, SPC, 검정/추정, 선형 회귀, 상관분석 등의 품질관리 데이터 분석 엔진을 C#언어를 사용하여 API로 개발하였습니다. WPF을 사용하여 Window GUI 및 그래프/보고서 표출 개발하였습니다.',
+        '제조 공장에서 생산되는 제품의 데이터들을 가공/시각화하여 품질 향상을 지원하는 품질관리 윈도우 프로그램으로 MSA, SPC, 검정/추정, 선형 회귀, 상관분석 등의 품질관리 데이터 분석 엔진을 C#언어를 사용하여 API로 개발하였습니다. WPF을 사용하여 Window GUI 및 그래프/보고서 표출 개발하였습니다.',
         'Docker 기반으로 Jenkins와 함께 제품 빌드, 배포, 업데이트를 자동화하였습니다.',
         '솔루션 개발을 위해 매주 1~2회 통계학과 교수님께 수업을 받으며 관련 지식 공부 후 이를 바탕으로 기획/개발/배포/운영을 진행하였습니다.',
         '데이터 바우처 사업을 통해 일반 기업들에게도 프로그램 커스터마이징 및 추가 기능을 개발을 하여 기획/개발/배포/운영을 진행하였습니다.',
@@ -140,7 +140,7 @@ export const experienceArray = [
     position: {x: 100, y: 2600, mobileY: 2785},
     data: {
       index: 6,
-      title: '기상청 홈페이지 통합 정비 사업',
+      title: '기상청 지방청 및 지청 홈페이지',
       companyName: '(주)에스이랩',
       date: '2021.04',
       skills: 'Java, JavaScript, HTML/CSS, Tomcat',
@@ -158,10 +158,10 @@ export const experienceArray = [
       title: '웹용 품질관리 솔루션',
       companyName: '(주)에스이랩',
       date: '2022.02 ~ 2022.07 프리랜서 근무',
-      skills: 'React, TypeScript, Next.js, Redux, Material UI',
+      skills: 'C#, .NET, React, TypeScript, Next.js, Redux, Material UI',
       points: [
         'Front-end, Back-end 메인 개발',
-        '위에서 소개된 제조 공장에서 생산되는 제품의 품질향상에 필요한 데이터들을 가공/시각화하여 품질 향상을 위한 의사결정에 도움을 주는 웹으로 기존 개발하였던 윈도우즈용 프로그램을 웹으로 변경하였습니다. 기존 C#으로 개발한 API에 React로 웹 어플리케이션을 개발하여 연결하였습니다. 엑셀 형식의 데이터 입력 컴포넌트를 개발하고 C# API를 연결하여 데이터 결과를 표출하였습니다',
+        '위에서 소개된 제조 공장에서 생산되는 제품의 품질향상에 필요한 데이터들을 가공/시각화하여 품질 향상을 지원하는 의사결정에 도움을 주는 웹으로 기존 개발하였던 윈도우즈용 프로그램을 웹으로 변경하였습니다. 기존 C#으로 개발한 API에 React로 웹 어플리케이션을 개발하여 연결하였습니다. 엑셀 형식의 데이터 입력 컴포넌트를 개발하고 C# API를 연결하여 데이터 결과를 표출하였습니다',
       ],
     },
   },
@@ -205,7 +205,7 @@ export const experienceArray = [
     position: {x: 100, y: 4850, mobileY: 4720},
     data: {
       index: 10,
-      title: '물류로봇관제 웹 기능 추가',
+      title: '물류로봇관제 웹',
       companyName: '(주)나비프라',
       date: '2023.08 ~ 2023.09 프리랜서 근무',
       skills:
