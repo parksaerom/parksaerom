@@ -1,6 +1,6 @@
 # 🚀 Saerom Park's Developer Portfolio
 
-안녕하세요! 저는 **프론트엔드 및 백엔드 개발자** 박새롬입니다.
+안녕하세요! 저는 **풀스택 개발자** 박새롬입니다.
 
 [🌐 Live Site: parksaerom.vercel.app](https://parksaerom.vercel.app)
 
