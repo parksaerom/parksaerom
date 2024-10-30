@@ -1,11 +1,14 @@
 'use client';
 
-import {BiMenu} from '@/icons/icons';
+import {siteConfig} from '@/config/site';
+import {BiMenu, SiGithub, SiTistory} from '@/icons/icons';
+import {cn} from '@/lib/shadcn-ui/utils';
 import {NavIdType} from '@/types';
 import {handleScroll} from '@/utils/scroll';
 import Link from 'next/link';
 import React from 'react';
 import {useEffect, useState} from 'react';
+import {buttonVariants} from './ui/button';
 
 export type NavLinkType = {
   id: NavIdType;
@@ -111,7 +114,42 @@ export function MainHeader() {
             </li>
           ))}
         </ul>
-
+        <div className='hidden flex-1 items-center justify-end space-x-2 sm:flex'>
+          <Link
+            href={siteConfig.links.tistory}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <div
+              className={cn(
+                buttonVariants({
+                  variant: 'ghost',
+                }),
+                'w-9 px-0',
+              )}
+            >
+              <SiTistory className='h-4 w-4 fill-current' />
+              <span className='sr-only'>Tistory</span>
+            </div>
+          </Link>
+          <Link
+            href={siteConfig.links.github}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <div
+              className={cn(
+                buttonVariants({
+                  variant: 'ghost',
+                }),
+                'w-9 px-0',
+              )}
+            >
+              <SiGithub className='h-5 w-5 fill-current' />
+              <span className='sr-only'>GitHub</span>
+            </div>
+          </Link>
+        </div>
         <div className='flex flex-1 items-center justify-end sm:hidden'>
           <BiMenu
             className='h-[24px] w-[24px] object-contain'
@@ -122,14 +160,14 @@ export function MainHeader() {
               !toggle ? 'hidden' : 'flex'
             } absolute right-0 top-14 z-10 mx-4 my-2 min-w-[140px] rounded-lg bg-card bg-opacity-90 p-6 text-secondary`}
           >
-            <ul className='flex flex-1 list-none flex-col items-start justify-end gap-4'>
+            <ul className='flex flex-1 list-none flex-col items-start justify-end gap-4 text-sm font-medium'>
               {navLinks.map((navLink) => {
                 return navLink.id === 'projects' ? (
                   <React.Fragment key={navLink.id}></React.Fragment>
                 ) : (
                   <li
                     key={navLink.id}
-                    className={`cursor-pointer text-sm font-medium ${
+                    className={`cursor-pointer ${
                       activeSection === navLink.id ? 'font-bold' : ''
                     }`}
                     onClick={() => {
@@ -141,6 +179,24 @@ export function MainHeader() {
                   </li>
                 );
               })}
+              <li key={'blog'}>
+                <Link
+                  href={siteConfig.links.tistory}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Blog
+                </Link>
+              </li>
+              <li key={'github'}>
+                <Link
+                  href={siteConfig.links.github}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  GitHub
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

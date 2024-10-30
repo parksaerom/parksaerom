@@ -40,3 +40,5 @@ export const FaJavascript = createIcon('FaJavascript');
 export const FaJava = createIcon('FaJava');
 export const FaReact = createIcon('FaReact');
 export const FaWindows = createIcon('FaWindows');
+export const SiTistory = createIcon('SiTistory');
+export const SiGithub = createIcon('SiGithub');
